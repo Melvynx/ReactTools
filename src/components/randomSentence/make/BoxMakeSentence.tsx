@@ -14,9 +14,11 @@ export default function BoxMakeSentence({
 }: TypeListWordBox) {
   const [isHover, setHover] = useState<boolean>(false);
   const theme = useTheme();
+
   const toggleHover = (state: boolean) => {
     setHover(state);
   };
+
   return (
     <Box
       position="relative"

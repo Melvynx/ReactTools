@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box } from "@material-ui/core";
 import BoxShuffleSentence from "./BoxShuffleSentence";
-import CountDown from "./ListCountDown";
-import SettingsButtonShuffle from "./settingsDialog/SettingsButtonShuffle";
+import CountDown from "./ShuffleCountDown";
+import SettingsButtonShuffle from "../settingsDialog/SettingsButtonShuffle";
 
 type TypeListRandomWord = {
   wordList: Array<string>;

@@ -27,6 +27,28 @@ code {
   transition: all 500ms ease-in;
 }
 
+.fade-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-active {
+  max-height: 30px;
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.fade-exit {
+  max-height: 30px;
+  opacity: 1;
+}
+
+.fade-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all 500ms;
+}
+
 .listMakeSentence {
   display: flex;
   flex-wrap: wrap;

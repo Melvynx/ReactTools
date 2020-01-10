@@ -4,7 +4,7 @@ type TypeCountDown = {
   onFinish: Function;
 };
 
-export default function CountDown({ onFinish }: TypeCountDown) {
+export default function ShuffleCountDown({ onFinish }: TypeCountDown) {
   const [countDown, setCountDown] = useState<number>(3);
   const startCountDown = () => {
     console.log("change count down");

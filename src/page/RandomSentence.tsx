@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, Typography, Container, useTheme } from "@material-ui/core";
-import MakeSentence from "../components/MakeSentence";
-import ShuffleSentence from "../components/ShuffleSentence";
-import SettingsButton from "../components/settingsDialog/SettingsButton";
+import MakeSentence from "../components/randomSentence/make/MakeSentence";
+import ShuffleSentence from "../components/randomSentence/shuffle/ShuffleSentence";
+import SettingsButton from "../components/randomSentence/settingsDialog/SettingsButton";
 
 export type TypeSettings = {
   isCountDown: boolean;
@@ -11,11 +11,7 @@ export type TypeSettings = {
 
 export default function RandomSentence() {
   const theme = useTheme();
-  const [wordList, setWordList] = useState<Array<string>>([
-    "machin",
-    "truc",
-    "bidule"
-  ]);
+  const [wordList, setWordList] = useState<Array<string>>([]);
   const [isAdding, setAdding] = useState<boolean>(true);
   const [settings, setSettings] = useState<TypeSettings>({
     isCountDown: false,
@@ -51,6 +47,10 @@ export default function RandomSentence() {
   };
 
   const toggleAdding = () => {
+    if (wordList.length === 0) {
+      setWordList(["one", "two", "three"]);
+      return;
+    }
     setAdding(!isAdding);
   };
 
@@ -66,13 +66,18 @@ export default function RandomSentence() {
         position="relative"
       >
         <SettingsButton settings={settings} onChange={toggleSettings} />
+
+        <Box height={20} display={{ xs: 'block', sm: 'none', md: 'none' }}/>
+
         <Typography color="textSecondary" align="center" variant="h3">
           Random word or sentence !
         </Typography>
+
         <Typography color="textSecondary" align="center" variant="subtitle1">
           We gonna random all you're sentence to find a random list of your
           sentence.
         </Typography>
+
         {isAdding ? (
           <MakeSentence
             removeWord={removeWord}

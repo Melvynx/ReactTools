@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Dialog,
   DialogTitle,
-  DialogContentText,
-  DialogContent,
   makeStyles,
-  Box,
-  Typography,
-  Switch,
   DialogActions,
   Button
 } from "@material-ui/core";
@@ -35,15 +30,6 @@ export default function SettingsDialog({
   onChange
 }: TypeSettingsDialog) {
   const classes = useStyles();
-  const [checkedTimer, setCheckedTimer] = useState<boolean>(true);
-  const [checkedOneSentence, setCheckedOneSentence] = useState<boolean>(true);
-
-  const handleChangeTimer = (event: any) => {
-    setCheckedTimer(!checkedTimer);
-  };
-  const handleChangeOneSentence = (event: any) => {
-    setCheckedOneSentence(!checkedOneSentence);
-  };
 
   return (
     <Dialog onClose={() => onClose()} open={open}>

@@ -4,15 +4,12 @@ import {
   CssBaseline,
   ThemeProvider,
   createMuiTheme,
-  Box,
   Container,
   Button
 } from "@material-ui/core";
-import { grey, purple } from "@material-ui/core/colors";
+import { purple } from "@material-ui/core/colors";
 import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
-import AlertError from "./components/AlertError";
-import Test from "./components/Test";
 
 const theme = createMuiTheme({
   palette: {
@@ -57,9 +54,7 @@ export default function App() {
             <Route path="/randomWord">
               <RandomSentence />
             </Route>
-            <Route path="/test">
-              <Test />
-            </Route>
+            <Route path="/test"></Route>
             <Route path="/">
               <p>go to :</p>
               <Button>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, InputBase, Button, makeStyles, Fade } from "@material-ui/core";
-import BoxMakeSentence from "./BoxMakeSentence";
+import { Box, Button, makeStyles, Fade } from "@material-ui/core";
 import ListMakeSentence from "./ListMakeSentence";
 import { Alert } from "@material-ui/lab";
+import InputMakeSentence from "./InputMakeSentence";
+
 const useStyles = makeStyles({
   inputBase: {
     fontSize: 20,
@@ -19,6 +20,7 @@ const useStyles = makeStyles({
     minWidth: 300
   }
 });
+
 type TypeAddWord = {
   wordList: Array<string>;
   addWord: Function;
@@ -43,20 +45,21 @@ export default function MakeSentence({
   const toggleNewWord = () => {
     if (sentence.length < 1 || sentence.length > 100) {
       setErrorMessage("The sentence need to be between 1 and 100 caractères. ");
-      removeSentence();
+      removeErrorMessage();
       return;
     }
     for (let i = 0; i < wordList.length; i++) {
       if (sentence === wordList[i]) {
         setErrorMessage("This sentence aldery exist. ");
-        removeSentence();
+        removeErrorMessage();
         return;
       }
     }
     addWord(sentence);
     setSentence("");
   };
-  const removeSentence = () => {
+
+  const removeErrorMessage = () => {
     setTimeout(() => {
       setErrorMessage("");
     }, 5000);
@@ -79,27 +82,14 @@ export default function MakeSentence({
         </Fade>
       </Box>
 
-      <Box display="flex" p={1} alignItems="center">
-        <Box width="100%" p={1}>
-          <InputBase
-            onKeyUp={toggleKeyEnter}
-            color="secondary"
-            className={classes.inputBase}
-            fullWidth
-            value={sentence}
-            onChange={toggleChange}
-            placeholder="sentence..."
-          />
-        </Box>
-        <Button
-          onClick={toggleNewWord}
-          className={classes.button}
-          color="secondary"
-          variant="outlined"
-        >
-          Add
-        </Button>
-      </Box>
+      <InputMakeSentence
+        onChange={toggleChange}
+        onKeyUp={toggleKeyEnter}
+        onClick={toggleNewWord}
+        classes={classes}
+        inputValue={sentence}
+      />
+
       <Button
         fullWidth
         color="secondary"

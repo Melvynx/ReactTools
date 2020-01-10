@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, IconButton, makeStyles } from "@material-ui/core";
 import SettingsIcon from "@material-ui/icons/Settings";
 import SettingsDialog from "./SettingsDialog";
-import { TypeSettings } from "../../page/RandomSentence";
+import { TypeSettings } from "../../../page/RandomSentence";
 const useStyles = makeStyles({
   button: {
     width: 30,
@@ -31,7 +31,7 @@ export default function SettingsButton({
   };
   return (
     <>
-      <Box position="absolute" top={10} right={10}>
+      <Box  position="absolute" top={10} right={10}>
         <Button
           className={classes.button}
           color="secondary"
