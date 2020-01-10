@@ -1,26 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-const App: React.FC = () => {
+import {
+  CssBaseline,
+  ThemeProvider,
+  createMuiTheme,
+  Box,
+  Container,
+  Button
+} from "@material-ui/core";
+import { grey, purple } from "@material-ui/core/colors";
+import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom";
+import RandomSentence from "./page/RandomSentence";
+import AlertError from "./components/AlertError";
+import Test from "./components/Test";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#222222",
+      contrastText: "#fff"
+    },
+    text: {
+      primary: purple["A700"],
+      secondary: "#fff"
+    },
+    secondary: {
+      main: purple["A700"],
+      contrastText: "#000"
+    },
+    background: {
+      default: "#222222"
+    }
+  },
+  typography: {
+    subtitle1: {
+      fontStyle: "italic"
+    }
+  },
+  spacing: 8,
+  overrides: {
+    MuiButton: {
+      text: {
+        borderRadius: 2
+      }
+    }
+  }
+});
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container>
+        <Router>
+          <Switch>
+            <Route path="/randomWord">
+              <RandomSentence />
+            </Route>
+            <Route path="/test">
+              <Test />
+            </Route>
+            <Route path="/">
+              <p>go to :</p>
+              <Button>
+                <Link to="/randomword">go</Link>
+              </Button>
+            </Route>
+          </Switch>
+        </Router>
+      </Container>
+    </ThemeProvider>
   );
 }
-
-export default App;
