@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, makeStyles } from "@material-ui/core";
+import { Box, Typography, makeStyles, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
 import { TypeCustomCardHomePage } from "../components/HomePage/CustomCardHomePage";
 
@@ -21,12 +21,14 @@ export default function HomePage() {
       <Typography color="textSecondary" variant="subtitle1">
         It's an app for learn React.
       </Typography>
-      <Box display="flex" flexWrap="wrap" justifyContent="center">
-        <Box width={400} height={100} borderRadius="50">
-          <CustomCardHomePage image={page[0].image} title={page[0].title} body={page[0].body} />
-          <CustomCardHomePage image={page[1].image} title={page[1].title} body={page[1].body} />
-        </Box>
-      </Box>
+
+      <Grid container justify="center" spacing={1}>
+        {page.map(({ image, title, body, link }, index) => (
+          <Grid item>
+            <CustomCardHomePage link={link} image={image} title={title} body={body} key={index} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 }
@@ -34,29 +36,32 @@ export default function HomePage() {
 const page: Array<TypeCustomCardHomePage> = [
   {
     image: "images/shuffleImage.png",
-    title: "test",
+    title: "Shuffle Sentence !",
     body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque."
+      "It's an application to shuffle how many sentence you want, you can't have one result, or a numbered list for result !",
+    link: "/randomword"
   },
   {
-    image:
-      "https://image.shutterstock.com/image-photo/wooden-koh-kood-thailand-this-260nw-1189819042.jpg",
-    title: "ok",
+    image: "images/numberBase.jpg",
+    title: "Change Base Number",
     body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque."
+      "Calculator for change base 2 to base 10 and base 16, or inverse ! It's in really time, faster and easy !",
+    link: "/transform"
   },
   {
     image:
       "https://media.gettyimages.com/photos/oil-refinery-plant-and-gas-industrial-factory-this-immage-can-use-for-picture-id1087977564?s=612x612",
     title: "lol",
     body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque."
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque.",
+    link: "#"
   },
   {
     image:
       "http://image.blingee.com/images16/content/output/000/000/000/55e/423059779_606302.gif?4",
     title: "oui",
     body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque."
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque.",
+    link: "#"
   }
 ];

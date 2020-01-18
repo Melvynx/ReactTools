@@ -7,11 +7,7 @@ type TypeListWordBox = {
   index: number;
   onDelete: Function;
 };
-export default function BoxMakeSentence({
-  index,
-  children,
-  onDelete
-}: TypeListWordBox) {
+export default function BoxMakeSentence({ index, children, onDelete }: TypeListWordBox) {
   const [isHover, setHover] = useState<boolean>(false);
   const theme = useTheme();
 
@@ -29,8 +25,8 @@ export default function BoxMakeSentence({
       p={0.5}
       borderRadius={2}
       border={1}
-      color={theme.palette.secondary.main}
-      borderColor={theme.palette.secondary.main}
+      color={theme.palette.primary.main}
+      borderColor={theme.palette.primary.main}
       fontSize="body1.fontSize"
       pr={2.2}
     >

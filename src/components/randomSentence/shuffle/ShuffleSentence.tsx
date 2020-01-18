@@ -3,6 +3,7 @@ import { Box } from "@material-ui/core";
 import BoxShuffleSentence from "./BoxShuffleSentence";
 import CountDown from "./ShuffleCountDown";
 import SettingsButtonShuffle from "../settingsDialog/SettingsButtonShuffle";
+import { shuffleList } from "../../function";
 
 type TypeListRandomWord = {
   wordList: Array<string>;
@@ -18,12 +19,10 @@ export default function ShuffleSentence({
   isOneSentence
 }: TypeListRandomWord) {
   const [isCountdown, setIsCountdown] = useState<boolean>(isCountDown);
-  const [listSentence, setListSentence] = useState<Array<string>>(
-    randomListSentence(wordList)
-  );
+  const [listSentence, setListSentence] = useState<Array<string>>(shuffleList(wordList));
 
   const toggleRandomWord = () => {
-    setListSentence(randomListSentence(wordList));
+    setListSentence(shuffleList(wordList));
   };
 
   const toggleCountDown = () => {
@@ -53,19 +52,4 @@ export default function ShuffleSentence({
       </Box>
     </Box>
   );
-}
-
-function randomNumber(max: number) {
-  return Math.floor(Math.random() * max);
-}
-
-function randomListSentence(list: Array<string>) {
-  const listCopy: Array<string> = [...list];
-  const listResult: Array<string> = [];
-  for (let i = 0; i < list.length; i++) {
-    const number = randomNumber(listCopy.length);
-    listResult.push(listCopy[number]);
-    listCopy.splice(number, 1);
-  }
-  return listResult;
 }

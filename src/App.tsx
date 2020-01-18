@@ -5,20 +5,21 @@ import { purple } from "@material-ui/core/colors";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
+import BaseCalculator from "./page/BaseCalculator";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#222222",
-      contrastText: "#fff"
+      main: purple["A700"],
+      contrastText: "#000"
     },
     text: {
       primary: purple["A700"],
       secondary: "#fff"
     },
     secondary: {
-      main: purple["A700"],
-      contrastText: "#000"
+      main: "#222222",
+      contrastText: "#fff"
     },
     background: {
       default: "#222222"
@@ -48,6 +49,9 @@ export default function App() {
           <Switch>
             <Route path="/randomWord">
               <RandomSentence />
+            </Route>
+            <Route path="/transform">
+              <BaseCalculator />
             </Route>
             <Route path="/test"></Route>
             <Route path="/">

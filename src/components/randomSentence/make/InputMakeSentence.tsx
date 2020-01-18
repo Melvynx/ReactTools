@@ -21,7 +21,7 @@ export default function InputMakeSentence({
       <Box width="100%" p={1}>
         <InputBase
           onKeyUp={event => onKeyUp(event)}
-          color="secondary"
+          color="primary"
           className={classes.inputBase}
           fullWidth
           value={inputValue}
@@ -32,7 +32,7 @@ export default function InputMakeSentence({
       <Button
         onClick={() => onClick()}
         className={classes.button}
-        color="secondary"
+        color="primary"
         variant="outlined"
       >
         Add

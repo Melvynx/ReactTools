@@ -15,10 +15,7 @@ export type TypeSettingsButton = {
   onChange: Function;
 };
 
-export default function SettingsButton({
-  settings,
-  onChange
-}: TypeSettingsButton) {
+export default function SettingsButton({ settings, onChange }: TypeSettingsButton) {
   const [open, setOpen] = useState<boolean>(false);
   const classes = useStyles();
 
@@ -31,24 +28,19 @@ export default function SettingsButton({
   };
   return (
     <>
-      <Box  position="absolute" top={10} right={10}>
+      <Box position="absolute" top={10} right={10}>
         <Button
           className={classes.button}
           color="secondary"
           onClick={handleClick}
           variant="outlined"
         >
-          <IconButton>
+          <IconButton className="buttonSafari">
             <SettingsIcon color="secondary" />
           </IconButton>
         </Button>
       </Box>
-      <SettingsDialog
-        settings={settings}
-        onChange={onChange}
-        onClose={handleClose}
-        open={open}
-      />
+      <SettingsDialog settings={settings} onChange={onChange} onClose={handleClose} open={open} />
     </>
   );
 }

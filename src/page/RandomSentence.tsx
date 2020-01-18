@@ -61,21 +61,20 @@ export default function RandomSentence() {
         p={1}
         border={1}
         borderColor="primary"
-        bgcolor={theme.palette.primary.main}
+        bgcolor={theme.palette.secondary.main}
         borderRadius={1}
         position="relative"
       >
         <SettingsButton settings={settings} onChange={toggleSettings} />
 
-        <Box height={20} display={{ xs: 'block', sm: 'none', md: 'none' }}/>
+        <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
 
         <Typography color="textSecondary" align="center" variant="h3">
           Random word or sentence !
         </Typography>
 
         <Typography color="textSecondary" align="center" variant="subtitle1">
-          We gonna random all you're sentence to find a random list of your
-          sentence.
+          We gonna random all you're sentence to find a random list of your sentence.
         </Typography>
 
         {isAdding ? (

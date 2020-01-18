@@ -28,12 +28,7 @@ type TypeAddWord = {
   toggleAdding: Function;
 };
 
-export default function MakeSentence({
-  wordList,
-  addWord,
-  removeWord,
-  toggleAdding
-}: TypeAddWord) {
+export default function MakeSentence({ wordList, addWord, removeWord, toggleAdding }: TypeAddWord) {
   const classes = useStyles();
   const [sentence, setSentence] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -90,12 +85,7 @@ export default function MakeSentence({
         inputValue={sentence}
       />
 
-      <Button
-        fullWidth
-        color="secondary"
-        onClick={() => toggleAdding()}
-        variant="outlined"
-      >
+      <Button fullWidth color="primary" onClick={() => toggleAdding()} variant="outlined">
         Ramdomizzz
       </Button>
     </Box>

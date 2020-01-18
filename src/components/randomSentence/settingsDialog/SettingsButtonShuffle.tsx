@@ -4,7 +4,7 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
 const useStyles = makeStyles(theme => ({
   iconButton: {
-    border: "1px solid " + theme.palette.secondary.dark
+    border: "1px solid " + theme.palette.primary.dark
   }
 }));
 type TypeSettingsButtonShuffle = {
@@ -18,16 +18,12 @@ export default function SettingsButtonShuffle({
   const classes = useStyles();
   return (
     <ButtonGroup fullWidth>
-      <Button
-        color="secondary"
-        variant="outlined"
-        onClick={() => toggleRandomWord()}
-      >
+      <Button color="primary" variant="outlined" onClick={() => toggleRandomWord()}>
         Random
       </Button>
       <IconButton
         className={classes.iconButton}
-        color="secondary"
+        color="primary"
         onClick={() => toggleAdding()}
         size="small"
       >
