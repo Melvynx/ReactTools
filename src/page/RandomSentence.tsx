@@ -3,6 +3,7 @@ import { Box, Typography, Container, useTheme } from "@material-ui/core";
 import MakeSentence from "../components/randomSentence/make/MakeSentence";
 import ShuffleSentence from "../components/randomSentence/shuffle/ShuffleSentence";
 import SettingsButton from "../components/randomSentence/settingsDialog/SettingsButton";
+import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
 
 export type TypeSettings = {
   isCountDown: boolean;
@@ -65,6 +66,8 @@ export default function RandomSentence() {
         borderRadius={1}
         position="relative"
       >
+        <HomePageLinkButton />
+
         <SettingsButton settings={settings} onChange={toggleSettings} />
 
         <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />

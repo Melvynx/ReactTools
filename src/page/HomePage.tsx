@@ -47,21 +47,5 @@ const page: Array<TypeCustomCardHomePage> = [
     body:
       "Calculator for change base 2 to base 10 and base 16, or inverse ! It's in really time, faster and easy !",
     link: "/transform"
-  },
-  {
-    image:
-      "https://media.gettyimages.com/photos/oil-refinery-plant-and-gas-industrial-factory-this-immage-can-use-for-picture-id1087977564?s=612x612",
-    title: "lol",
-    body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque.",
-    link: "#"
-  },
-  {
-    image:
-      "http://image.blingee.com/images16/content/output/000/000/000/55e/423059779_606302.gif?4",
-    title: "oui",
-    body:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis voluptatem esse, obcaecati similique laborum repudiandae voluptatibus iste commodi quasi, illo eaque ab, qui quibusdam iure in laboriosam eveniet rem doloremque.",
-    link: "#"
   }
 ];

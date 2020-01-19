@@ -6,21 +6,14 @@ type TypeListMakeSentence = {
   wordList: Array<string>;
   toggleDeleteWord: Function;
 };
-export default function ListMakeSentence({
-  wordList,
-  toggleDeleteWord
-}: TypeListMakeSentence) {
+export default function ListMakeSentence({ wordList, toggleDeleteWord }: TypeListMakeSentence) {
   return (
-    <Box minHeight={100}>
+    <Box minHeight={100} className="testLol">
       <Box display="flex" flexWrap="wrap" justifyContent="center">
         <TransitionGroup className="listMakeSentence">
           {wordList.map((value, index) => (
             <CSSTransition key={value} timeout={500} classNames="item">
-              <BoxMakeSentence
-                onDelete={toggleDeleteWord}
-                index={index}
-                key={index}
-              >
+              <BoxMakeSentence onDelete={toggleDeleteWord} index={index} key={index}>
                 {value}
               </BoxMakeSentence>
             </CSSTransition>

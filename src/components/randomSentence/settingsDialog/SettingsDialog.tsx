@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  makeStyles,
-  DialogActions,
-  Button
-} from "@material-ui/core";
+import { Dialog, DialogTitle, makeStyles, DialogActions, Button } from "@material-ui/core";
 import SettingsContent from "./SettingsContent";
 import { TypeSettingsButton } from "./SettingsButton";
 
@@ -16,19 +10,14 @@ type TypeSettingsDialog = TypeSettingsButton & {
 
 const useStyles = makeStyles(theme => ({
   background: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.secondary.main
   },
   text: {
-    color: theme.palette.primary.contrastText
+    color: theme.palette.secondary.contrastText
   }
 }));
 
-export default function SettingsDialog({
-  open,
-  onClose,
-  settings,
-  onChange
-}: TypeSettingsDialog) {
+export default function SettingsDialog({ open, onClose, settings, onChange }: TypeSettingsDialog) {
   const classes = useStyles();
 
   return (
@@ -53,7 +42,7 @@ export default function SettingsDialog({
         Afficher que la première réponse random
       </SettingsContent>
       <DialogActions className={classes.background}>
-        <Button color="secondary" variant="outlined" onClick={() => onClose()}>
+        <Button color="primary" variant="outlined" onClick={() => onClose()}>
           Close
         </Button>
       </DialogActions>

@@ -29,6 +29,10 @@ export function bin_to_hexa(bin: string) {
 export function isBinary(number: string) {
   let isValide: boolean = true;
 
+  if (number.length === 0) {
+    return false;
+  }
+
   const stringNumberArray: Array<String> = number.split("");
 
   for (let i = 0; i < stringNumberArray.length; i++) {
@@ -100,20 +104,4 @@ export function hexa_to_dec(hexa: string) {
 }
 export function hexa_to_bin(hexa: string) {
   return parseInt(hexa, 16).toString(2);
-}
-function leftPadding(inputString: string, padCharacter: String, totalCharacters: number) {
-  // If the string is already the right length, just return it
-  if (!inputString || !padCharacter || inputString.length >= totalCharacters) {
-    return inputString;
-  }
-
-  // Work out how many extra characters we need to add to the string
-  var charsToAdd = (totalCharacters - inputString.length) / padCharacter.length;
-
-  // Add padding onto the string
-  for (var i = 0; i < charsToAdd; i++) {
-    inputString = padCharacter + inputString;
-  }
-
-  return inputString;
 }

@@ -3,16 +3,11 @@ import {
   Box,
   TextField,
   makeStyles,
-  Theme,
   fade,
-  createStyles,
   TextFieldProps,
   OutlinedInputProps,
-  InputLabel,
-  FormControl
+  InputLabel
 } from "@material-ui/core";
-import { Base } from "./Calculator";
-import { blue, red } from "@material-ui/core/colors";
 
 type TypeInputBaseCalcul = {
   value: string;

@@ -31,6 +31,7 @@ export default function SettingsContent({
           {children}
         </Typography>
         <Switch
+          color="primary"
           checked={checked}
           onChange={() => onChange(typeSettings)}
           inputProps={{ "aria-label": "secondary checkbox" }}

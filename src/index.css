@@ -61,19 +61,18 @@ code {
   opacity: 0;
   transform: translateX(30px);
 }
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    .buttonSafari {
-      background-color: red;
-      position: relative;
-      bottom: 15px;
-    }
+/*Other browsers*/
+
+/*/Webkit (Chrome, Safari)*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .buttonSafari {
+    bottom: 15px;
   }
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+
+/*//Firefox*/
+@supports (-moz-appearance: none) {
   .buttonSafari {
-    background-color: red;
-    position: relative;
-    bottom: 15px;
+    bottom: 0px;
   }
 }

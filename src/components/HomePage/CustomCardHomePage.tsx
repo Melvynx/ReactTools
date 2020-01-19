@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   CardMedia,
@@ -8,7 +8,7 @@ import {
   Box,
   makeStyles
 } from "@material-ui/core";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export type TypeCustomCardHomePage = {
   image: string;

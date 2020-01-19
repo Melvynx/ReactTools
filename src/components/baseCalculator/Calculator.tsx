@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import { Box, Fade, Button } from "@material-ui/core";
+import { Box, Fade } from "@material-ui/core";
 import InputBaseCalcul from "./InputBaseCalcul";
 import {
   isBinary,
@@ -13,7 +13,6 @@ import {
   hexa_to_bin
 } from "../function";
 import { Alert } from "@material-ui/lab";
-import { Link } from "react-router-dom";
 
 type TypeValue = {
   value: string;
@@ -97,12 +96,6 @@ export default function Calculator() {
           <Alert severity="error">{errorMessage}</Alert>
         </Fade>
       </Box>
-
-      <Link to="/">
-        <Button variant="outlined" color="primary" fullWidth>
-          HomePage
-        </Button>
-      </Link>
     </Box>
   );
 }

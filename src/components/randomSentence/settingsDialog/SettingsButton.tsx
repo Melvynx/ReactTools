@@ -29,14 +29,9 @@ export default function SettingsButton({ settings, onChange }: TypeSettingsButto
   return (
     <>
       <Box position="absolute" top={10} right={10}>
-        <Button
-          className={classes.button}
-          color="secondary"
-          onClick={handleClick}
-          variant="outlined"
-        >
+        <Button className={classes.button} color="primary" onClick={handleClick} variant="outlined">
           <IconButton className="buttonSafari">
-            <SettingsIcon color="secondary" />
+            <SettingsIcon color="primary" />
           </IconButton>
         </Button>
       </Box>

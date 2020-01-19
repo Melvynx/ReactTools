@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Container, Box, Typography } from "@material-ui/core";
-import { useTheme } from "@material-ui/styles";
-import InputBaseCalcul from "../components/baseCalculator/InputBaseCalcul";
 import Calculator from "../components/baseCalculator/Calculator";
+import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
 
 export default function BaseCalculator() {
-  const theme = useTheme();
   return (
     <Container maxWidth="sm">
       <Box m={1} p={1} border={1} borderColor="primary" borderRadius={1} position="relative">
+        <HomePageLinkButton />
         <Typography align="center" variant="h4">
           Change base calculator !
         </Typography>
