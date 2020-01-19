@@ -22,13 +22,15 @@ export default function HomePage() {
         It's an app for learn React.
       </Typography>
 
-      <Grid container justify="center" spacing={1}>
-        {page.map(({ image, title, body, link }, index) => (
-          <Grid item>
-            <CustomCardHomePage link={link} image={image} title={title} body={body} key={index} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box m={2}>
+        <Grid container justify="center" spacing={2}>
+          {page.map(({ image, title, body, link }, index) => (
+            <Grid item>
+              <CustomCardHomePage link={link} image={image} title={title} body={body} key={index} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 }
@@ -43,7 +45,7 @@ const page: Array<TypeCustomCardHomePage> = [
   },
   {
     image: "images/numberBase.jpg",
-    title: "Change Base Number",
+    title: "Base convertor",
     body:
       "Calculator for change base 2 to base 10 and base 16, or inverse ! It's in really time, faster and easy !",
     link: "/transform"

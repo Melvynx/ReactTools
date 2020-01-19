@@ -20,18 +20,19 @@ export default function RandomSentence() {
   });
 
   const toggleSettings = (value: string) => {
-    if (value === "countDown") {
-      setSettings({
-        isCountDown: !settings.isCountDown,
-        isOneSentence: settings.isOneSentence
-      });
-    }
-
-    if (value === "oneSentence") {
-      setSettings({
-        isOneSentence: !settings.isOneSentence,
-        isCountDown: settings.isCountDown
-      });
+    switch (value) {
+      case "countDown":
+        setSettings({
+          isCountDown: !settings.isCountDown,
+          isOneSentence: settings.isOneSentence
+        });
+        break;
+      case "oneSentence":
+        setSettings({
+          isOneSentence: !settings.isOneSentence,
+          isCountDown: settings.isCountDown
+        });
+        break;
     }
   };
 

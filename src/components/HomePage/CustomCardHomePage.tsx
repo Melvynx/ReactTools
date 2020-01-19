@@ -39,7 +39,9 @@ export default function CustomCardHomePage({ image, title, body, link }: TypeCus
           <CardActionArea className={classes.background + " " + classes.card}>
             <CardMedia height="150" component="img" image={image} />
             <CardContent>
-              <Typography variant="h4">{title}</Typography>
+              <Typography noWrap variant="h4">
+                {title}
+              </Typography>
               <Typography variant="body1">{body}</Typography>
             </CardContent>
           </CardActionArea>
