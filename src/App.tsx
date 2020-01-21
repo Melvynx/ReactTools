@@ -1,8 +1,8 @@
 import React from "react";
 
-import { CssBaseline, ThemeProvider, createMuiTheme, Container } from "@material-ui/core";
+import { CssBaseline, ThemeProvider, createMuiTheme } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
@@ -44,22 +44,20 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>
-        <Router>
-          <Switch>
-            <Route path="/randomWord">
-              <RandomSentence />
-            </Route>
-            <Route path="/transform">
-              <BaseCalculator />
-            </Route>
-            <Route path="/test"></Route>
-            <Route path="/">
-              <HomePage />
-            </Route>
-          </Switch>
-        </Router>
-      </Container>
+      <Router basename="/tools">
+        <Switch>
+          <Route path="/randomWord">
+            <RandomSentence />
+          </Route>
+          <Route path="/transform">
+            <BaseCalculator />
+          </Route>
+          <Route path="/test"></Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Router>
     </ThemeProvider>
   );
 }

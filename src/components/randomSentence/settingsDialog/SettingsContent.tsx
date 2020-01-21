@@ -1,8 +1,9 @@
 import React from "react";
-import { DialogContent, Box, Typography, Switch } from "@material-ui/core";
+import { DialogContent, Box, Typography } from "@material-ui/core";
+import { CustomSwitch } from "../../Custom/CustomSwitch";
 
 type TypeSettingsContent = {
-  checked: boolean;
+  checked?: boolean;
   onChange: Function;
   className: Record<"background" | "text", string>;
   children: string;
@@ -30,8 +31,7 @@ export default function SettingsContent({
         <Typography variant="body1" color="primary" className={classes.text}>
           {children}
         </Typography>
-        <Switch
-          color="primary"
+        <CustomSwitch
           checked={checked}
           onChange={() => onChange(typeSettings)}
           inputProps={{ "aria-label": "secondary checkbox" }}

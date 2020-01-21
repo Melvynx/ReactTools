@@ -2,6 +2,7 @@
   "name": "projetq",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://melvynx.github.io/tools/",
   "dependencies": {
     "@material-ui/core": "^4.8.1",
     "@material-ui/icons": "^4.5.1",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "npx gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

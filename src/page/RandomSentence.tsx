@@ -1,23 +1,33 @@
 import React, { useState } from "react";
-import { Box, Typography, Container, useTheme } from "@material-ui/core";
+import { Box, Typography, makeStyles } from "@material-ui/core";
 import MakeSentence from "../components/randomSentence/make/MakeSentence";
 import ShuffleSentence from "../components/randomSentence/shuffle/ShuffleSentence";
 import SettingsButton from "../components/randomSentence/settingsDialog/SettingsButton";
 import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
+import SettingsDialog from "../components/randomSentence/settingsDialog/SettingsDialog";
 
 export type TypeSettings = {
   isCountDown: boolean;
   isOneSentence: boolean;
 };
 
+const useStyles = makeStyles(theme => ({
+  title: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 12
+    }
+  }
+}));
+
 export default function RandomSentence() {
-  const theme = useTheme();
+  const classes = useStyles();
   const [wordList, setWordList] = useState<Array<string>>([]);
   const [isAdding, setAdding] = useState<boolean>(true);
   const [settings, setSettings] = useState<TypeSettings>({
     isCountDown: false,
     isOneSentence: false
   });
+  const [openSettings, setOpenSettings] = useState<boolean>(false);
 
   const toggleSettings = (value: string) => {
     switch (value) {
@@ -34,6 +44,10 @@ export default function RandomSentence() {
         });
         break;
     }
+  };
+
+  const handleSettings = () => {
+    setOpenSettings(!openSettings);
   };
 
   const addWord = (sentence: string) => {
@@ -57,23 +71,31 @@ export default function RandomSentence() {
   };
 
   return (
-    <Container maxWidth="sm">
+    <Box display="flex" justifyContent="center">
       <Box
-        m={1}
+        mt={1}
         p={1}
         border={1}
         borderColor="primary"
-        bgcolor={theme.palette.secondary.main}
         borderRadius={1}
         position="relative"
+        maxWidth={500}
+        width="100%"
       >
         <HomePageLinkButton />
 
-        <SettingsButton settings={settings} onChange={toggleSettings} />
+        <SettingsButton onClick={handleSettings} />
+
+        <SettingsDialog
+          settings={settings}
+          onChange={toggleSettings}
+          onClose={handleSettings}
+          open={openSettings}
+        />
 
         <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
 
-        <Typography color="textSecondary" align="center" variant="h3">
+        <Typography className={classes.title} color="textSecondary" align="center" variant="h3">
           Random word or sentence !
         </Typography>
 
@@ -97,6 +119,6 @@ export default function RandomSentence() {
           />
         )}
       </Box>
-    </Container>
+    </Box>
   );
 }

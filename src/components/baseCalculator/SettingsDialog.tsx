@@ -1,7 +1,7 @@
 import React from "react";
 import { Dialog, DialogTitle, makeStyles, DialogActions, Button } from "@material-ui/core";
-import { TypeSettings } from "../../../page/RandomSentence";
-import SettingsContent from "./SettingsContent";
+import SettingsContent from "../randomSentence/settingsDialog/SettingsContent";
+import { TypeSettings } from "../../page/BaseCalculator";
 
 type TypeSettingsDialog = {
   open: boolean;
@@ -28,20 +28,36 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         Settings Random Sentence
       </DialogTitle>
       <SettingsContent
-        checked={settings.isCountDown}
+        checked={settings.displayBase2}
         onChange={onChange}
         className={classes}
-        typeSettings="countDown"
+        typeSettings="2"
       >
-        Activé le Timer avant d'afficher des réponses
+        Affiché la base 2
       </SettingsContent>
       <SettingsContent
-        checked={settings.isOneSentence}
+        checked={settings.displayBase8}
         onChange={onChange}
         className={classes}
-        typeSettings="oneSentence"
+        typeSettings="8"
       >
-        Afficher que la première réponse random
+        Affiché la base 8
+      </SettingsContent>
+      <SettingsContent
+        checked={settings.displayBase10}
+        onChange={onChange}
+        className={classes}
+        typeSettings="10"
+      >
+        Affiché la base 10
+      </SettingsContent>
+      <SettingsContent
+        checked={settings.displayBase16}
+        onChange={onChange}
+        className={classes}
+        typeSettings="16"
+      >
+        Affiché la base 16
       </SettingsContent>
       <DialogActions className={classes.background}>
         <Button color="primary" variant="outlined" onClick={() => onClose()}>

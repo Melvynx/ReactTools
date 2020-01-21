@@ -26,6 +26,10 @@ export function bin_to_hexa(bin: string) {
     .toUpperCase();
 }
 
+export function bin_to_oct(bin: string) {
+  return parseInt(bin, 2).toString(8);
+}
+
 export function isBinary(number: string) {
   let isValide: boolean = true;
 
@@ -44,27 +48,31 @@ export function isBinary(number: string) {
   return isValide;
 }
 
-export function dec_to_bin(number: string) {
-  return (Number(number) - 0).toString(2);
+export function dec_to_bin(dec: string) {
+  return (Number(dec) - 0).toString(2);
 }
 
-export function dec_to_hexa(number: string) {
-  return (Number(number) - 0).toString(16).toUpperCase();
+export function dec_to_hexa(dec: string) {
+  return (Number(dec) - 0).toString(16).toUpperCase();
 }
 
-export function isDecimal(number: string) {
-  if (isNaN(Number(number))) {
+export function dec_to_oct(dec: string) {
+  return (Number(dec) - 0).toString(8);
+}
+
+export function isDecimal(dec: string) {
+  if (isNaN(Number(dec))) {
     return false;
   } else {
     return true;
   }
 }
 
-export function isHexadecimal(number: string) {
-  if (number === "0" || number === "") {
+export function isHexadecimal(hexa: string) {
+  if (hexa === "0" || hexa === "") {
     return false;
   }
-  const array = number.split("");
+  const array = hexa.split("");
   const notBinaryLetter = [
     "g",
     "h",
@@ -104,4 +112,33 @@ export function hexa_to_dec(hexa: string) {
 }
 export function hexa_to_bin(hexa: string) {
   return parseInt(hexa, 16).toString(2);
+}
+export function hexa_to_oct(hexa: string) {
+  return parseInt(hexa, 16).toString(8);
+}
+
+export function isOctal(oct: string) {
+  if (oct === "0" || oct === "") {
+    return false;
+  }
+  const arrayOct: Array<string> = oct.split("");
+
+  for (let i = 0; i < arrayOct.length; i++) {
+    if (arrayOct[i] === "9" || arrayOct[i] === "8") {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function oct_to_dec(oct: string) {
+  return parseInt(oct, 8);
+}
+export function oct_to_hexa(oct: string) {
+  return parseInt(oct, 8)
+    .toString(16)
+    .toUpperCase();
+}
+export function oct_to_bin(oct: string) {
+  return parseInt(oct, 8).toString(2);
 }
