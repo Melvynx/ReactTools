@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, makeStyles, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
 import { TypeCustomCardHomePage } from "../components/HomePage/CustomCardHomePage";
+import CustomizedInputs from "../components/Custom/test";
 
 const useStyles = makeStyles(theme => ({
   textColor: { color: theme.palette.primary.contrastText }
@@ -49,12 +50,5 @@ const page: Array<TypeCustomCardHomePage> = [
     body:
       "Calculator for change base 2 to base 10 and base 16, or inverse ! It's in really time, faster and easy !",
     link: "/transform"
-  },
-  {
-    image:
-      "https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA",
-    title: "GitHub MelvynX",
-    body: "It's a page who resens my GitHub pages !!!",
-    link: "/github"
   }
 ];

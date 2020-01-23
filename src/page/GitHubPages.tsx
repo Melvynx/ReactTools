@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Grid } from "@material-ui/core";
 import CardGitHubRepos from "../components/github/CardGitHubRepos";
 
 export default function GitHubPages() {
-  const [repos, setRepos] = useState([]);
+  const [apiRepos, setApi] = useState([]);
 
-  const fetchAPIGitHub = () => {
+  const fetchApiGitHub = () => {
     fetch("https://api.github.com/users/melvynx/repos").then(function(reponse) {
       if (reponse.status !== 200) {
         console.warn("The api have problem.");
@@ -13,27 +13,21 @@ export default function GitHubPages() {
       }
 
       reponse.json().then(function(data) {
-        setRepos(data);
+        console.log(data);
+        setApi(data);
         return;
       });
     });
   };
 
-  const findAPI = () => {
-    if (repos.length > 0) {
-      return repos;
-    } else {
-      fetchAPIGitHub();
-      return [{ x: "" }, { x: "" }];
-    }
-  };
+  useEffect(() => fetchApiGitHub());
 
   return (
     <Box display="flex" justifyContent="center">
       <Box maxWidth={1000} width="100%" border={1} borderColor="primary">
         <p>test !!!</p>
         <Grid container justify="center" spacing={2}>
-          {findAPI().map((value, index) => (
+          {apiRepos.map((value, index) => (
             <Grid item>
               <CardGitHubRepos api={value} key={index}></CardGitHubRepos>
             </Grid>

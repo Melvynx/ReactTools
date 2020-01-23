@@ -82,11 +82,12 @@ export default function BaseCalculator() {
         />
 
         <Typography className={classes.title} align="center" variant="h4" color="textSecondary">
-          Change base calculator !
+          Convert number{" "}
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary">
-          Enter a number where you want to transform this in all base !
+          Convert your numbers in real time between base-16, base-10, base-8 and base-2.
         </Typography>
+
         <Calculator settings={settings} />
       </Box>
     </Box>
