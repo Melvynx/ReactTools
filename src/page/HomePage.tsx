@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, makeStyles, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
 import { TypeCustomCardHomePage } from "../components/HomePage/CustomCardHomePage";
-import CustomizedInputs from "../components/Custom/test";
 
 const useStyles = makeStyles(theme => ({
   textColor: { color: theme.palette.primary.contrastText }
@@ -52,3 +51,12 @@ const page: Array<TypeCustomCardHomePage> = [
     link: "/transform"
   }
 ];
+/*
+,
+  {
+    image:
+      "https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA",
+    title: "GitHub MelvynX",
+    body: "It's a page who resens my GitHub pages !!!",
+    link: "/github"
+  }*/
