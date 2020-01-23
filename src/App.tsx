@@ -6,6 +6,7 @@ import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
+import GitHubPages from "./page/GitHubPages";
 
 const theme = createMuiTheme({
   palette: {
@@ -51,6 +52,9 @@ export default function App() {
           </Route>
           <Route path="/transform">
             <BaseCalculator />
+          </Route>
+          <Route path="/github">
+            <GitHubPages />
           </Route>
           <Route path="/test"></Route>
           <Route path="/">
