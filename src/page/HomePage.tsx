@@ -25,8 +25,8 @@ export default function HomePage() {
       <Box m={2}>
         <Grid container justify="center" spacing={2}>
           {page.map(({ image, title, body, link }, index) => (
-            <Grid item>
-              <CustomCardHomePage link={link} image={image} title={title} body={body} key={index} />
+            <Grid item key={index}>
+              <CustomCardHomePage link={link} image={image} title={title} body={body} />
             </Grid>
           ))}
         </Grid>

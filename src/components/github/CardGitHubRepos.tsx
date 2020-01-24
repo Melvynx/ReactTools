@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardHeader, Typography, Box, CardContent, Button, Link } from "@material-ui/core";
+import { Card, Typography, Box, CardContent, Button, Link, makeStyles } from "@material-ui/core";
 import CommitGitHub from "./CommitGitHub";
 
 type TypeCardGItHubRepos = {
   api: any;
 };
 
+const useStyles = makeStyles(theme => ({
+  card: {
+    backgroundColor: theme.palette.secondary.main,
+    border: "1px solid " + theme.palette.primary.main
+  }
+}));
+
 export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
   const [apiCommit, setApiCommit] = useState([]);
+
+  const classes = useStyles();
 
   const fetchApiCommit = () => {
     let commitsURL = "";
     if (api.commits_url) {
-      let arrayCommit = api.commits_url.split("{");
-      commitsURL = arrayCommit[0];
+      commitsURL = api.commits_url.replace("{/sha}", "");
     } else {
       return;
     }
 
-    fetch(commitsURL).then(function(reponse) {
+    let headers = new Headers();
+
+    const username = "melvynx";
+    const key = "d09dbf81caeeaeb7e59ba874f8e809ddcf912c35";
+
+    headers.set("Authorization", "Basic " + btoa(username + ":" + key));
+
+    fetch(commitsURL, {
+      method: "GET",
+      headers: headers
+      //credentials: 'user:passwd'
+    }).then(function(reponse) {
       if (reponse.status !== 200) {
         return;
       }
@@ -30,22 +49,34 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
     });
   };
 
-  useEffect(() => fetchApiCommit());
+  useEffect(() => {
+    if (apiCommit.length < 1) {
+      fetchApiCommit();
+    }
+  });
 
   return (
-    <Box width="100%" maxWidth={300}>
-      <Card>
+    <Box width="100%" maxWidth={350}>
+      <Card className={classes.card}>
         <CardContent>
-          <Typography variant="h4">{api.name}</Typography>
+          <Typography color="textSecondary" align="center" variant="h4">
+            {api.name}
+          </Typography>
 
-          <Typography variant="subtitle2">{api.created_at}</Typography>
-
-          <Link href={api.html_url} target="_blank">
-            <Button variant="outlined">Go torepos</Button>
-          </Link>
+          <Typography color="textSecondary" variant="subtitle2" align="center">
+            Created at {api.created_at}
+          </Typography>
         </CardContent>
 
         <CommitGitHub apiCommit={apiCommit}></CommitGitHub>
+
+        <Link href={api.html_url} target="_blank" className="removeUnderline">
+          <Box display="flex" justifyContent="right" m={1}>
+            <Button color="primary" size="small" variant="outlined">
+              Go to repos
+            </Button>
+          </Box>
+        </Link>
       </Card>
     </Box>
   );

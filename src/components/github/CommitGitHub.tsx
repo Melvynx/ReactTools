@@ -1,13 +1,22 @@
 import React, { useState } from "react";
-import { Box, Typography, Link } from "@material-ui/core";
+import { Box, Typography, makeStyles } from "@material-ui/core";
 import CommitBox from "./CommitBox";
 
 type TypeCommitGitHub = {
   apiCommit: any;
 };
-
+const useStyles = makeStyles(theme => ({
+  title: {
+    color: theme.palette.primary.light,
+    borderBottom: "1px solid " + theme.palette.primary.light,
+    width: 140,
+    paddingBottom: 0
+  }
+}));
 export default function CommitGitHub({ apiCommit }: TypeCommitGitHub) {
   const [isLoad, setLoad] = useState<boolean>(false);
+
+  const classes = useStyles();
 
   if (apiCommit.length > 1) {
     if (isLoad === false) {
@@ -31,11 +40,16 @@ export default function CommitGitHub({ apiCommit }: TypeCommitGitHub) {
   console.log("API COMMIT", apiCommit);
   return (
     <Box>
+      <Box ml={1.5}>
+        <Typography variant="h6" className={classes.title}>
+          5 last commits
+        </Typography>
+      </Box>
       {isLoad
         ? fiveFirstCommit().map((value: any, index: number) => (
             <CommitBox value={value} index={index} key={index} />
           ))
-        : "rien"}
+        : "no commit"}
     </Box>
   );
 }

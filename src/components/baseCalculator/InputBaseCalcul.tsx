@@ -38,7 +38,11 @@ export default function InputBaseCalcul({
         onChange={event => onChange(event)}
         fullWidth
         value={value}
-        helperText={<Box color={pink[800]}>{helperText} </Box>}
+        helperText={
+          <Box component="span" color={pink[800]}>
+            {helperText}{" "}
+          </Box>
+        }
       ></CustomTextField>
     </Box>
   );

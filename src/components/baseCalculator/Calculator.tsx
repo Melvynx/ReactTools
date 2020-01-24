@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import { Box, Fade, TextField, Button } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import InputBaseCalcul from "./InputBaseCalcul";
 import {
   isBinary,
@@ -19,7 +19,6 @@ import {
   dec_to_oct,
   bin_to_oct
 } from "../function";
-import { Alert } from "@material-ui/lab";
 import { TypeSettings } from "../../page/BaseCalculator";
 import ButtonReset from "./ButtonReset";
 
@@ -118,13 +117,6 @@ export default function Calculator({ settings }: TypeCalculator) {
     }
   };
 
-  const resetValue = () => {
-    setBase2("");
-    setBase10("");
-    setBase8("");
-    setBase16("");
-  };
-
   const octalConvertor = (value: string) => {
     console.log(isOctal(value));
     if (isOctal(value)) {
@@ -135,6 +127,14 @@ export default function Calculator({ settings }: TypeCalculator) {
     } else {
       displayErrorMessage("Octal number is null or invalid (only 0 to 7)", Base.base8);
     }
+  };
+
+  const resetValue = () => {
+    setBase2("");
+    setBase10("");
+    setBase8("");
+    setBase16("");
+    displayErrorMessage(" ", Base.baseN);
   };
 
   return (
