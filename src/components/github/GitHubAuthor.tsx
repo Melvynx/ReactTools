@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@material-ui/core";
+import GitHubAuthorInformation from "./GitHubAuthorInformation";
+import GitHubAuthorFollow from "./GitHubAuthorFollow";
 
 type TypeGitHubAuthor = {
   api: any;
@@ -23,7 +25,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
     let headers = new Headers();
 
     const username = "melvynx";
-    const key = "d09dbf81caeeaeb7e59ba874f8e809ddcf912c35";
+    const key = "cb15fc5496778827637f265238600794d28f3e07";
 
     headers.set("Authorization", "Basic " + btoa(username + ":" + key));
 
@@ -57,7 +59,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
   }, [author, loading, api]);
 
   return (
-    <Box>
+    <Box m={2}>
       {author ? (
         <Box>
           <Box display="flex" justifyContent="center" alignItems="center">
@@ -69,22 +71,20 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
                 alt={"profil picture of " + author.login}
               />
             </Box>
-            <Typography variant="h3">{author.login}</Typography>
+            <Typography color="textSecondary" variant="h3">
+              {author.login}
+            </Typography>
           </Box>
-          <Box display="flex">
-            <Box>
-              <Typography variant="h5">Compagny</Typography>
-              <Typography variant="h5">{author.company}</Typography>
-            </Box>
+          <Box display="flex" flexWrap="wrap" justifyContent="space-around" m={3}>
+            <GitHubAuthorInformation label="Company">{author.company}</GitHubAuthorInformation>
 
-            <Box>
-              <Typography variant="h5">Location</Typography>
-              <Typography variant="h5">{author.location}</Typography>
-            </Box>
+            <GitHubAuthorInformation label="Location">{author.location}</GitHubAuthorInformation>
+
+            <GitHubAuthorFollow followers={author.followers} following={author.following} />
           </Box>
         </Box>
       ) : (
-        "NON"
+        <Box m={5}>"GitHub api has problem."</Box>
       )}
     </Box>
   );

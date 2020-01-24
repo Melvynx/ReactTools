@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Grid } from "@material-ui/core";
 import CardGitHubRepos from "../components/github/CardGitHubRepos";
 import GitHubAuthor from "../components/github/GitHubAuthor";
+import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
 
 export default function GitHubPages() {
   const [apiRepos, setApi] = useState([]);
@@ -9,10 +10,10 @@ export default function GitHubPages() {
   const fetchApiGitHub = () => {
     let headers = new Headers();
 
-    const username = "melvynx";
-    const key = "d09dbf81caeeaeb7e59ba874f8e809ddcf912c35";
-
-    headers.set("Authorization", "Basic " + btoa(username + ":" + key));
+    headers.set(
+      "Authorization",
+      "Basic " + btoa("melvynx" + ":" + "cb15fc5496778827637f265238600794d28f3e07")
+    );
 
     fetch("https://api.github.com/users/melvynx/repos", {
       method: "GET",
@@ -41,6 +42,8 @@ export default function GitHubPages() {
   return (
     <Box display="flex" justifyContent="center">
       <Box maxWidth={1000} width="100%">
+        <HomePageLinkButton />
+
         <GitHubAuthor api={apiRepos} />
         <Grid container justify="center" spacing={2}>
           {apiRepos.map((value, index) => (

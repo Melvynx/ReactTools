@@ -29,7 +29,7 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
     let headers = new Headers();
 
     const username = "melvynx";
-    const key = "d09dbf81caeeaeb7e59ba874f8e809ddcf912c35";
+    const key = "cb15fc5496778827637f265238600794d28f3e07";
 
     headers.set("Authorization", "Basic " + btoa(username + ":" + key));
 

@@ -5,7 +5,7 @@ import HomeIcon from "@material-ui/icons/Home";
 
 export default function HomePageLinkButton() {
   return (
-    <Box position="absolute" top={10} left={10} zIndex={1000}>
+    <Box position="absolute" top={10} left={10} zIndex={5000}>
       <Link to="/">
         <Fab color="primary" variant="round" size="small">
           <HomeIcon />
