@@ -10,14 +10,14 @@ export default function GitHubPages() {
   const fetchApiGitHub = () => {
     let headers = new Headers();
 
-    headers.set(
-      "Authorization",
-      "Basic " + btoa("melvynx" + ":" + "cb15fc5496778827637f265238600794d28f3e07")
-    );
+    const username = "melvynx";
+    const key = "cb15fc5496778827637f265238600794d28f3e07";
+
+    headers.set("Authorization", "Basic " + btoa(username + ":" + key));
 
     fetch("https://api.github.com/users/melvynx/repos", {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {

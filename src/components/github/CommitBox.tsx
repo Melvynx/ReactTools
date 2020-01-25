@@ -18,8 +18,8 @@ export default function CommitBox({ value, index }: TypeCommitBox) {
     headers.set("Authorization", "Basic " + btoa(username + ":" + key));
 
     fetch(value.url, {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {

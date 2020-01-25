@@ -20,7 +20,6 @@ type GithuhAuthorType = {
 export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
   const [author, setAuthor] = useState<GithuhAuthorType>();
   const [loading, setLoading] = useState<Boolean>(false);
-  console.log(api);
   const findApiAuthor = () => {
     let headers = new Headers();
 
@@ -31,8 +30,8 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
 
     setLoading(true);
     fetch(api[0].owner.url, {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     })
       .then(function(reponse) {
@@ -42,7 +41,6 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
         }
 
         reponse.json().then(function(author) {
-          console.log(author);
           setAuthor(author);
           return;
         });

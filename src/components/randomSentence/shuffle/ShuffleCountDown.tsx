@@ -7,7 +7,6 @@ type TypeCountDown = {
 export default function ShuffleCountDown({ onFinish }: TypeCountDown) {
   const [countDown, setCountDown] = useState<number>(3);
   const startCountDown = () => {
-    console.log("change count down");
     setTimeout(() => {
       setCountDown(countDown - 1);
     }, 1000);
@@ -21,13 +20,7 @@ export default function ShuffleCountDown({ onFinish }: TypeCountDown) {
   }
 
   return (
-    <Box
-      bgcolor="dark"
-      color="white"
-      justifyContent="center"
-      p={2}
-      display="flex"
-    >
+    <Box bgcolor="dark" color="white" justifyContent="center" p={2} display="flex">
       <Typography variant="h3">{countDown}</Typography>
     </Box>
   );
