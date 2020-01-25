@@ -33,27 +33,4 @@ We have 4 settings :
 
 To familiarize myself with api in GitHub, I create my Custom page GitHub with list of Repository and Commit. 
 
-Is not deploy, is **in Progress**.
-
-### Change log
-
-
-* V1.2 : 
-    * My GitHub Page (not visible)
-        * Add Acthor component 
-        * change style card 
-    * Base Calculator
-        * Resolve helper text error
-    * Shuffle Sentence
-        * Resolve error for button on button
-
-
-* V1.1 : 
-    * Base Calculator
-        * Add animation on focus
-        * Remove alert on error
-        * Add helper text on error
-    * My GitHub Page
-        * In Progress....
-    * HomePage
-        * Change Home Button (arrow to home icon)
+Is not deploy, is in Progress.
