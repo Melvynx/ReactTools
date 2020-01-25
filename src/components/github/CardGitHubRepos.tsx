@@ -35,7 +35,7 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
 
     fetch(commitsURL, {
       method: "GET",
-      //headers: headers
+      headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
