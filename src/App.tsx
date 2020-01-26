@@ -1,12 +1,13 @@
 import React from "react";
 
-import { CssBaseline, ThemeProvider, createMuiTheme } from "@material-ui/core";
+import { CssBaseline, ThemeProvider, createMuiTheme, Box } from "@material-ui/core";
 import { purple } from "@material-ui/core/colors";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
+import Footer from "../src/components/App/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -62,6 +63,7 @@ export default function App() {
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </ThemeProvider>
   );
 }
