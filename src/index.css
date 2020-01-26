@@ -81,3 +81,8 @@ code {
 .removeUnderline {
   text-decoration: none !important;
 }
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
