@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 import BoxShuffleSentence from "./BoxShuffleSentence";
 import CountDown from "./ShuffleCountDown";
 import SettingsButtonShuffle from "../settingsDialog/SettingsButtonShuffle";
-import { shuffleList } from "../../function";
+import { shuffleList } from "../../utils/function";
 
 type TypeListRandomWord = {
   wordList: Array<string>;

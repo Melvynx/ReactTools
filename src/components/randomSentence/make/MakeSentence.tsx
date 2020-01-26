@@ -18,6 +18,13 @@ const useStyles = makeStyles({
   },
   boxWord: {
     minWidth: 300
+  },
+  buttonRandom: {
+    width: "78%"
+  },
+  buttonReset: {
+    marginLeft: "2px",
+    width: "20%"
   }
 });
 
@@ -26,9 +33,16 @@ type TypeAddWord = {
   addWord: Function;
   removeWord: Function;
   toggleAdding: Function;
+  toggleClean: Function;
 };
 
-export default function MakeSentence({ wordList, addWord, removeWord, toggleAdding }: TypeAddWord) {
+export default function MakeSentence({
+  wordList,
+  addWord,
+  removeWord,
+  toggleAdding,
+  toggleClean
+}: TypeAddWord) {
   const classes = useStyles();
   const [sentence, setSentence] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -85,8 +99,21 @@ export default function MakeSentence({ wordList, addWord, removeWord, toggleAddi
         inputValue={sentence}
       />
 
-      <Button fullWidth color="primary" onClick={() => toggleAdding()} variant="outlined">
+      <Button
+        className={classes.buttonRandom}
+        color="primary"
+        onClick={() => toggleAdding()}
+        variant="outlined"
+      >
         Ramdomizzz
+      </Button>
+      <Button
+        onClick={() => toggleClean()}
+        color="primary"
+        variant="outlined"
+        className={classes.buttonReset}
+      >
+        Clean
       </Button>
     </Box>
   );
