@@ -70,6 +70,10 @@ export default function RandomSentence() {
     setAdding(!isAdding);
   };
 
+  const clearWord = () => {
+    setWordList([]);
+  };
+
   return (
     <Box display="flex" justifyContent="center">
       <Box
@@ -105,6 +109,7 @@ export default function RandomSentence() {
 
         {isAdding ? (
           <MakeSentence
+            toggleClean={clearWord}
             removeWord={removeWord}
             addWord={addWord}
             wordList={wordList}

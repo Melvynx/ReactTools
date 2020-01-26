@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import GitHubAuthorInformation from "./GitHubAuthorInformation";
 import GitHubAuthorFollow from "./GitHubAuthorFollow";
+import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
 
 type TypeGitHubAuthor = {
   api: any;
@@ -24,15 +25,12 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
   const findApiAuthor = () => {
     let headers = new Headers();
 
-    const username = "melvynx";
-    const key = "cb15fc5496778827637f265238600794d28f3e07";
-
-    headers.set("Authorization", "Basic " + btoa(username + ":" + key));
+    headers.set("Authorization", "Basic " + btoa(GITHUB_NAME + ":" + GITHUB_KEY));
 
     setLoading(true);
     fetch(api[0].owner.url, {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     })
       .then(function(reponse) {

@@ -7,7 +7,7 @@ import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
-import Footer from "../src/components/App/Footer";
+import Footer from "./components/App/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -46,23 +46,25 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router basename="/tools">
-        <Switch>
-          <Route path="/randomWord">
-            <RandomSentence />
-          </Route>
-          <Route path="/transform">
-            <BaseCalculator />
-          </Route>
-          <Route path="/github">
-            <GitHubPages />
-          </Route>
-          <Route path="/test"></Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </Router>
+      <Box pb={34}>
+        <Router basename="/tools">
+          <Switch>
+            <Route path="/randomWord">
+              <RandomSentence />
+            </Route>
+            <Route path="/transform">
+              <BaseCalculator />
+            </Route>
+            <Route path="/github">
+              <GitHubPages />
+            </Route>
+            <Route path="/test"></Route>
+            <Route path="/">
+              <HomePage />
+            </Route>
+          </Switch>
+        </Router>
+      </Box>
       <Footer />
     </ThemeProvider>
   );

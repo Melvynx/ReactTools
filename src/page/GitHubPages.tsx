@@ -3,6 +3,7 @@ import { Box, Grid } from "@material-ui/core";
 import CardGitHubRepos from "../components/github/CardGitHubRepos";
 import GitHubAuthor from "../components/github/GitHubAuthor";
 import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
+import { GITHUB_NAME, GITHUB_KEY } from "../components/utils/constante";
 
 export default function GitHubPages() {
   const [apiRepos, setApi] = useState([]);
@@ -10,14 +11,11 @@ export default function GitHubPages() {
   const fetchApiGitHub = () => {
     let headers = new Headers();
 
-    headers.set(
-      "Authorization",
-      "Basic " + btoa("melvynx : cb15fc5496778827637f265238600794d28f3e07")
-    );
+    headers.set("Authorization", "Basic " + btoa(GITHUB_NAME + ":" + GITHUB_KEY));
 
     fetch("https://api.github.com/users/melvynx/repos", {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {

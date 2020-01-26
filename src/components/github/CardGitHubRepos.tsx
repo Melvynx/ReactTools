@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Typography, Box, CardContent, Button, Link, makeStyles } from "@material-ui/core";
 import CommitGitHub from "./CommitGitHub";
+import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
 
 type TypeCardGItHubRepos = {
   api: any;
@@ -28,14 +29,11 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
 
     let headers = new Headers();
 
-    const username = "melvynx";
-    const key = "cb15fc5496778827637f265238600794d28f3e07";
-
-    headers.set("Authorization", "Basic " + btoa(username + ":" + key));
+    headers.set("Authorization", "Basic " + btoa(GITHUB_NAME + ":" + GITHUB_KEY));
 
     fetch(commitsURL, {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
