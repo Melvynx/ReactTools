@@ -14,8 +14,8 @@ export default function GitHubPages() {
     headers.set("Authorization", "Basic " + btoa(GITHUB_NAME + ":" + GITHUB_KEY));
 
     fetch("https://api.github.com/users/melvynx/repos", {
-      method: "GET",
-      headers: headers
+      method: "GET"
+      //headers: headers
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
