@@ -12,7 +12,7 @@ export default function GitHubPages() {
 
     headers.set(
       "Authorization",
-      "Basic " + btoa("melvynx" + ":" + "cb15fc5496778827637f265238600794d28f3e07")
+      "Basic " + btoa("melvynx : cb15fc5496778827637f265238600794d28f3e07")
     );
 
     fetch("https://api.github.com/users/melvynx/repos", {
