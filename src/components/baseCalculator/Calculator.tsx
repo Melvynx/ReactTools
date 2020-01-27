@@ -118,7 +118,6 @@ export default function Calculator({ settings }: TypeCalculator) {
   };
 
   const octalConvertor = (value: string) => {
-    console.log(isOctal(value));
     if (isOctal(value)) {
       setBase2(oct_to_bin(value));
       setBase10(String(oct_to_dec(value)));

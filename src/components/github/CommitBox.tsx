@@ -21,7 +21,7 @@ export default function CommitBox({ value, index }: TypeCommitBox) {
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
-        console.log("error, commit doesn't load.");
+        console.warn("GitHub api has problem.(on commit url)");
         return "error";
       }
       reponse.json().then(function(url) {

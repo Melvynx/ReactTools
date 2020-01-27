@@ -20,7 +20,6 @@ export default function CommitGitHub({ apiCommit }: TypeCommitGitHub) {
 
   if (apiCommit.length > 1) {
     if (isLoad === false) {
-      console.log("change");
       setLoad(true);
     }
   }
@@ -31,13 +30,11 @@ export default function CommitGitHub({ apiCommit }: TypeCommitGitHub) {
       for (let i = 0; i < 5; i++) {
         fiveCommits.push(apiCommit[i]);
       }
-      console.log("five commit", fiveCommits);
       return fiveCommits;
     }
     return apiCommit;
   };
 
-  console.log("API COMMIT", apiCommit);
   return (
     <Box>
       <Box ml={1.5}>

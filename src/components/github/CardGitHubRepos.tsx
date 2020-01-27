@@ -37,6 +37,7 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
+        console.warn("GitHub api has problem.(on card repos)");
         return;
       }
 
@@ -70,8 +71,8 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
 
         <Link href={api.html_url} target="_blank" className="removeUnderline">
           <Box display="flex" justifyContent="right" m={1}>
-            <Button color="primary" size="small" variant="outlined">
-              Go to repos
+            <Button color="primary" size="small" variant="text">
+              Open repository
             </Button>
           </Box>
         </Link>

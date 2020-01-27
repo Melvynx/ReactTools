@@ -4,6 +4,7 @@ import { Box, Typography } from "@material-ui/core";
 import GitHubAuthorInformation from "./GitHubAuthorInformation";
 import GitHubAuthorFollow from "./GitHubAuthorFollow";
 import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
+import GitHubAuthorSkeleton from "./Skeleton/GitHubAuthorSkeleton";
 
 type TypeGitHubAuthor = {
   api: any;
@@ -21,7 +22,7 @@ type GithuhAuthorType = {
 export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
   const [author, setAuthor] = useState<GithuhAuthorType>();
   const [loading, setLoading] = useState<Boolean>(false);
-  console.log(api);
+
   const findApiAuthor = () => {
     let headers = new Headers();
 
@@ -35,12 +36,11 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
     })
       .then(function(reponse) {
         if (reponse.status !== 200) {
-          console.warn("The api have problem.");
+          console.warn("GitHub api has problem.(on author)");
           return;
         }
 
         reponse.json().then(function(author) {
-          console.log(author);
           setAuthor(author);
           return;
         });
@@ -49,7 +49,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
         setLoading(false);
       });
   };
-
+  console.log("author load", loading);
   useEffect(() => {
     if (!author && !loading && api.length > 1) {
       findApiAuthor();
@@ -82,7 +82,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
           </Box>
         </Box>
       ) : (
-        <Box m={5}>"GitHub api has problem."</Box>
+        <GitHubAuthorSkeleton />
       )}
     </Box>
   );

@@ -4,6 +4,8 @@ import CardGitHubRepos from "../components/github/CardGitHubRepos";
 import GitHubAuthor from "../components/github/GitHubAuthor";
 import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
 import { GITHUB_NAME, GITHUB_KEY } from "../components/utils/constante";
+import CardGitHubSkeleton from "../components/github/Skeleton/CardGitHubSkeleton";
+import GitHubAuthorSkeleton from "../components/github/Skeleton/GitHubAuthorSkeleton";
 
 export default function GitHubPages() {
   const [apiRepos, setApi] = useState([]);
@@ -19,12 +21,11 @@ export default function GitHubPages() {
       //credentials: 'user:passwd'
     }).then(function(reponse) {
       if (reponse.status !== 200) {
-        console.warn("The api have problem.");
+        console.warn("GitHub api has problem.(on repos)");
         return;
       }
 
       reponse.json().then(function(data) {
-        console.log(data);
         setApi(data);
         return;
       });
@@ -43,12 +44,19 @@ export default function GitHubPages() {
         <HomePageLinkButton />
 
         <GitHubAuthor api={apiRepos} />
+
         <Grid container justify="center" spacing={2}>
-          {apiRepos.map((value, index) => (
-            <Grid item>
-              <CardGitHubRepos api={value} key={index}></CardGitHubRepos>
-            </Grid>
-          ))}
+          {apiRepos.length > 0
+            ? apiRepos.map((value, index) => (
+                <Grid item key={index}>
+                  <CardGitHubRepos api={value}></CardGitHubRepos>
+                </Grid>
+              ))
+            : ["1", "2", "3", "4", "5"].map((value, index) => (
+                <Grid item key={index}>
+                  <CardGitHubSkeleton />
+                </Grid>
+              ))}
         </Grid>
       </Box>
     </Box>
