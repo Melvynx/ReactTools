@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, makeStyles, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
 import { TypeCustomCardHomePage } from "../components/HomePage/CustomCardHomePage";
+import { WEBSITE_NAME } from "../components/utils/constante";
 
 const useStyles = makeStyles(theme => ({
   textColor: { color: theme.palette.primary.contrastText }
@@ -13,7 +14,7 @@ export default function HomePage() {
   return (
     <Box alignItems="center" textAlign="center" className={classes.textColor}>
       <Typography color="textSecondary" variant="h2">
-        Baddadin
+        {WEBSITE_NAME}
       </Typography>
       <Typography color="textSecondary" variant="h4">
         App by Melvyn

@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Theme } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import { WEBSITE_NAME } from "../utils/constante";
 
 const useStyles = makeStyles((theme: Theme) => ({
   box: {
@@ -22,7 +23,7 @@ export default function Footer() {
         alignItems="center"
       >
         <Typography color="secondary" align="center" variant="body1">
-          Baddadin Made By MelvynX
+          {WEBSITE_NAME} Made By MelvynX
         </Typography>
         <Typography color="secondary" align="center" variant="body1">
           Deploy on GitHubPage
