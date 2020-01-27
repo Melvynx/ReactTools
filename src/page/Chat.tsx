@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@material-ui/core";
 import CreateTopic from "../Chat/CreateTopic";
 import ListTopic from "../Chat/ListTopic";
 import { firebaseHelper } from "../components/utils/firebaseHelper";
+import { TypeTopic } from "../components/utils/constante";
 
 export default function Chat() {
   const { onValue, push } = firebaseHelper("chat/topic");
+  const [topic, setTopic] = useState<Array<TypeTopic>>([]);
 
   const createTopic = (title: string, username: string, message: string) => {
     push({ title: title, user: username, message: message });
   };
 
-  onValue((x: any) => {
-    console.log(x);
-  });
+  useEffect(() => {
+    console.log("oui");
+    onValue((firebaseTopic: any) => {
+      setTopic(firebaseTopic);
+    });
+  }, []);
 
   return (
     <Box display="flex" justifyContent="center" width="100%">
       <Box width="100%" maxWidth={1000}>
         <CreateTopic create={createTopic} />
-        <ListTopic />
+        <ListTopic topic={topic} />
       </Box>
     </Box>
   );

@@ -33,6 +33,11 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
     setMessage("");
   };
 
+  const createTopic = () => {
+    reset();
+    create(title, username, message);
+  };
+
   const classes = useStyles();
   return (
     <Box border={1} p={1} className={classes.boxRoot} width="100%">
@@ -56,11 +61,7 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
           </Button>
         </Box>
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => create(title, username, message)}
-        >
+        <Button variant="contained" color="primary" onClick={createTopic}>
           Create
         </Button>
       </Box>

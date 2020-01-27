@@ -18,6 +18,7 @@ const useStylesReddit = makeStyles((theme: Theme) =>
       paddingLeft: 6,
       borderRadius: 3,
       fontSize: 18,
+      minHeight: 38,
       overflow: "hidden",
       backgroundColor: theme.palette.secondary.main,
       transition: theme.transitions.create(["border-color", "box-shadow"]),
