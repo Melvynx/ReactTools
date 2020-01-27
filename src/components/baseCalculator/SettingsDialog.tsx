@@ -28,6 +28,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         Settings Random Sentence
       </DialogTitle>
       <SettingsContent
+        cSwitch
         checked={settings.displayBase2}
         onChange={onChange}
         className={classes}
@@ -36,6 +37,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         Affiché la base 2
       </SettingsContent>
       <SettingsContent
+        cSwitch
         checked={settings.displayBase8}
         onChange={onChange}
         className={classes}
@@ -44,6 +46,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         Affiché la base 8
       </SettingsContent>
       <SettingsContent
+        cSwitch
         checked={settings.displayBase10}
         onChange={onChange}
         className={classes}
@@ -52,6 +55,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         Affiché la base 10
       </SettingsContent>
       <SettingsContent
+        cSwitch
         checked={settings.displayBase16}
         onChange={onChange}
         className={classes}

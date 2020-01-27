@@ -36,13 +36,10 @@ const useStylesReddit = makeStyles((theme: Theme) =>
 export default function CustomTextField(props: TextFieldProps) {
   const classes = useStylesReddit();
 
-  const textFieldProps = { ...props };
-  delete textFieldProps.fullWidth;
-
   return (
     <TextField
       InputProps={{ classes, disableUnderline: true } as Partial<OutlinedInputProps>}
-      {...textFieldProps}
+      {...props}
     />
   );
 }
