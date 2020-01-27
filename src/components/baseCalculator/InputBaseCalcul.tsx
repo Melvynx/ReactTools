@@ -33,7 +33,6 @@ export default function InputBaseCalcul({
     <Box width="100%" m={0.8} pr={3} display={display ? "block" : "none"}>
       <InputLabel className={classes.input}>{base}</InputLabel>
       <CustomTextField
-        id="Input for number"
         error={error}
         onChange={event => onChange(event)}
         fullWidth
