@@ -5,7 +5,6 @@ import GitHubAuthor from "../components/github/GitHubAuthor";
 import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
 import { GITHUB_NAME, GITHUB_KEY } from "../components/utils/constante";
 import CardGitHubSkeleton from "../components/github/Skeleton/CardGitHubSkeleton";
-import GitHubAuthorSkeleton from "../components/github/Skeleton/GitHubAuthorSkeleton";
 
 export default function GitHubPages() {
   const [apiRepos, setApi] = useState([]);

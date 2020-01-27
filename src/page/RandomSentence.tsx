@@ -9,6 +9,7 @@ import SettingsDialog from "../components/randomSentence/settingsDialog/Settings
 export type TypeSettings = {
   isCountDown: boolean;
   isOneSentence: boolean;
+  timerTime: number;
 };
 
 const useStyles = makeStyles(theme => ({
@@ -25,22 +26,32 @@ export default function RandomSentence() {
   const [isAdding, setAdding] = useState<boolean>(true);
   const [settings, setSettings] = useState<TypeSettings>({
     isCountDown: false,
-    isOneSentence: false
+    isOneSentence: false,
+    timerTime: 10
   });
   const [openSettings, setOpenSettings] = useState<boolean>(false);
 
-  const toggleSettings = (value: string) => {
+  const toggleSettings = (value: string, param?: string) => {
     switch (value) {
       case "countDown":
         setSettings({
           isCountDown: !settings.isCountDown,
-          isOneSentence: settings.isOneSentence
+          isOneSentence: settings.isOneSentence,
+          timerTime: settings.timerTime
         });
         break;
       case "oneSentence":
         setSettings({
           isOneSentence: !settings.isOneSentence,
-          isCountDown: settings.isCountDown
+          isCountDown: settings.isCountDown,
+          timerTime: settings.timerTime
+        });
+        break;
+      case "timerTime":
+        setSettings({
+          isOneSentence: settings.isOneSentence,
+          isCountDown: settings.isCountDown,
+          timerTime: Number(param)
         });
         break;
     }
@@ -117,6 +128,7 @@ export default function RandomSentence() {
           />
         ) : (
           <ShuffleSentence
+            timerTime={settings.timerTime}
             isCountDown={settings.isCountDown}
             isOneSentence={settings.isOneSentence}
             wordList={wordList}

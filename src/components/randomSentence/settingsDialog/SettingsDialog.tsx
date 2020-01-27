@@ -32,6 +32,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         onChange={onChange}
         className={classes}
         typeSettings="countDown"
+        cSwitch
       >
         Activé le Timer avant d'afficher des réponses
       </SettingsContent>
@@ -40,8 +41,17 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
         onChange={onChange}
         className={classes}
         typeSettings="oneSentence"
+        cSwitch
       >
         Afficher que la première réponse random
+      </SettingsContent>
+      <SettingsContent
+        onChange={onChange}
+        value={String(settings.timerTime)}
+        className={classes}
+        typeSettings="timerTime"
+      >
+        Seconde avant fin du timer
       </SettingsContent>
       <DialogActions className={classes.background}>
         <Button color="primary" variant="outlined" onClick={() => onClose()}>

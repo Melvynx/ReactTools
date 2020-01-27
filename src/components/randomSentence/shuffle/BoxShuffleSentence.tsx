@@ -4,10 +4,7 @@ type TypeListWordBoxRandomiz = {
   children: string;
   index: number;
 };
-export default function BoxShuffleSentence({
-  children,
-  index
-}: TypeListWordBoxRandomiz) {
+export default function BoxShuffleSentence({ children, index }: TypeListWordBoxRandomiz) {
   const styleFinder = () => {
     const baseColor = "#aa00ff";
     const firstColor = "#e040fb";
@@ -21,6 +18,7 @@ export default function BoxShuffleSentence({
     <Box
       fontSize="h5.fontSize"
       ml={1}
+      mt={0.5}
       fontWeight={styleFinder().weight}
       color={styleFinder().color}
     >

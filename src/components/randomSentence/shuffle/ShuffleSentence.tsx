@@ -10,13 +10,15 @@ type TypeListRandomWord = {
   toggleAdding: Function;
   isCountDown: boolean;
   isOneSentence: boolean;
+  timerTime: number;
 };
 
 export default function ShuffleSentence({
   wordList,
   toggleAdding,
   isCountDown,
-  isOneSentence
+  isOneSentence,
+  timerTime
 }: TypeListRandomWord) {
   const [isCountdown, setIsCountdown] = useState<boolean>(isCountDown);
   const [listSentence, setListSentence] = useState<Array<string>>(shuffleList(wordList));
@@ -31,9 +33,9 @@ export default function ShuffleSentence({
 
   return (
     <Box>
-      <Box border={1} borderColor="secondary">
+      <Box border={1} p={0.8} borderColor="secondary" borderRadius={3}>
         {isCountdown ? (
-          <CountDown onFinish={toggleCountDown} />
+          <CountDown onFinish={toggleCountDown} timerTime={timerTime} />
         ) : isOneSentence ? (
           <BoxShuffleSentence index={0}>{listSentence[0]}</BoxShuffleSentence>
         ) : (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Typography, Theme } from "@material-ui/core";
+import { Box, Card, CardContent, Theme } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Skeleton } from "@material-ui/lab";
 
