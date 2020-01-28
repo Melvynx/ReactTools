@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     lineHeight: "1.5em",
     maxHeight: "100px" /* height is 2x line-height, so two lines will display */,
     overflow: "hidden",
-
+    color: theme.palette.secondary.contrastText,
     textOverflow: "ellipsis"
   },
   link: {

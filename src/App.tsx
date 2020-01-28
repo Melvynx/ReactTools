@@ -9,6 +9,7 @@ import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
 import Footer from "./components/App/Footer";
 import Chat from "./page/Chat";
+import RedirectTopic from "./Chat/RedirectTopic";
 
 const theme = createMuiTheme({
   palette: {
@@ -58,6 +59,9 @@ export default function App() {
             </Route>
             <Route path="/github">
               <GitHubPages />
+            </Route>
+            <Route path="/chat/topic">
+              <RedirectTopic />
             </Route>
             <Route path="/chat">
               <Chat />
