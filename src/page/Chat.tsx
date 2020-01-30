@@ -7,6 +7,7 @@ import { TypeTopic } from "../components/utils/constante";
 
 export default function Chat() {
   const { onValue, push } = firebaseHelper("chat/topic");
+
   const [topic, setTopic] = useState<Array<TypeTopic>>([]);
 
   const createTopic = (title: string, username: string, message: string) => {
@@ -18,6 +19,7 @@ export default function Chat() {
     onValue((firebaseTopic: any) => {
       setTopic(firebaseTopic);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

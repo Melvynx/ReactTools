@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, makeStyles, Theme, Button, Typography } from "@material-ui/core";
+import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
 import InputChat from "./InputChat";
+import SettingsButtonChat from "./SettingsButtonChat";
 
 const useStyles = makeStyles((theme: Theme) => ({
   boxRoot: {
@@ -54,17 +55,7 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
 
       <InputChat multiline label="Message" value={message} onChange={changeMessage} />
 
-      <Box display="flex" justifyContent="flex-end" m={2}>
-        <Box mr={3}>
-          <Button variant="text" onClick={reset} color="primary">
-            Reset
-          </Button>
-        </Box>
-
-        <Button variant="contained" color="primary" onClick={createTopic}>
-          Create
-        </Button>
-      </Box>
+      <SettingsButtonChat onReset={reset} onCreate={createTopic} />
     </Box>
   );
 }

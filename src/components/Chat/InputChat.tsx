@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, makeStyles, InputLabel, Theme } from "@material-ui/core";
 import { pink } from "@material-ui/core/colors";
-import CustomTextField from "../components/Custom/CustomTextField";
+import CustomTextField from "../Custom/CustomTextField";
 
 type TypeInputChat = {
   value: string;

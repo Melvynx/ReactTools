@@ -9,7 +9,7 @@ import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
 import Footer from "./components/App/Footer";
 import Chat from "./page/Chat";
-import RedirectTopic from "./Chat/RedirectTopic";
+import RedirectTopic from "./components/Chat/RedirectTopic";
 
 const theme = createMuiTheme({
   palette: {
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
       contrastText: "#fff"
     },
     background: {
-      default: "#222222"
+      default: "#171717"
     }
   },
   typography: {

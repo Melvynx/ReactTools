@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Box, makeStyles, CardContent, Typography } from "@material-ui/core";
-import { TypeTopic } from "../components/utils/constante";
+import { TypeTopic } from "../utils/constante";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -26,14 +26,17 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none"
   }
 }));
+
 type TypeCardTopic = {
   value: TypeTopic;
+  keyName: string;
 };
 
-export default function CardTopic({ value }: TypeCardTopic) {
+export default function CardTopic({ value, keyName }: TypeCardTopic) {
+  console.log(keyName);
   const classes = useStyles();
   return (
-    <Link to="/chat/" className={classes.link}>
+    <Link to={"/chat/topic/" + keyName} className={classes.link}>
       <Box width="100%" maxWidth={300} minWidth={200} maxHeight={600}>
         <Card className={classes.card}>
           <Box className={classes.header} p={0.5}>
