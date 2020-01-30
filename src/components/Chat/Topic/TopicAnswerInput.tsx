@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
-import InputChat from "./InputChat";
-import SettingsButtonChat from "./SettingsButtonChat";
-import { firebaseHelper } from "../utils/firebaseHelper";
+import InputChat from "../Utils/InputChat";
+import SettingsButtonChat from "../Utils/SettingsButtonChat";
+import { firebaseHelper } from "../../utils/firebaseHelper";
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainBox: {

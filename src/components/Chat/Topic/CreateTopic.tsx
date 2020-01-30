@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
-import InputChat from "./InputChat";
-import SettingsButtonChat from "./SettingsButtonChat";
+import InputChat from "../Utils/InputChat";
+import SettingsButtonChat from "../Utils/SettingsButtonChat";
 
 const useStyles = makeStyles((theme: Theme) => ({
   boxRoot: {

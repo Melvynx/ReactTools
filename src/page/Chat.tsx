@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@material-ui/core";
-import CreateTopic from "../components/Chat/CreateTopic";
-import ListTopic from "../components/Chat/ListTopic";
+import CreateTopic from "../components/Chat/Topic/CreateTopic";
+import ListTopic from "../components/Chat/Home/ListTopic";
 import { firebaseHelper } from "../components/utils/firebaseHelper";
 import { TypeTopic } from "../components/utils/constante";
 

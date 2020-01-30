@@ -1,7 +1,7 @@
 import React from "react";
-import { TypeTopic } from "../utils/constante";
+import { TypeTopic } from "../../utils/constante";
 import { Box, Typography, makeStyles, Theme, Paper } from "@material-ui/core";
-import Content from "../Custom/Content";
+import Content from "../Utils/Content";
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {},

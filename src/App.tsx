@@ -9,7 +9,7 @@ import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
 import Footer from "./components/App/Footer";
 import Chat from "./page/Chat";
-import RedirectTopic from "./components/Chat/RedirectTopic";
+import RedirectTopic from "./page/RedirectTopic";
 
 const theme = createMuiTheme({
   palette: {

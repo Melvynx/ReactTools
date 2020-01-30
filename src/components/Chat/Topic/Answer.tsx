@@ -1,7 +1,6 @@
 import React from "react";
-import { TypeAnswerChat } from "../utils/constante";
 import { Box, makeStyles, Theme, Typography, Paper } from "@material-ui/core";
-import Content from "../Custom/Content";
+import Content from "../Utils/Content";
 
 type TypeTest212 = {
   reponse?: any;
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingLeft: 5
   }
 }));
-export default function Test212({ reponse }: TypeTest212) {
+export default function Answer({ reponse }: TypeTest212) {
   const classes = useStyles();
   console.log(reponse);
   return (

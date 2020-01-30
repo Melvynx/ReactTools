@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Route, useParams, Switch } from "react-router-dom";
-import Topic from "./Topic";
-import { firebaseHelper } from "../utils/firebaseHelper";
-import { TypeTopic } from "../utils/constante";
+import Topic from "../components/Chat/Topic/Topic";
+import { firebaseHelper } from "../components/utils/firebaseHelper";
+import { TypeTopic } from "../components/utils/constante";
 
 export default function RedirectTopic() {
   return (
