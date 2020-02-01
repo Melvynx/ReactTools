@@ -1,7 +1,6 @@
 import React from "react";
 
 import { CssBaseline, ThemeProvider, createMuiTheme, Box } from "@material-ui/core";
-import { purple } from "@material-ui/core/colors";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
@@ -13,20 +12,24 @@ import RedirectTopic from "./page/RedirectTopic";
 
 const theme = createMuiTheme({
   palette: {
+    type: "dark",
     primary: {
-      main: purple["A700"],
+      main: "#bb87fa",
       contrastText: "#000"
     },
-    text: {
-      primary: purple["A700"],
-      secondary: "#fff"
-    },
     secondary: {
-      main: "#222222",
+      main: "#1ddac6",
       contrastText: "#fff"
     },
+    error: {
+      light: "##ef9a9a",
+      main: "#ce667a",
+      dark: "#af0025",
+      contrastText: "#7e7e7e"
+    },
     background: {
-      default: "#171717"
+      default: "#1d1d1d",
+      paper: "#2c2c2c"
     }
   },
   typography: {
