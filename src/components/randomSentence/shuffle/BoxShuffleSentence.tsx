@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, makeStyles, Theme } from "@material-ui/core";
-import { useTheme } from "@material-ui/styles";
 type TypeListWordBoxRandomiz = {
   children: string;
   index: number;

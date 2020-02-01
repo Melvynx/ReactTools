@@ -93,7 +93,7 @@ export default function RandomSentence() {
       <Box
         mt={1}
         p={2}
-        borderRadius={10}
+        borderRadius={8}
         position="relative"
         maxWidth={512}
         width="100%"
@@ -113,7 +113,7 @@ export default function RandomSentence() {
         <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
 
         <Typography className={classes.title} align="center" variant="h3">
-          Random word or sentence !
+          Random you're sentence !
         </Typography>
 
         <Typography color="textSecondary" align="center" variant="subtitle1">

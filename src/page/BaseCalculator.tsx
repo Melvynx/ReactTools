@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       marginTop: 40
     }
+  },
+  mainBox: {
+    backgroundColor: theme.palette.background.paper
   }
 }));
 
@@ -62,13 +65,12 @@ export default function BaseCalculator() {
     <Box display="flex" justifyContent="center">
       <Box
         mt={1}
-        p={1}
-        border={1}
-        borderColor="primary"
-        borderRadius={1}
+        p={2}
+        borderRadius={8}
         position="relative"
-        maxWidth={500}
+        maxWidth={512}
         width="100%"
+        className={classes.mainBox}
       >
         <HomePageLinkButton />
 
@@ -81,10 +83,10 @@ export default function BaseCalculator() {
           settings={settings}
         />
 
-        <Typography className={classes.title} align="center" variant="h4" color="textSecondary">
-          Convert number{" "}
+        <Typography className={classes.title} align="center" variant="h4">
+          Convert number
         </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary">
+        <Typography variant="subtitle1" align="center">
           Convert your numbers in real time between base-16, base-10, base-8 and base-2.
         </Typography>
 

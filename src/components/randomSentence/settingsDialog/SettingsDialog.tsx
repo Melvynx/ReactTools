@@ -20,9 +20,7 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
 
   return (
     <Dialog onClose={() => onClose()} open={open}>
-      <DialogTitle className={classes.background + " " + classes.text}>
-        Settings Random Sentence
-      </DialogTitle>
+      <DialogTitle>Settings Random Sentence</DialogTitle>
       <SettingsContent
         checked={settings.isCountDown}
         onChange={onChange}
