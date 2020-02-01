@@ -5,20 +5,18 @@ import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme: Theme) => ({
   card: {
-    backgroundColor: theme.palette.secondary.main,
-    border: "1px solid " + theme.palette.primary.main,
-    padding: 5
+    padding: 8
   },
   skeletonText: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.main,
     height: 25
   },
   skeletonTextWhite: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.text.secondary,
     height: 25
   },
   skeletonBox: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.secondary.main,
     borderRadius: 3
   }
 }));

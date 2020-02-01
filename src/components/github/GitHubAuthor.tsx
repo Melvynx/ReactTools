@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import GitHubAuthorInformation from "./GitHubAuthorInformation";
-import GitHubAuthorFollow from "./GitHubAuthorFollow";
 import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
 import GitHubAuthorSkeleton from "./Skeleton/GitHubAuthorSkeleton";
 
@@ -61,7 +60,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
       {author ? (
         <Box>
           <Box display="flex" justifyContent="center" alignItems="center">
-            <Box width={100} mr={4} height={100} border={2} borderColor="primary">
+            <Box width={100} mr={4} height={100}>
               <img
                 src={author.avatar_url}
                 width={100}
@@ -69,7 +68,7 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
                 alt={"profil picture of " + author.login}
               />
             </Box>
-            <Typography color="textSecondary" variant="h3">
+            <Typography color="textPrimary" variant="h3">
               {author.login}
             </Typography>
           </Box>
@@ -78,7 +77,13 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
 
             <GitHubAuthorInformation label="Location">{author.location}</GitHubAuthorInformation>
 
-            <GitHubAuthorFollow followers={author.followers} following={author.following} />
+            <GitHubAuthorInformation label="Followers">
+              {String(author.followers)}
+            </GitHubAuthorInformation>
+
+            <GitHubAuthorInformation label="Following">
+              {String(author.following)}
+            </GitHubAuthorInformation>
           </Box>
         </Box>
       ) : (

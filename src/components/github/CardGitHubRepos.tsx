@@ -8,10 +8,7 @@ type TypeCardGItHubRepos = {
 };
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    backgroundColor: theme.palette.secondary.main,
-    border: "1px solid " + theme.palette.primary.main
-  }
+  card: {}
 }));
 
 export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
@@ -58,7 +55,7 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
     <Box width="100%" maxWidth={350}>
       <Card className={classes.card}>
         <CardContent>
-          <Typography color="textSecondary" align="center" variant="h4">
+          <Typography color="textPrimary" align="center" variant="h4">
             {api.name}
           </Typography>
 
@@ -71,7 +68,7 @@ export default function CardGitHubRepos({ api }: TypeCardGItHubRepos) {
 
         <Link href={api.html_url} target="_blank" className="removeUnderline">
           <Box display="flex" justifyContent="right" m={1}>
-            <Button color="primary" size="small" variant="text">
+            <Button color="secondary" size="small" variant="text">
               Open repository
             </Button>
           </Box>
