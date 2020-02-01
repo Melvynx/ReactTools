@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box } from "@material-ui/core";
-import CreateTopic from "../components/Chat/Topic/CreateTopic";
+import CreateTopic from "../components/Chat/Home/CreateTopic";
 import ListTopic from "../components/Chat/Home/ListTopic";
 import { firebaseHelper } from "../components/utils/firebaseHelper";
 import { TypeTopic } from "../components/utils/constante";
@@ -15,7 +15,6 @@ export default function Chat() {
   };
 
   useEffect(() => {
-    console.log("test");
     onValue((firebaseTopic: any) => {
       setTopic(firebaseTopic);
     });

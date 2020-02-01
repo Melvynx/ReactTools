@@ -5,21 +5,14 @@ import Content from "../Utils/Content";
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {},
-  user: {
-    fontStyle: "italic"
-  },
+  user: {},
   mainBox: {
-    backgroundColor: theme.palette.secondary.main,
-    borderColor: theme.palette.primary.dark,
-    boxShadow: "0px 0px 4px 1px " + theme.palette.primary.dark
+    backgroundColor: theme.palette.background.paper
   },
-  infoBox: {
-    borderColor: theme.palette.secondary.contrastText
-  },
+  infoBox: {},
   infoPaper: {
-    backgroundColor: theme.palette.secondary.light,
-    padding: 6,
-    margin: 6
+    backgroundColor: theme.palette.divider,
+    paddingLeft: 8
   }
 }));
 
@@ -27,15 +20,15 @@ export default function TopicView({ title, user, message }: TypeTopic) {
   const classes = useStyles();
 
   return (
-    <Box border={1} mt={1} boxShadow={100} className={classes.mainBox} borderRadius={5} p={2}>
-      <Box>
-        <Typography variant="h2" color="textSecondary">
+    <Box boxShadow={100} className={classes.mainBox} borderRadius={8} p={2}>
+      <Box pl={4}>
+        <Typography variant="h3" color="textPrimary">
           {title}
         </Typography>
       </Box>
-      <Box className={classes.infoBox} borderBottom={1} mb={3}>
+      <Box className={classes.infoBox} mb={3}>
         <Paper className={classes.infoPaper}>
-          <Typography className={classes.user} variant="h6" color="textSecondary">
+          <Typography className={classes.user} variant="subtitle1" color="textSecondary">
             Posted by {user} at 5 Januar 2020
           </Typography>
         </Paper>

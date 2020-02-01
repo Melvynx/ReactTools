@@ -48,7 +48,6 @@ export default function GitHubAuthor({ api }: TypeGitHubAuthor) {
         setLoading(false);
       });
   };
-  console.log("author load", loading);
   useEffect(() => {
     if (!author && !loading && api.length > 1) {
       findApiAuthor();

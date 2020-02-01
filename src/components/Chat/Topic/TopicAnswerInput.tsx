@@ -6,9 +6,7 @@ import { firebaseHelper } from "../../utils/firebaseHelper";
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainBox: {
-    backgroundColor: theme.palette.secondary.main,
-    boxShadow: "0px 0px 4px 1px " + theme.palette.primary.dark,
-    borderColor: theme.palette.primary.dark
+    backgroundColor: theme.palette.background.paper
   }
 }));
 
@@ -34,8 +32,8 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
   };
 
   return (
-    <Box border={1} mt={1} boxShadow={100} className={classes.mainBox} borderRadius={5} p={2}>
-      <Typography variant="h4" color="textSecondary">
+    <Box mt={1} boxShadow={100} className={classes.mainBox} borderRadius={5} p={2}>
+      <Typography variant="h4" color="textPrimary">
         Donnez son avis :
       </Typography>
       <InputChat

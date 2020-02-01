@@ -8,9 +8,9 @@ type TypeSettingsButton = {
 
 export default function SettingsButtonChat({ onReset, onCreate }: TypeSettingsButton) {
   return (
-    <Box display="flex" justifyContent="flex-end" m={1}>
+    <Box display="flex" justifyContent="flex-end">
       <Box mr={3}>
-        <Button variant="text" onClick={() => onReset()} color="primary">
+        <Button variant="text" onClick={() => onReset()} color="secondary">
           Reset
         </Button>
       </Box>

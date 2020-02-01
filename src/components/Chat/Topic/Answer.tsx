@@ -8,44 +8,40 @@ type TypeTest212 = {
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {},
-  user: {
+  textPaper: {
     fontStyle: "italic"
   },
   mainBox: {
-    backgroundColor: theme.palette.secondary.main,
-    boxShadow: "0px 0px 4px 1px " + theme.palette.primary.dark
+    backgroundColor: theme.palette.background.paper
   },
-  infoBox: {
-    borderColor: theme.palette.secondary.contrastText
-  },
-  infoPaper: {
-    backgroundColor: theme.palette.secondary.light,
-    height: 25,
-    margin: 5,
-    paddingLeft: 5
+  infoBox: {},
+  paper: {
+    paddingLeft: 8,
+    backgroundColor: theme.palette.divider
   }
 }));
 export default function Answer({ reponse }: TypeTest212) {
   const classes = useStyles();
-  console.log(reponse);
   return (
     <Box>
       {reponse ? (
         <Box>
           {Object.keys(reponse).map((keyName: string, index) => (
             <Box
-              border={1}
               mt={1}
               boxShadow={100}
-              borderColor="primary"
               className={classes.mainBox}
               borderRadius={5}
               p={2}
               key={keyName}
             >
-              <Box className={classes.infoBox} borderBottom={1} mb={3}>
-                <Paper className={classes.infoPaper}>
-                  <Typography className={classes.user} variant="subtitle1" color="textSecondary">
+              <Box className={classes.infoBox} mb={3}>
+                <Paper className={classes.paper}>
+                  <Typography
+                    className={classes.textPaper}
+                    variant="subtitle1"
+                    color="textSecondary"
+                  >
                     Posted by {reponse[keyName].user} at 5 Januar 2020
                   </Typography>
                 </Paper>

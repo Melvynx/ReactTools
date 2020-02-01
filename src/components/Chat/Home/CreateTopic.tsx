@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
 import InputChat from "../Utils/InputChat";
 import SettingsButtonChat from "../Utils/SettingsButtonChat";
+import HomePageLinkButton from "../../HomePage/HomePageLinkButton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   boxRoot: {
-    borderColor: theme.palette.primary.main
+    backgroundColor: theme.palette.background.paper,
+    position: "relative"
   }
 }));
 
@@ -41,11 +43,13 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
 
   const classes = useStyles();
   return (
-    <Box border={1} p={1} className={classes.boxRoot} width="100%">
-      <Typography align="center" color="textSecondary" variant="h3">
+    <Box p={1} className={classes.boxRoot} width="100%" borderRadius={8} mt={1}>
+      <HomePageLinkButton />
+
+      <Typography align="center" color="textPrimary" variant="h3">
         Create you're Topic !
       </Typography>
-      <Typography align="center" color="textSecondary" variant="h6">
+      <Typography align="center" color="textPrimary" variant="h6">
         Create you're dream.
       </Typography>
 

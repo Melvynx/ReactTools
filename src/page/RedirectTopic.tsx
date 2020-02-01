@@ -16,7 +16,6 @@ function Child() {
   // We can use the `useParams` hook here to access
   // the dynamic pieces of the URL.
   let { topicUrl } = useParams();
-  console.log(topicUrl);
 
   const { onValue } = firebaseHelper("chat/topic/" + topicUrl);
 
