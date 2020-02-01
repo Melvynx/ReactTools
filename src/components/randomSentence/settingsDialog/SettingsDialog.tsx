@@ -11,12 +11,8 @@ type TypeSettingsDialog = {
 };
 
 const useStyles = makeStyles(theme => ({
-  background: {
-    backgroundColor: theme.palette.secondary.main
-  },
-  text: {
-    color: theme.palette.secondary.contrastText
-  }
+  background: {},
+  text: {}
 }));
 
 export default function SettingsDialog({ open, onClose, settings, onChange }: TypeSettingsDialog) {
@@ -30,7 +26,6 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
       <SettingsContent
         checked={settings.isCountDown}
         onChange={onChange}
-        className={classes}
         typeSettings="countDown"
         cSwitch
       >
@@ -39,7 +34,6 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
       <SettingsContent
         checked={settings.isOneSentence}
         onChange={onChange}
-        className={classes}
         typeSettings="oneSentence"
         cSwitch
       >
@@ -48,13 +42,12 @@ export default function SettingsDialog({ open, onClose, settings, onChange }: Ty
       <SettingsContent
         onChange={onChange}
         value={String(settings.timerTime)}
-        className={classes}
         typeSettings="timerTime"
       >
         Seconde avant fin du timer
       </SettingsContent>
       <DialogActions className={classes.background}>
-        <Button color="primary" variant="outlined" onClick={() => onClose()}>
+        <Button color="secondary" onClick={() => onClose()}>
           Close
         </Button>
       </DialogActions>

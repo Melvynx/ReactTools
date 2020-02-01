@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box } from "@material-ui/core";
+import { Box, makeStyles, Theme } from "@material-ui/core";
 import BoxShuffleSentence from "./BoxShuffleSentence";
 import CountDown from "./ShuffleCountDown";
 import SettingsButtonShuffle from "../settingsDialog/SettingsButtonShuffle";
@@ -13,6 +13,12 @@ type TypeListRandomWord = {
   timerTime: number;
 };
 
+const useStyles = makeStyles((theme: Theme) => ({
+  boxShuffle: {
+    backgroundColor: theme.palette.divider
+  }
+}));
+
 export default function ShuffleSentence({
   wordList,
   toggleAdding,
@@ -22,6 +28,8 @@ export default function ShuffleSentence({
 }: TypeListRandomWord) {
   const [isCountdown, setIsCountdown] = useState<boolean>(isCountDown);
   const [listSentence, setListSentence] = useState<Array<string>>(shuffleList(wordList));
+
+  const classes = useStyles();
 
   const toggleRandomWord = () => {
     setListSentence(shuffleList(wordList));
@@ -33,7 +41,7 @@ export default function ShuffleSentence({
 
   return (
     <Box>
-      <Box border={1} p={0.8} borderColor="secondary" borderRadius={3}>
+      <Box p={1} m={1} className={classes.boxShuffle} borderRadius={3}>
         {isCountdown ? (
           <CountDown onFinish={toggleCountDown} timerTime={timerTime} />
         ) : isOneSentence ? (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, makeStyles, Grid } from "@material-ui/core";
+import { Box, Typography, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
 import { WEBSITE_NAME, cardHomePage } from "../components/utils/constante";
 

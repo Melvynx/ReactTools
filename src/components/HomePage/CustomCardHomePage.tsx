@@ -22,7 +22,7 @@ export default function CustomCardHomePage({ image, title, body, link }: TypeCus
 
   return (
     <Link to={link} className={classes.link}>
-      <Box maxWidth={350} maxHeight={420}>
+      <Box maxWidth={384} maxHeight={420}>
         <Card>
           <CardActionArea>
             <CardMedia height="150" component="img" image={image} />

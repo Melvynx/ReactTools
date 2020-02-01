@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/styles";
 type TypeSettingsContent = {
   checked?: boolean;
   onChange: Function;
-  className: Record<"background" | "text", string>;
   children: string;
   typeSettings: string;
   cSwitch?: boolean;
@@ -16,22 +15,26 @@ type TypeSettingsContent = {
 const useStyles = makeStyles((theme: Theme) => ({
   textField: {
     width: 50,
-    borderBottom: "1px solid " + theme.palette.primary.main,
+    borderBottom: "1px solid " + theme.palette.secondary.main,
     paddingRight: 5,
-    textAlign: "center"
-  }
+    textAlign: "center",
+    margin: 8
+  },
+  background: {
+    backgroundColor: theme.palette.divider
+  },
+  text: {}
 }));
 
 export default function SettingsContent({
   checked,
   onChange,
-  className,
   children,
   typeSettings,
   cSwitch,
   value
 }: TypeSettingsContent) {
-  const classes = className;
+  const classes = useStyles();
   const customClasses = useStyles();
 
   //cSwitch define if is an Input or a Switch
@@ -44,16 +47,16 @@ export default function SettingsContent({
   };
 
   return (
-    <DialogContent className={classes.background}>
+    <DialogContent>
       <Box
+        className={classes.background}
         display="flex"
-        border={1}
         alignItems="center"
         p={1}
         borderRadius={5}
         justifyContent="space-between"
       >
-        <Typography variant="body1" color="primary" className={classes.text}>
+        <Typography variant="body1" className={classes.text}>
           {children}
         </Typography>
 
