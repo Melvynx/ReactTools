@@ -11,6 +11,8 @@ type TypeInputChat = {
   label: string;
   size?: number;
   multiline?: boolean;
+  fullWidth?: boolean;
+  placeHolder?: string;
 };
 
 export default function InputChat({
@@ -20,7 +22,9 @@ export default function InputChat({
   error,
   helperText,
   size,
-  multiline
+  multiline,
+  fullWidth,
+  placeHolder
 }: TypeInputChat) {
   const useStyles = makeStyles((theme: Theme) => ({
     label: {
@@ -40,11 +44,12 @@ export default function InputChat({
     <Box width="100%">
       <InputLabel className={classes.label}>{label}</InputLabel>
       <CustomTextField
+        placeholder={placeHolder}
         multiline={multiline}
         onChange={event => onChange(event)}
         className={classes.input}
         error={error}
-        fullWidth
+        fullWidth={fullWidth}
         value={value}
         helperText={
           <Box component="span" color={pink[800]}>

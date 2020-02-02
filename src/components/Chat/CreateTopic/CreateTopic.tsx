@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
 import InputChat from "../Utils/InputChat";
 import SettingsButtonChat from "../Utils/SettingsButtonChat";
-import HomePageLinkButton from "../../HomePage/HomePageLinkButton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   boxRoot: {
@@ -44,8 +43,6 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
   const classes = useStyles();
   return (
     <Box p={1} className={classes.boxRoot} width="100%" borderRadius={8} mt={1}>
-      <HomePageLinkButton />
-
       <Typography align="center" color="textPrimary" variant="h3">
         Create you're Topic !
       </Typography>
@@ -53,11 +50,11 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
         Create you're dream.
       </Typography>
 
-      <InputChat label="Title" value={title} onChange={changeTitle} />
+      <InputChat label="Title" value={title} onChange={changeTitle} fullWidth />
 
       <InputChat label="Username" value={username} onChange={changeUsername} />
 
-      <InputChat multiline label="Message" value={message} onChange={changeMessage} />
+      <InputChat multiline label="Message" value={message} onChange={changeMessage} fullWidth />
 
       <SettingsButtonChat onReset={reset} onCreate={createTopic} />
     </Box>

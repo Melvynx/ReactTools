@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { TypeTopic } from "../../utils/constante";
 import CardTopic from "./CardTopic";
 
@@ -10,13 +10,11 @@ type TypeListTopic = {
 export default function ListTopic({ topic }: TypeListTopic) {
   return (
     <Box m={2}>
-      <Grid container spacing={3}>
+      <Box>
         {Object.keys(topic).map((keyName: any, index) => (
-          <Grid item key={index}>
-            <CardTopic keyName={keyName} value={topic[keyName]} />
-          </Grid>
+          <CardTopic key={keyName} keyName={keyName} value={topic[keyName]} />
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }

@@ -8,6 +8,7 @@ export type TypeTopic = {
   title: string;
   user: string;
   message: string;
+  date: string;
   answer?: Array<TypeAnswerChat>;
 };
 

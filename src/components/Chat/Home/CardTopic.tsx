@@ -3,6 +3,7 @@ import { Card, Box, makeStyles, CardContent, Typography } from "@material-ui/cor
 import { TypeTopic } from "../../utils/constante";
 import { Link } from "react-router-dom";
 import Content from "../Utils/Content";
+import Userdate from "../Topic/Userdate";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -11,12 +12,23 @@ const useStyles = makeStyles(theme => ({
   title: {},
   message: {
     lineHeight: "1.5em",
-    maxHeight: "100px" /* height is 2x line-height, so two lines will display */,
+    maxHeight: "150px" /* height is 2x line-height, so two lines will display */,
     overflow: "hidden",
     textOverflow: "ellipsis"
   },
   link: {
     textDecoration: "none"
+  },
+  card: {
+    position: "relative"
+  },
+  overFlow: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    height: 64,
+    background:
+      "linear-gradient(0deg, rgba(36,0,26,1) 0%, rgba(29,29,29,1) 0%, rgba(44,44,44,0) 90%)"
   }
 }));
 
@@ -28,29 +40,20 @@ type TypeCardTopic = {
 export default function CardTopic({ value, keyName }: TypeCardTopic) {
   const classes = useStyles();
   return (
-    <Link to={"/chat/topic/" + keyName} className={classes.link}>
-      <Box width="100%" maxWidth={450} minWidth={200} maxHeight={600}>
+    <Link to={"/forum/topic/" + keyName} className={classes.link}>
+      <Box width="100%" mt={1} mb={1} className={classes.card}>
         <Card>
-          <Box className={classes.header} p={0.5}>
-            <Typography align="center" color="textPrimary" variant="h5" className={classes.title}>
+          <Box className={classes.header} p={1} pl={2}>
+            <Typography color="textPrimary" variant="h4" className={classes.title}>
               {value.title}
             </Typography>
-            <Typography
-              align="center"
-              color="textPrimary"
-              variant="subtitle1"
-              className={classes.title}
-            >
-              {value.user}
-            </Typography>
+            <Userdate user={value.user} date={value.date} />
           </Box>
-
-          <CardContent>
-            <Typography variant="body1" className={classes.message}>
-              <Content>{value.message}</Content>
-            </Typography>
+          <CardContent className={classes.message}>
+            <Content>{value.message}</Content>
           </CardContent>
         </Card>
+        <Box className={classes.overFlow}></Box>
       </Box>
     </Link>
   );

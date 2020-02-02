@@ -7,7 +7,7 @@ import { TypeTopic } from "../components/utils/constante";
 export default function RedirectTopic() {
   return (
     <Switch>
-      <Route path="/chat/topic/:topicUrl" children={<Child />} />
+      <Route path="/forum/topic/:topicUrl" children={<Child />} />
     </Switch>
   );
 }
@@ -16,7 +16,6 @@ function Child() {
   // We can use the `useParams` hook here to access
   // the dynamic pieces of the URL.
   let { topicUrl } = useParams();
-
   const { onValue } = firebaseHelper("chat/topic/" + topicUrl);
 
   useEffect(() => {
