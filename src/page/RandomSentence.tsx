@@ -51,10 +51,20 @@ export default function RandomSentence() {
         });
         break;
       case "timerTime":
+        let paramNumber: number = 0;
+        if (!isNaN(Number(param))) {
+          paramNumber = Number(param);
+        }
         setSettings({
           isOneSentence: settings.isOneSentence,
           isCountDown: settings.isCountDown,
-          timerTime: Number(param)
+          timerTime: Number(paramNumber)
+        });
+
+        setSettings({
+          isOneSentence: settings.isOneSentence,
+          isCountDown: settings.isCountDown,
+          timerTime: Number(paramNumber)
         });
         break;
     }

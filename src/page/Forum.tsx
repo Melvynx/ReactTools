@@ -5,7 +5,7 @@ import ListTopic from "../components/Chat/Home/ListTopic";
 import { firebaseHelper } from "../components/utils/firebaseHelper";
 import { TypeTopic } from "../components/utils/constante";
 
-export default function Chat() {
+export default function Forum() {
   const { onValue, push } = firebaseHelper("chat/topic");
 
   const [topic, setTopic] = useState<Array<TypeTopic>>([]);

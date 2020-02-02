@@ -13,7 +13,7 @@ import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
 import Footer from "./components/App/Footer";
-import Chat from "./page/Chat";
+import Forum from "./page/Forum";
 import RedirectTopic from "./page/RedirectTopic";
 
 let theme = createMuiTheme({
@@ -82,8 +82,8 @@ export default function App() {
             <Route path="/chat/topic">
               <RedirectTopic />
             </Route>
-            <Route path="/chat">
-              <Chat />
+            <Route path="/forum">
+              <Forum />
             </Route>
             <Route path="/test"></Route>
             <Route path="/">

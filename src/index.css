@@ -61,6 +61,9 @@ code {
   opacity: 0;
   transform: translateX(30px);
 }
+.safariRight {
+  align-self: right;
+}
 /*Other browsers*/
 
 /*/Webkit (Chrome, Safari)*/
@@ -68,6 +71,10 @@ code {
   .buttonSafari {
     position: relative;
     bottom: 3px;
+  }
+
+  .safariRight {
+    align-self: right;
   }
 }
 
