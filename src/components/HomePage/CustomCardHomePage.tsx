@@ -9,21 +9,9 @@ import {
   makeStyles
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
-export type TypeCustomCardHomePage = {
-  image: string;
-  title: string;
-  body: string;
-  link: string;
-};
+import { TypeCustomCardHomePage } from "../utils/constante";
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    border: "1px solid " + theme.palette.primary.dark
-  },
-  background: {
-    backgroundColor: theme.palette.secondary.main
-  },
   link: {
     textDecoration: "none"
   }
@@ -34,15 +22,17 @@ export default function CustomCardHomePage({ image, title, body, link }: TypeCus
 
   return (
     <Link to={link} className={classes.link}>
-      <Box maxWidth={350} maxHeight={420}>
-        <Card className={classes.card}>
-          <CardActionArea className={classes.background + " " + classes.card}>
+      <Box maxWidth={384} maxHeight={420}>
+        <Card>
+          <CardActionArea>
             <CardMedia height="150" component="img" image={image} />
             <CardContent>
               <Typography noWrap variant="h4">
                 {title}
               </Typography>
-              <Typography variant="body1">{body}</Typography>
+              <Typography variant="body1" color="textSecondary">
+                {body}
+              </Typography>
             </CardContent>
           </CardActionArea>
         </Card>

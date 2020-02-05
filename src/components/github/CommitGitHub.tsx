@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, makeStyles } from "@material-ui/core";
 import CommitBox from "./CommitBox";
+import CommitSkeleton from "./Skeleton/CommitSkeleton";
 
 type TypeCommitGitHub = {
   apiCommit: any;
@@ -42,11 +43,13 @@ export default function CommitGitHub({ apiCommit }: TypeCommitGitHub) {
           5 last commits
         </Typography>
       </Box>
-      {isLoad
-        ? fiveFirstCommit().map((value: any, index: number) => (
-            <CommitBox value={value} index={index} key={index} />
-          ))
-        : "no commit"}
+      {isLoad ? (
+        fiveFirstCommit().map((value: any, index: number) => (
+          <CommitBox value={value} index={index} key={index} />
+        ))
+      ) : (
+        <CommitSkeleton />
+      )}
     </Box>
   );
 }

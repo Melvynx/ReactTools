@@ -1,37 +1,55 @@
 import React from "react";
 
-import { CssBaseline, ThemeProvider, createMuiTheme, Box } from "@material-ui/core";
-import { purple } from "@material-ui/core/colors";
+import {
+  CssBaseline,
+  ThemeProvider,
+  createMuiTheme,
+  Box,
+  responsiveFontSizes
+} from "@material-ui/core";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
 import HomePage from "./page/HomePage";
 import BaseCalculator from "./page/BaseCalculator";
 import GitHubPages from "./page/GitHubPages";
 import Footer from "./components/App/Footer";
-import Chat from "./page/Chat";
+import Forum from "./page/Forum";
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
+    type: "dark",
     primary: {
-      main: purple["A700"],
+      main: "#bb87fa",
       contrastText: "#000"
     },
-    text: {
-      primary: purple["A700"],
-      secondary: "#fff"
-    },
     secondary: {
-      main: "#222222",
+      main: "#1ddac6",
       contrastText: "#fff"
     },
+    error: {
+      light: "##ef9a9a",
+      main: "#ce667a",
+      dark: "#af0025",
+      contrastText: "#7e7e7e"
+    },
     background: {
-      default: "#222222"
+      default: "#1d1d1d",
+      paper: "#2c2c2c"
     }
   },
   typography: {
     subtitle1: {
       fontStyle: "italic"
-    }
+    },
+    fontFamily: [
+      "Roboto",
+      "Arial",
+      "Verdana",
+      "Courier",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"'
+    ].join(",")
   },
   spacing: 8,
   overrides: {
@@ -42,6 +60,7 @@ const theme = createMuiTheme({
     }
   }
 });
+theme = responsiveFontSizes(theme);
 
 export default function App() {
   return (
@@ -59,8 +78,8 @@ export default function App() {
             <Route path="/github">
               <GitHubPages />
             </Route>
-            <Route path="/chat">
-              <Chat />
+            <Route path="/forum">
+              <Forum />
             </Route>
             <Route path="/test"></Route>
             <Route path="/">

@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Button, makeStyles } from "@material-ui/core";
+import { Box, makeStyles, IconButton } from "@material-ui/core";
 import SettingsIcon from "@material-ui/icons/Settings";
 
 const useStyles = makeStyles({
   button: {
-    width: 30,
-    height: 30
+    width: 42,
+    height: 42
   }
 });
 
@@ -19,14 +19,9 @@ export default function SettingsButton({ onClick }: TypeSettingsButton) {
   return (
     <>
       <Box position="absolute" top={10} right={10}>
-        <Button
-          className={classes.button}
-          color="primary"
-          onClick={() => onClick()}
-          variant="outlined"
-        >
-          <SettingsIcon className="buttonSafari" color="primary" />
-        </Button>
+        <IconButton className={classes.button} color="secondary" onClick={() => onClick()}>
+          <SettingsIcon className="buttonSafari" color="secondary" />
+        </IconButton>
       </Box>
     </>
   );

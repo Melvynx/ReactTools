@@ -7,8 +7,8 @@ type TypeButtonReset = {
 
 export default function ButtonReset({ onClick }: TypeButtonReset) {
   return (
-    <Box display="flex" justifyContent="right">
-      <Button onClick={() => onClick()} color="primary" variant="outlined">
+    <Box display="flex" justifyContent="right" flexDirection="row-reverse">
+      <Button onClick={() => onClick()} color="secondary" className="safariRight">
         Reset
       </Button>
     </Box>

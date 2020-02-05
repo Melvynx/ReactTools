@@ -13,13 +13,14 @@ const useStylesReddit = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       border: "1px solid " + theme.palette.primary.dark,
-      color: theme.palette.primary.light,
+      color: theme.palette.text.primary,
       padding: 1.5,
       paddingLeft: 6,
       borderRadius: 3,
       fontSize: 18,
+      minHeight: 38,
       overflow: "hidden",
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: theme.palette.background.paper,
       transition: theme.transitions.create(["border-color", "box-shadow"]),
       "&:hover": {
         boxShadow: `${fade(theme.palette.primary.main, 0.15)} 1px 1px 0 2px`

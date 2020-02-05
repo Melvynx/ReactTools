@@ -11,22 +11,22 @@ interface Props extends SwitchProps {
 export const CustomSwitch = withStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: 60,
+      width: 50,
       height: 30,
       padding: 0,
       margin: theme.spacing(1)
     },
     switchBase: {
       padding: 1,
-      color: theme.palette.primary.main,
+      color: theme.palette.secondary.main,
       "&$checked": {
-        transform: "translateX(35px)",
-        color: theme.palette.secondary.main,
+        transform: "translateX(100px)",
+        color: theme.palette.secondary.dark,
         backgroundColor: "none",
         "& + $track": {
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.secondary.light,
           opacity: 1,
-          border: `1px solid ${theme.palette.primary.main}`
+          border: `1px solid ${theme.palette.secondary.main}`
         }
       },
       "&$focusVisible $thumb": {
@@ -43,17 +43,10 @@ export const CustomSwitch = withStyles((theme: Theme) =>
     },
     track: {
       borderRadius: 10 / 2,
-      border: `1px solid ${theme.palette.secondary.light}`,
-      backgroundColor: theme.palette.secondary.main,
+      border: `1px solid ${theme.palette.divider}`,
+      backgroundColor: theme.palette.divider,
       opacity: 1,
       transition: theme.transitions.create(["background-color", "border"])
-    },
-    checked: {
-      backgroundColor: "none",
-      color: "red"
-    },
-    focusVisible: {
-      color: "red"
     }
   })
 )(({ classes, ...props }: Props) => {

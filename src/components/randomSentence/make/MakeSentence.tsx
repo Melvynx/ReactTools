@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Box, Button, makeStyles, Fade } from "@material-ui/core";
+import { Box, Button, makeStyles, Fade, Theme } from "@material-ui/core";
 import ListMakeSentence from "./ListMakeSentence";
 import { Alert } from "@material-ui/lab";
 import InputMakeSentence from "./InputMakeSentence";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme:Theme) => ({
   inputBase: {
     fontSize: 20,
     transition: "all .5",
-    borderBottom: "1px solid #aa00ff",
+    borderBottom: "1px solid " + theme.palette.primary.main,
     "&:action": {
       borderBottom: "1px solid red"
     }
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     marginLeft: "2px",
     width: "20%"
   }
-});
+}));
 
 type TypeAddWord = {
   wordList: Array<string>;
@@ -107,12 +107,7 @@ export default function MakeSentence({
       >
         Ramdomizzz
       </Button>
-      <Button
-        onClick={() => toggleClean()}
-        color="primary"
-        variant="outlined"
-        className={classes.buttonReset}
-      >
+      <Button onClick={() => toggleClean()} color="secondary" className={classes.buttonReset}>
         Clean
       </Button>
     </Box>

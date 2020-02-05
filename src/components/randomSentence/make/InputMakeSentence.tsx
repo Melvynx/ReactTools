@@ -17,8 +17,8 @@ export default function InputMakeSentence({
   classes
 }: TypeInputMakeSentence) {
   return (
-    <Box display="flex" p={1} alignItems="center">
-      <Box width="100%" p={1}>
+    <Box display="flex" alignItems="center" mb={2}>
+      <Box width="100%">
         <InputBase
           onKeyUp={event => onKeyUp(event)}
           color="primary"
@@ -29,12 +29,7 @@ export default function InputMakeSentence({
           placeholder="sentence..."
         />
       </Box>
-      <Button
-        onClick={() => onClick()}
-        className={classes.button}
-        color="primary"
-        variant="outlined"
-      >
+      <Button onClick={() => onClick()} className={classes.button} color="primary">
         Add
       </Button>
     </Box>

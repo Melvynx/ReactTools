@@ -4,15 +4,13 @@ import { Skeleton } from "@material-ui/lab";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
-  skeletonRect: {
-    backgroundColor: theme.palette.primary.dark
-  },
+  skeletonRect: {},
   skeletonText: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.main,
     height: 35
   },
   skeletonTextWhite: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.text.secondary,
     height: 35
   }
 }));
@@ -22,7 +20,7 @@ export default function GitHubAuthorSkeleton() {
   return (
     <Box>
       <Box display="flex" justifyContent="center" alignItems="center">
-        <Box width={100} mr={4} height={100} border={2} borderColor="primary">
+        <Box width={100} mr={4} height={100}>
           <Skeleton className={classes.skeletonRect} variant="rect" height="100%"></Skeleton>
         </Box>
         <Skeleton
@@ -43,15 +41,14 @@ export default function GitHubAuthorSkeleton() {
           <Skeleton className={classes.skeletonText} width={125} variant="text"></Skeleton>
         </Box>
 
-        <Box border={1} borderColor="primary" display="flex">
-          <Box borderRight={1} p={1}>
-            <Skeleton className={classes.skeletonTextWhite} width={75} variant="text"></Skeleton>
-            <Skeleton className={classes.skeletonText} width={75} variant="text"></Skeleton>
-          </Box>
-          <Box p={1} borderLeft={1}>
-            <Skeleton className={classes.skeletonTextWhite} width={75} variant="text"></Skeleton>
-            <Skeleton className={classes.skeletonText} width={75} variant="text"></Skeleton>
-          </Box>
+        <Box>
+          <Skeleton className={classes.skeletonTextWhite} width={125} variant="text"></Skeleton>
+          <Skeleton className={classes.skeletonText} width={125} variant="text"></Skeleton>
+        </Box>
+
+        <Box>
+          <Skeleton className={classes.skeletonTextWhite} width={125} variant="text"></Skeleton>
+          <Skeleton className={classes.skeletonText} width={125} variant="text"></Skeleton>
         </Box>
       </Box>
     </Box>

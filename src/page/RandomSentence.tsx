@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       marginTop: 12
     }
+  },
+  mainBox: {
+    backgroundColor: theme.palette.background.paper
   }
 }));
 
@@ -48,10 +51,20 @@ export default function RandomSentence() {
         });
         break;
       case "timerTime":
+        let paramNumber: number = 0;
+        if (!isNaN(Number(param))) {
+          paramNumber = Number(param);
+        }
         setSettings({
           isOneSentence: settings.isOneSentence,
           isCountDown: settings.isCountDown,
-          timerTime: Number(param)
+          timerTime: Number(paramNumber)
+        });
+
+        setSettings({
+          isOneSentence: settings.isOneSentence,
+          isCountDown: settings.isCountDown,
+          timerTime: Number(paramNumber)
         });
         break;
     }
@@ -89,13 +102,12 @@ export default function RandomSentence() {
     <Box display="flex" justifyContent="center">
       <Box
         mt={1}
-        p={1}
-        border={1}
-        borderColor="primary"
-        borderRadius={1}
+        p={2}
+        borderRadius={8}
         position="relative"
-        maxWidth={500}
+        maxWidth={512}
         width="100%"
+        className={classes.mainBox}
       >
         <HomePageLinkButton />
 
@@ -110,8 +122,8 @@ export default function RandomSentence() {
 
         <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
 
-        <Typography className={classes.title} color="textSecondary" align="center" variant="h3">
-          Random word or sentence !
+        <Typography className={classes.title} align="center" variant="h3">
+          Random you're sentence !
         </Typography>
 
         <Typography color="textSecondary" align="center" variant="subtitle1">

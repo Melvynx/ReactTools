@@ -39,7 +39,7 @@ export default function GitHubPages() {
 
   return (
     <Box display="flex" justifyContent="center">
-      <Box maxWidth={1000} width="100%">
+      <Box maxWidth={1000} width="100%" position="relative">
         <HomePageLinkButton />
 
         <GitHubAuthor api={apiRepos} />

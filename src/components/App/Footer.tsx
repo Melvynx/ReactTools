@@ -5,7 +5,7 @@ import { WEBSITE_NAME } from "../utils/constante";
 
 const useStyles = makeStyles((theme: Theme) => ({
   box: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.dark
   }
 }));
 
@@ -22,13 +22,13 @@ export default function Footer() {
         width="100%"
         alignItems="center"
       >
-        <Typography color="secondary" align="center" variant="body1">
-          {WEBSITE_NAME} Made By MelvynX
+        <Typography color="textSecondary" align="center" variant="body1">
+          <b>{WEBSITE_NAME}</b> Made By <b>MelvynX</b>
         </Typography>
-        <Typography color="secondary" align="center" variant="body1">
+        <Typography color="textSecondary" align="center" variant="body1">
           Deploy on GitHubPage
         </Typography>
-        <Typography color="secondary" align="center" variant="body1">
+        <Typography color="textSecondary" align="center" variant="body1">
           melvynx 2019
         </Typography>
       </Box>
