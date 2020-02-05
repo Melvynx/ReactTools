@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Fab, makeStyles, Theme } from "@material-ui/core";
-import HomePageLinkButton from "../../HomePage/HomePageLinkButton";
 import { Switch, Route, Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import HomePageLinkButton from "../../HomePage/HomePageLinkButton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainBox: {

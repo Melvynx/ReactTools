@@ -122,8 +122,8 @@ export default function RandomSentence() {
 
         <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
 
-        <Typography className={classes.title} align="center" variant="h3">
-          Random you're sentence !
+        <Typography className={classes.title} align="center" variant="h4">
+          Random you're sentence!
         </Typography>
 
         <Typography color="textSecondary" align="center" variant="subtitle1">

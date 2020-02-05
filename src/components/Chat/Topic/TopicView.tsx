@@ -24,7 +24,7 @@ export default function TopicView({ title, user, message, date }: TypeTopic) {
   const classes = useStyles();
 
   return (
-    <Box boxShadow={100} className={classes.mainBox} borderRadius={8}>
+    <Box>
       <Box className={classes.titleBox} p={1} pl={2} borderRadius={8}>
         <Typography variant="h3" color="textPrimary">
           {title}

@@ -6,11 +6,7 @@ import SettingsButton from "../components/randomSentence/settingsDialog/Settings
 import SettingsDialog from "../components/baseCalculator/SettingsDialog";
 
 const useStyles = makeStyles(theme => ({
-  title: {
-    [theme.breakpoints.down("sm")]: {
-      marginTop: 40
-    }
-  },
+  title: {},
   mainBox: {
     backgroundColor: theme.palette.background.paper
   }

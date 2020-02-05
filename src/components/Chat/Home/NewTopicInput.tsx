@@ -25,7 +25,7 @@ export default function NewTopicInput() {
           fullWidth
           placeHolder="Create a new Topic !"
           value={""}
-          onChange={() => console.log("change")}
+          onChange={() => {}}
         />
       </Link>
     </Box>

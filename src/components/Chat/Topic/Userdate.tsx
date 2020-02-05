@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function Userdate({ user, date }: TypeUserDate) {
+export default function UserdateSkeleton({ user, date }: TypeUserDate) {
   const classes = useStyles();
 
   return (
