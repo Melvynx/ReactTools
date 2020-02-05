@@ -36,8 +36,40 @@ To familiarize myself with api in GitHub, I create my Custom page GitHub with li
 On this page, we can find information of my github account 👨‍💻.
 After, we have a card per repository, with commit list and fork's link.
 
+## 4. Topic page
+
+> I create a Topic page will be update in RealTime
+
+Ohhhhhhh !
+
+Can create a Topic with *Title*, *Message* and *Author name* 🌝.
+Can comment any topic with *Message* and *Author Name* 🌞.
+ 
+A authentification by FireBase in in Progress... 😮
+ 
 ### Change log
 
+* V1.5 : 
+    * **Global**
+        * Refonte all style
+        * Change primary and secondary color
+        * Change all background
+        * Change display button
+        * -> style smooth 😮
+    * Add a **Forum**
+        * can create topic
+        * can comment topic
+
+* V1.3 : 
+    * GitHub page
+        * add skeleton before request
+    * RandomSentence
+        * add settings : edit time timer 
+    * Topic (not visible)
+        * Start topic
+        * Link with firebase
+        * Create Topic component
+        * Other in progress...
 
 * V1.3 : 
     * GitHub page
