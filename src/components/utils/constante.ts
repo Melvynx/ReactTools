@@ -40,7 +40,7 @@ export const cardHomePage: Array<TypeCustomCardHomePage> = [
     image:
       "https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA",
     title: "GitHub MelvynX",
-    body: "It's a page who resens my GitHub pages !!!",
+    body: "It's a page who resens my GitHub pages !!! We can see all repos.",
     link: "/github"
   },
   {

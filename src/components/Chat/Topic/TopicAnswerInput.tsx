@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import InputChat from "../Utils/InputChat";
 import SettingsButtonChat from "../Utils/SettingsButtonChat";
 import { firebaseHelper } from "../../utils/firebaseHelper";
-
-const useStyles = makeStyles((theme: Theme) => ({
-  mainBox: {
-    backgroundColor: theme.palette.background.paper
-  }
-}));
 
 type TypeTopicAnswerInput = {
   topicID?: string;
@@ -16,10 +10,10 @@ type TypeTopicAnswerInput = {
 
 export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
   const [user, setUser] = useState<string>("");
+  const [errorUser, setErrorUser] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const { push } = firebaseHelper("chat/topic/" + topicID + "/answer");
-
-  const classes = useStyles();
 
   const reset = () => {
     setUser("");
@@ -27,25 +21,61 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
   };
 
   const createAnswer = () => {
-    push({ user: user, message: message });
+    let date = new Date();
+    push({ user: user, message: message, date: date.toLocaleString() });
     reset();
   };
 
+  const checkUser = () => {
+    if (user.length < 2) {
+      setErrorUser("Username need 3 caractères.");
+      return false;
+    }
+    if (user.length > 20) {
+      setErrorUser("Username can't have mort than 20 caractères.");
+      return false;
+    }
+    setErrorUser("");
+    return true;
+  };
+
+  const checkMessage = () => {
+    if (message.length < 3) {
+      setErrorMessage("Username need 3 caractères.");
+      return false;
+    }
+    if (message.length > 20) {
+      setErrorMessage("Username can't have mort than 20 caractères.");
+      return false;
+    }
+    setErrorMessage("");
+    return true;
+  };
+
   return (
-    <Box mt={1} boxShadow={100} className={classes.mainBox} borderRadius={5} p={2}>
+    <Box borderRadius={5} p={2}>
       <Typography variant="h4" color="textPrimary">
-        Donnez son avis :
+        Un avis ?
       </Typography>
       <InputChat
         label="Username"
         value={user}
-        onChange={(event: any) => setUser(event.target.value)}
+        helperText={errorUser}
+        onChange={(event: any) => {
+          setUser(event.target.value);
+          checkUser();
+        }}
       />
       <InputChat
         multiline
+        fullWidth
         label="Message"
         value={message}
-        onChange={(event: any) => setMessage(event.target.value)}
+        helperText={errorMessage}
+        onChange={(event: any) => {
+          setMessage(event.target.value);
+          checkMessage();
+        }}
       />
       <SettingsButtonChat onCreate={createAnswer} onReset={reset} />
     </Box>

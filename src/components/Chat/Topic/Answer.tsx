@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, makeStyles, Theme, Typography, Paper } from "@material-ui/core";
+import { Box, makeStyles, Theme } from "@material-ui/core";
 import Content from "../Utils/Content";
+import Userdate from "./Userdate";
 
-type TypeTest212 = {
+type TypeAnswer = {
   reponse?: any;
 };
 
@@ -14,13 +15,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   mainBox: {
     backgroundColor: theme.palette.background.paper
   },
-  infoBox: {},
+  userBox: {
+    backgroundColor: theme.palette.divider
+  },
   paper: {
     paddingLeft: 8,
     backgroundColor: theme.palette.divider
   }
 }));
-export default function Answer({ reponse }: TypeTest212) {
+export default function Answer({ reponse }: TypeAnswer) {
   const classes = useStyles();
   return (
     <Box>
@@ -35,18 +38,12 @@ export default function Answer({ reponse }: TypeTest212) {
               p={2}
               key={keyName}
             >
-              <Box className={classes.infoBox} mb={3}>
-                <Paper className={classes.paper}>
-                  <Typography
-                    className={classes.textPaper}
-                    variant="subtitle1"
-                    color="textSecondary"
-                  >
-                    Posted by {reponse[keyName].user} at 5 Januar 2020
-                  </Typography>
-                </Paper>
+              <Box className={classes.userBox} p={1} pl={2} borderRadius={8}>
+                <Userdate user={reponse[keyName].user} date={reponse[keyName].date} />
               </Box>
-              <Content>{reponse[keyName].message}</Content>
+              <Box p={2}>
+                <Content>{reponse[keyName].message}</Content>
+              </Box>
             </Box>
           ))}
         </Box>

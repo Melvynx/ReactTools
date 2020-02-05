@@ -42,13 +42,16 @@ let theme = createMuiTheme({
       fontStyle: "italic"
     },
     fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
       "Roboto",
-      "Arial",
-      "Verdana",
-      "Courier",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Open Sans",
+      "Helvetica Neue",
+      "sans-serif"
     ].join(",")
   },
   spacing: 8,
@@ -67,7 +70,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box pb={34}>
-        <Router basename="/tools">
+        <Router basename="">
           <Switch>
             <Route path="/randomWord">
               <RandomSentence />
