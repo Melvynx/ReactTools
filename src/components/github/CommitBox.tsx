@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Link, Typography, Theme } from "@material-ui/core";
-import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
+import { GITHUB_KEY, GITHUB_NAME } from "../../utils/constante";
 import { makeStyles } from "@material-ui/styles";
 
 type TypeCommitBox = {

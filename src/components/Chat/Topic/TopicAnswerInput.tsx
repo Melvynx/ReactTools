@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import InputChat from "../Utils/InputChat";
 import SettingsButtonChat from "../Utils/SettingsButtonChat";
-import { firebaseHelper } from "../../utils/firebaseHelper";
+import { firebaseHelper } from "../../../utils/firebaseHelper";
+import { ROOT_DATABASE } from "../../../utils/constante";
 
 type TypeTopicAnswerInput = {
   topicID?: string;
@@ -13,7 +14,7 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
   const [errorUser, setErrorUser] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const { push } = firebaseHelper("chat/topic/" + topicID + "/answer");
+  const { push } = firebaseHelper(ROOT_DATABASE + "/topic/" + topicID + "/answer");
 
   const reset = () => {
     setUser("");

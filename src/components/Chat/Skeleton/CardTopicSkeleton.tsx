@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Box, makeStyles, CardContent } from "@material-ui/core";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic } from "../../../utils/constante";
 import { Skeleton } from "@material-ui/lab";
 import UserdateSkeleton from "./UserdateSkeleton";
 

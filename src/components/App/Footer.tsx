@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Theme } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { WEBSITE_NAME } from "../utils/constante";
+import { WEBSITE_NAME } from "../../utils/constante";
 
 const useStyles = makeStyles((theme: Theme) => ({
   box: {

@@ -3,7 +3,7 @@ import { Box, Grid } from "@material-ui/core";
 import CardGitHubRepos from "../components/github/CardGitHubRepos";
 import GitHubAuthor from "../components/github/GitHubAuthor";
 import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
-import { GITHUB_NAME, GITHUB_KEY } from "../components/utils/constante";
+import { GITHUB_NAME, GITHUB_KEY } from "../utils/constante";
 import CardGitHubSkeleton from "../components/github/Skeleton/CardGitHubSkeleton";
 
 export default function GitHubPages() {

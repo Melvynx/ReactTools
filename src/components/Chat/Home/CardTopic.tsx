@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Box, makeStyles, CardContent, Typography } from "@material-ui/core";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic } from "../../../utils/constante";
 import { Link } from "react-router-dom";
 import Content from "../Utils/Content";
 import Userdate from "../Topic/Userdate";

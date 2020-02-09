@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { firebaseHelper } from "../../utils/firebaseHelper";
+import { firebaseHelper } from "../../../utils/firebaseHelper";
 import NewTopicInput from "./NewTopicInput";
 import ListTopic from "./ListTopic";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic, ROOT_DATABASE } from "../../../utils/constante";
 
 export default function HomePage() {
-  const { onValue } = firebaseHelper("chat/topic");
+  const { onValue } = firebaseHelper(ROOT_DATABASE + "/topic");
 
   const [topic, setTopic] = useState<Array<TypeTopic>>([]);
 

@@ -4,6 +4,13 @@ export const GITHUB_KEY = "cb15fc5496778827637f265238600794d28f3e07";
 
 export const WEBSITE_NAME = "VonQey";
 
+enum EnumRootDataBase {
+  prod = "chat",
+  ninja = "chat_ninja"
+}
+
+export const ROOT_DATABASE: EnumRootDataBase = EnumRootDataBase.ninja;
+
 export type TypeTopic = {
   title: string;
   user: string;
@@ -17,6 +24,9 @@ export type TypeAnswerChat = {
   message: string;
 };
 
+export type TypeAuthDoc = {
+  group: string;
+};
 //HomePage : Array of card
 
 export const cardHomePage: Array<TypeCustomCardHomePage> = [

@@ -1,5 +1,5 @@
 import React from "react";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic } from "../../../utils/constante";
 import { Box, Typography, makeStyles, Theme } from "@material-ui/core";
 import Content from "../Utils/Content";
 import Userdate from "./Userdate";

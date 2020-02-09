@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Theme, Divider } from "@material-ui/core";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic } from "../../../utils/constante";
 import TopicView from "./TopicView";
 import Answer from "./Answer";
 import TopicAnswerInput from "./TopicAnswerInput";
