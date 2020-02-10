@@ -18,6 +18,9 @@ export default function UserAccount({ auth, onClose, authDoc, onLogout }: TypeUs
       <DialogContent>
         <Uservalue label="Email adresse :">{auth.email}</Uservalue>
         <Uservalue label="User Group">{authDoc.group}</Uservalue>
+        <Uservalue label="Account created at">
+          {new Date(authDoc.created_at).toLocaleString()}
+        </Uservalue>
       </DialogContent>
       <DialogActions>
         <Button color="primary" onClick={() => onLogout()}>

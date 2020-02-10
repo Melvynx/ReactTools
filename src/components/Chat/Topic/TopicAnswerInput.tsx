@@ -3,13 +3,14 @@ import { Box, Typography } from "@material-ui/core";
 import InputChat from "../Utils/InputChat";
 import SettingsButtonChat from "../Utils/SettingsButtonChat";
 import { firebaseHelper } from "../../../utils/firebaseHelper";
-import { ROOT_DATABASE } from "../../../utils/constante";
+import { ROOT_DATABASE, TypeAuthForum } from "../../../utils/constante";
 
 type TypeTopicAnswerInput = {
   topicID?: string;
+  auth?: TypeAuthForum;
 };
 
-export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
+export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput) {
   const [user, setUser] = useState<string>("");
   const [errorUser, setErrorUser] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -22,8 +23,16 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
   };
 
   const createAnswer = () => {
+    if (errorUser.length > 1 || errorMessage.length > 1) {
+      return false;
+    }
     let date = new Date();
-    push({ user: user, message: message, date: date.toLocaleString() });
+    push({
+      user_id: auth ? auth.auth.uid : "anonyme",
+      user: auth ? auth.auth.displayName : user,
+      message: message,
+      date: date.getTime()
+    });
     reset();
   };
 
@@ -42,11 +51,11 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
 
   const checkMessage = () => {
     if (message.length < 3) {
-      setErrorMessage("Username need 3 caractères.");
+      setErrorMessage("Message need 3 caractères.");
       return false;
     }
-    if (message.length > 20) {
-      setErrorMessage("Username can't have mort than 20 caractères.");
+    if (message.length > 2000) {
+      setErrorMessage("Message can't have mort than 2000 caractères.");
       return false;
     }
     setErrorMessage("");
@@ -58,15 +67,17 @@ export default function TopicAnswerInput({ topicID }: TypeTopicAnswerInput) {
       <Typography variant="h4" color="textPrimary">
         Un avis ?
       </Typography>
-      <InputChat
-        label="Username"
-        value={user}
-        helperText={errorUser}
-        onChange={(event: any) => {
-          setUser(event.target.value);
-          checkUser();
-        }}
-      />
+      {auth ? null : (
+        <InputChat
+          label="Username"
+          value={user}
+          helperText={errorUser}
+          onChange={(event: any) => {
+            setUser(event.target.value);
+            checkUser();
+          }}
+        />
+      )}
       <InputChat
         multiline
         fullWidth

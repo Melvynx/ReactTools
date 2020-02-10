@@ -14,18 +14,40 @@ export const ROOT_DATABASE: EnumRootDataBase = EnumRootDataBase.ninja;
 export type TypeTopic = {
   title: string;
   user: string;
+  user_id: string;
   message: string;
   date: string;
   answer?: Array<TypeAnswerChat>;
+  auth?: TypeAuthForum;
+  topicID?: string;
+};
+
+export type TypeTopicList = {
+  topic: TypeTopic;
+  key: string;
 };
 
 export type TypeAnswerChat = {
+  user_id: string;
   user: string;
   message: string;
+  date: string;
+};
+
+export type TypeArrayAnswer = {
+  key: string;
+  val: TypeAnswerChat;
 };
 
 export type TypeAuthDoc = {
   group: string;
+  created_at: number;
+  username: string;
+};
+
+export type TypeAuthForum = {
+  auth: any;
+  collection: TypeAuthDoc;
 };
 //HomePage : Array of card
 

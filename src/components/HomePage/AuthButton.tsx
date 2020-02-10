@@ -6,7 +6,7 @@ export default function AuthButton() {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Box position="absolute" top={10} left={10}>
+    <Box position="absolute" top={12} right={10}>
       <Button color="primary" variant="contained" onClick={() => setOpen(true)}>
         Account
       </Button>

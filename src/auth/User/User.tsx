@@ -15,7 +15,11 @@ export default function User({ open, onClose }: TypeCreateUser) {
   const [isLogin, setLogin] = useState<boolean>(false);
   const [isCreate, setCreate] = useState<boolean>(false);
   const [auth, setAuth] = useState<any>();
-  const [authDoc, setAuthDoc] = useState<TypeAuthDoc>({ group: "" });
+  const [authDoc, setAuthDoc] = useState<TypeAuthDoc>({
+    group: "",
+    created_at: 0,
+    username: ""
+  });
 
   const { authListener, getCollection, logout } = authHelper();
 
@@ -37,7 +41,7 @@ export default function User({ open, onClose }: TypeCreateUser) {
       } else {
         setLogin(false);
         setAuth(null);
-        setAuthDoc({ group: "" });
+        setAuthDoc({ group: "", created_at: 1, username: "" });
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

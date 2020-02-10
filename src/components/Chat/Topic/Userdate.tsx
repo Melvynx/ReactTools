@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function UserdateSkeleton({ user, date }: TypeUserDate) {
+export default function Userdate({ user, date }: TypeUserDate) {
   const classes = useStyles();
 
   return (
@@ -25,7 +25,7 @@ export default function UserdateSkeleton({ user, date }: TypeUserDate) {
       </Box>
       <Box display="flex" flexDirection="column" justifyContent="center" ml={1}>
         <Typography variant="body1">{user}</Typography>
-        <Typography variant="subtitle1">{date}</Typography>
+        <Typography variant="subtitle1">{new Date(date).toLocaleString()}</Typography>
       </Box>
     </Box>
   );

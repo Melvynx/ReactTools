@@ -3,6 +3,7 @@ import { TypeTopic } from "../../../utils/constante";
 import { Box, Typography, makeStyles, Theme } from "@material-ui/core";
 import Content from "../Utils/Content";
 import Userdate from "./Userdate";
+import SettingsTopicButton from "./SettingsTopicButton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {},
@@ -20,7 +21,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function TopicView({ title, user, message, date }: TypeTopic) {
+export default function TopicView({
+  title,
+  user,
+  message,
+  date,
+  auth,
+  topicID,
+  user_id
+}: TypeTopic) {
   const classes = useStyles();
 
   return (
@@ -34,6 +43,7 @@ export default function TopicView({ title, user, message, date }: TypeTopic) {
       <Box p={2}>
         <Content>{message}</Content>
       </Box>
+      <SettingsTopicButton auth={auth} topicID={topicID} userID={user_id} />
     </Box>
   );
 }

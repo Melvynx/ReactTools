@@ -12,9 +12,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 type TypeCreateTopic = {
   create: Function;
+  isAuth: boolean;
 };
 
-export default function CreateTopic({ create }: TypeCreateTopic) {
+export default function CreateTopic({ create, isAuth }: TypeCreateTopic) {
   const [title, setTitle] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -51,9 +52,7 @@ export default function CreateTopic({ create }: TypeCreateTopic) {
       </Typography>
 
       <InputChat label="Title" value={title} onChange={changeTitle} fullWidth />
-
-      <InputChat label="Username" value={username} onChange={changeUsername} />
-
+      {isAuth ? null : <InputChat label="Username" value={username} onChange={changeUsername} />}
       <InputChat multiline label="Message" value={message} onChange={changeMessage} fullWidth />
 
       <SettingsButtonChat onReset={reset} onCreate={createTopic} />

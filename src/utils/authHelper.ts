@@ -12,9 +12,10 @@ export function authHelper() {
         .createUserWithEmailAndPassword(email, password)
         .then((cred: firebase.auth.UserCredential) => {
           if (cred.user) {
+            const localTime = new Date().getTime();
             db.collection("users")
               .doc(cred.user.uid)
-              .set({ group: "user" });
+              .set({ group: "user", created_at: localTime, username: user });
 
             cred.user.updateProfile({
               displayName: user
