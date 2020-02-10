@@ -13,9 +13,19 @@ export function firebaseHelper(path: string) {
     node.push(value, onComplete);
   }
 
+  function deleteValue() {
+    node.remove();
+  }
+
+  function editValue(value: any) {
+    node.set(value);
+  }
+
   return {
     onValue,
     push,
-    node
+    node,
+    deleteValue,
+    editValue
   };
 }

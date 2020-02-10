@@ -53,7 +53,7 @@ export default function Topic({ topic, topicID }: TypeTopicComponent) {
         <Divider />
         <TopicAnswerInput auth={auth} topicID={topicID} />
       </Box>
-      <Answer reponse={topic.answer} />
+      <Answer reponse={topic.answer} auth={auth} topicID={topicID} />
     </Box>
   ) : (
     <Topic

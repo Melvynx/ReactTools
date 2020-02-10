@@ -5,9 +5,11 @@ import { TypeArrayAnswer } from "../../../utils/constante";
 
 type TypeAnswer = {
   reponse?: any;
+  topicID?: string;
+  auth: any;
 };
 
-export default function Answer({ reponse }: TypeAnswer) {
+export default function Answer({ reponse, auth, topicID }: TypeAnswer) {
   const reponseArray = () => {
     const array: Array<TypeArrayAnswer> = [];
     Object.keys(reponse).map((keyName: string, index) =>
@@ -21,7 +23,13 @@ export default function Answer({ reponse }: TypeAnswer) {
       {reponse ? (
         <Box>
           {reponseArray().map(value => (
-            <AnswerComponent reponse={value.val} keyName={value.key} key={value.key} />
+            <AnswerComponent
+              reponse={value.val}
+              auth={auth}
+              topicID={topicID}
+              keyName={value.key}
+              key={value.key}
+            />
           ))}
         </Box>
       ) : null}

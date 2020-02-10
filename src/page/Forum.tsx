@@ -13,7 +13,7 @@ export default function Forum() {
 
   return (
     <Box display="flex" justifyContent="center" width="100%">
-      <Box width="100%" maxWidth={1000}>
+      <Box width="100%" maxWidth={800}>
         <ForumBar />
         <Switch>
           <Route path="/forum/topic">

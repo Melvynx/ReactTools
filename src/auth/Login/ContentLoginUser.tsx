@@ -59,7 +59,7 @@ export default function ContentLoginUser({ onClose, onCreate }: TypeContentCreat
         />
       </DialogContent>
       <DialogActions>
-        <Button color="primary" onClick={() => onCreate()}>
+        <Button variant="outlined" color="primary" onClick={() => onCreate()}>
           Create a account
         </Button>
         <Button color="primary" onClick={submit}>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button } from "@material-ui/core";
-import { TypeAuthForum } from "../../../utils/constante";
-import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import EditIcon from "@material-ui/icons/Edit";
+import { Box } from "@material-ui/core";
+import { TypeAuthForum, ROOT_DATABASE } from "../../../utils/constante";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 type TypeSettingsTopicButton = {
   auth?: TypeAuthForum;
@@ -27,12 +27,9 @@ export default function SettingsTopicButton({ auth, topicID, userID }: TypeSetti
 
   return havePermission ? (
     <Box display="flex" justifyContent="flex-end" width="100%">
-      <Button>
-        <DeleteForeverIcon />
-      </Button>
-      <Button>
-        <EditIcon />
-      </Button>
+      <DeleteButton needRedirect path={ROOT_DATABASE + "/topic/" + topicID} />
+
+      <EditButton path={ROOT_DATABASE + "/topic/" + topicID} />
     </Box>
   ) : null;
 }
