@@ -17,13 +17,21 @@ export default function EditButton({ path }: TypeEditButton) {
   const { editValue, onValue } = firebaseHelper(path);
 
   useEffect(() => {
+    //Var when componend deleted, go true, and stop effect
+    let deleted = false;
     onValue((topic: any) => {
+      if (deleted) {
+        return;
+      }
       if (topic) {
         setMessage(topic.message);
         setTitle(topic.title);
         setTopic(topic);
       }
     });
+    return () => {
+      deleted = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

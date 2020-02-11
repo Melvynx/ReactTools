@@ -27,7 +27,7 @@ export default function SettingsTopicButton({ auth, topicID, userID }: TypeSetti
 
   return havePermission ? (
     <Box display="flex" justifyContent="flex-end" width="100%">
-      <DeleteButton needRedirect path={ROOT_DATABASE + "/topic/" + topicID} />
+      <DeleteButton needRedirect path={ROOT_DATABASE + "/topic/" + topicID} type="topic" />
 
       <EditButton path={ROOT_DATABASE + "/topic/" + topicID} />
     </Box>

@@ -28,7 +28,7 @@ export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput
     }
     let date = new Date();
     push({
-      user_id: auth ? auth.auth.uid : "anonyme",
+      user_id: auth ? auth.auth.uid : "anonymous",
       user: auth ? auth.auth.displayName : user,
       message: message,
       date: date.getTime()

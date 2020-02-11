@@ -29,7 +29,7 @@ export default function CreateTopicPage() {
 
     push({
       title: title,
-      user_id: auth ? auth.uid : "Anonym",
+      user_id: auth ? auth.uid : "anonymous",
       user: auth ? auth.displayName : username,
       message: message,
       date: date.getTime()

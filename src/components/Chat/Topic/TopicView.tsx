@@ -31,14 +31,14 @@ export default function TopicView({
   user_id
 }: TypeTopic) {
   const classes = useStyles();
-
+  console.log("userid", user_id);
   return (
     <Box>
       <Box className={classes.titleBox} p={1} pl={2} borderRadius={8}>
         <Typography variant="h3" color="textPrimary">
           {title}
         </Typography>
-        <Userdate user={user} date={date} />
+        <Userdate user={user} date={date} auth={user_id === "anonymous" ? false : true} />
       </Box>
       <Box p={2}>
         <Content>{message}</Content>

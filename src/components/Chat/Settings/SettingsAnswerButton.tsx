@@ -33,7 +33,10 @@ export default function SettingsAnswerButton({
   return havePermission ? (
     <>
       <Box display="flex" justifyContent="flex-end" width="100%">
-        <DeleteButton path={ROOT_DATABASE + "/topic/" + topicID + "/answer/" + answer} />
+        <DeleteButton
+          path={ROOT_DATABASE + "/topic/" + topicID + "/answer/" + answer}
+          type="answer"
+        />
       </Box>
       <Divider />
     </>

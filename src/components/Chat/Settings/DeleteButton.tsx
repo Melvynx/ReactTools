@@ -7,9 +7,10 @@ import { Redirect } from "react-router-dom";
 type TypeDeleteButton = {
   path: string;
   needRedirect?: boolean;
+  type: string;
 };
 
-export default function DeleteButton({ path, needRedirect }: TypeDeleteButton) {
+export default function DeleteButton({ path, needRedirect, type }: TypeDeleteButton) {
   const [open, setOpen] = useState<boolean>(false);
   const [redirect, setRedirect] = useState<boolean>(false);
 
@@ -30,7 +31,7 @@ export default function DeleteButton({ path, needRedirect }: TypeDeleteButton) {
         <DeleteForeverIcon />
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>Are you're sure to delete this Topic ?</DialogTitle>
+        <DialogTitle>Are you're sure to delete this {type} ?</DialogTitle>
         <DialogActions>
           <Button onClick={deleteTopic} color="secondary">
             Yes

@@ -4,6 +4,7 @@ import { Avatar, Box, Typography, makeStyles, Theme } from "@material-ui/core";
 type TypeUserDate = {
   user: string;
   date: string;
+  auth?: boolean;
 };
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function Userdate({ user, date }: TypeUserDate) {
+export default function Userdate({ user, date, auth }: TypeUserDate) {
   const classes = useStyles();
 
   return (
@@ -24,7 +25,19 @@ export default function Userdate({ user, date }: TypeUserDate) {
         </Avatar>
       </Box>
       <Box display="flex" flexDirection="column" justifyContent="center" ml={1}>
-        <Typography variant="body1">{user}</Typography>
+        <Box display="flex" alignItems="center">
+          <Typography variant="body1">{user}</Typography>
+          {auth ? (
+            <img
+              src="images/validation.png"
+              width={15}
+              height={15}
+              alt="validation"
+              style={{ margin: 2 }}
+            />
+          ) : null}
+        </Box>
+
         <Typography variant="subtitle1">{new Date(date).toLocaleString()}</Typography>
       </Box>
     </Box>

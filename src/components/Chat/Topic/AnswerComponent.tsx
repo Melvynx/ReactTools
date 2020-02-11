@@ -34,7 +34,11 @@ export default function AnswerComponent({ reponse, keyName, topicID, auth }: Typ
   return (
     <Box mt={1} boxShadow={100} className={classes.mainBox} borderRadius={5} p={2} key={keyName}>
       <Box className={classes.userBox} p={1} pl={2} borderRadius={8}>
-        <Userdate user={reponse.user} date={reponse.date} />
+        <Userdate
+          user={reponse.user}
+          date={reponse.date}
+          auth={reponse.user_id === "anonymous" ? false : true}
+        />
       </Box>
       <Box p={2}>
         <Content>{reponse.message}</Content>
