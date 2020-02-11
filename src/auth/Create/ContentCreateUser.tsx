@@ -33,7 +33,6 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
     ) {
       const { create } = authHelper();
       create(email, password, username);
-      onClose();
     } else {
       setHelperUsername(validationUsername.helperText);
       setHelperEmail(validationEmail.helperText);

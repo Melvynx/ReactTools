@@ -6,6 +6,7 @@ import Answer from "./Answer";
 import TopicAnswerInput from "./TopicAnswerInput";
 import { makeStyles } from "@material-ui/styles";
 import { authHelper } from "../../../utils/authHelper";
+import TopicSkeleton from "../Skeleton/TopicSkeleton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainBox: {
@@ -67,8 +68,6 @@ export default function Topic({ topic, topicID }: TypeTopicComponent) {
       <Answer reponse={topic.answer} auth={auth} topicID={topicID} />
     </Box>
   ) : (
-    <Topic
-      topic={{ title: " ", user: " ", message: " ", date: " \n\n\n", answer: [], user_id: "" }}
-    ></Topic>
+    <TopicSkeleton />
   );
 }
