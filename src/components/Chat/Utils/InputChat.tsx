@@ -13,6 +13,7 @@ type TypeInputChat = {
   multiline?: boolean;
   fullWidth?: boolean;
   placeHolder?: string;
+  type?: string;
 };
 
 export default function InputChat({
@@ -24,7 +25,8 @@ export default function InputChat({
   size,
   multiline,
   fullWidth,
-  placeHolder
+  placeHolder,
+  type
 }: TypeInputChat) {
   const useStyles = makeStyles((theme: Theme) => ({
     label: {
@@ -44,6 +46,7 @@ export default function InputChat({
     <Box width="100%">
       <InputLabel className={classes.label}>{label}</InputLabel>
       <CustomTextField
+        type={type ? type : undefined}
         placeholder={placeHolder}
         multiline={multiline}
         onChange={event => onChange(event)}

@@ -55,6 +55,7 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
         <InputChat
           value={email}
           label="Email"
+          type="email"
           fullWidth
           onChange={(event: any) => setEmail(event.target.value)}
           helperText={helperEmail}
@@ -62,6 +63,7 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
         <InputChat
           value={password}
           label="Password"
+          type="password"
           fullWidth
           onChange={(event: any) => setPassword(event.target.value)}
           helperText={helperPassword}
@@ -69,6 +71,7 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
         <InputChat
           value={confirmedPassword}
           label="Confirm password"
+          type="password"
           fullWidth
           onChange={(event: any) => setConfirmedPassword(event.target.value)}
           helperText={helperConfirmedPassword}
