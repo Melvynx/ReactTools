@@ -32,18 +32,18 @@ export default function CreateTopicInput({ isAuth, onCreate }: TypeCreateTopicIn
       } else {
         setHelperUsername("");
       }
-      if (title.length <= 6 || title.length > 50) {
-        setHelperTitle("Username need to be between 6 and 50 caractères.");
-        isReady = false;
-      } else {
-        setHelperTitle("");
-      }
-      if (message.length < 50 || message.length > 10000) {
-        setHelperMessage("Username need to be between 50 and 10000 caractères.");
-        isReady = false;
-      } else {
-        setHelperMessage("");
-      }
+    }
+    if (title.length <= 6 || title.length > 50) {
+      setHelperTitle("Username need to be between 6 and 50 caractères.");
+      isReady = false;
+    } else {
+      setHelperTitle("");
+    }
+    if (message.length < 50 || message.length > 10000) {
+      setHelperMessage("Username need to be between 50 and 10000 caractères.");
+      isReady = false;
+    } else {
+      setHelperMessage("");
     }
     return isReady;
   };
