@@ -24,7 +24,7 @@ export function authHelper() {
         })
 
         .catch(e => {
-          console.log(e);
+          console.warn(e);
         });
     }
   }

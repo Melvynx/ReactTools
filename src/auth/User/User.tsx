@@ -42,7 +42,6 @@ export default function User({ open, onClose }: TypeCreateUser) {
       if (auth) {
         setAuth(auth);
         setLogin(true);
-        console.log("uid", auth.uid);
         getCollection(auth.uid, (doc: TypeAuthDoc) => setAuthDoc(doc));
       } else {
         setLogin(false);

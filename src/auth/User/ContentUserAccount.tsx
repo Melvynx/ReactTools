@@ -11,7 +11,6 @@ type TypeUserAccount = {
 };
 
 export default function UserAccount({ auth, onClose, authDoc, onLogout }: TypeUserAccount) {
-  console.log(auth);
   return (
     <>
       <DialogTitle>Hi {auth.displayName}</DialogTitle>

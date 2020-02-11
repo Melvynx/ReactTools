@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { DialogContent, DialogActions, Button, DialogTitle } from "@material-ui/core";
-import InputChat from "../../components/Chat/Utils/InputChat";
 import { checkEmail, checkUsername, checkPassword, checkConfirmPassword } from "../utils/checkUser";
 import { authHelper } from "../../utils/authHelper";
+import InputUser from "../utils/InputUser";
 
 type TypeContentCreateUser = {
   onClose: Function;
@@ -45,34 +45,30 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
     <>
       <DialogTitle>Create an account !</DialogTitle>
       <DialogContent>
-        <InputChat
+        <InputUser
           value={username}
           label="Username"
-          fullWidth
           onChange={(event: any) => setUsername(event.target.value)}
           helperText={helperUsername}
         />
-        <InputChat
+        <InputUser
           value={email}
           label="Email"
           type="email"
-          fullWidth
           onChange={(event: any) => setEmail(event.target.value)}
           helperText={helperEmail}
         />
-        <InputChat
+        <InputUser
           value={password}
           label="Password"
           type="password"
-          fullWidth
           onChange={(event: any) => setPassword(event.target.value)}
           helperText={helperPassword}
         />
-        <InputChat
+        <InputUser
           value={confirmedPassword}
           label="Confirm password"
           type="password"
-          fullWidth
           onChange={(event: any) => setConfirmedPassword(event.target.value)}
           helperText={helperConfirmedPassword}
         />

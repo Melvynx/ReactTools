@@ -9,9 +9,19 @@ type TypeInputChat = {
   error?: boolean;
   helperText?: string;
   label: string;
+  type?: string;
+  onKeyEnter?: Function;
 };
 
-export default function InputUser({ value, label, onChange, error, helperText }: TypeInputChat) {
+export default function InputUser({
+  value,
+  label,
+  onChange,
+  error,
+  helperText,
+  type,
+  onKeyEnter
+}: TypeInputChat) {
   const useStyles = makeStyles((theme: Theme) => ({
     label: {
       fontSize: 14,
@@ -30,8 +40,16 @@ export default function InputUser({ value, label, onChange, error, helperText }:
     <Box width="100%">
       <InputLabel className={classes.label}>{label}</InputLabel>
       <CustomTextField
+        type={type ? type : undefined}
         onChange={event => onChange(event)}
         className={classes.input}
+        onKeyDown={event => {
+          if (event.key === "Enter") {
+            if (onKeyEnter) {
+              onKeyEnter();
+            }
+          }
+        }}
         error={error}
         value={value}
         fullWidth
