@@ -10,9 +10,19 @@ export default function HomePage() {
   const [topic, setTopic] = useState<Array<TypeTopic>>([]);
 
   useEffect(() => {
+    let deleted = false;
+
     onValue((firebaseTopic: any) => {
+      //If component deleted, do nothing
+      if (deleted) {
+        return;
+      }
       setTopic(firebaseTopic);
     });
+    //Set deleted on unmounted component
+    return () => {
+      deleted = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

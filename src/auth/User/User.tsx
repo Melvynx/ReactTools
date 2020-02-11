@@ -32,7 +32,13 @@ export default function User({ open, onClose }: TypeCreateUser) {
   };
 
   useEffect(() => {
+    let deleted = false;
+
     authListener((auth: any) => {
+      //If component is delete, do nothing
+      if (deleted) {
+        return;
+      }
       if (auth) {
         setAuth(auth);
         setLogin(true);
@@ -44,6 +50,10 @@ export default function User({ open, onClose }: TypeCreateUser) {
         setAuthDoc({ group: "", created_at: 1, username: "" });
       }
     });
+    //Set component on unmounted
+    return () => {
+      deleted = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

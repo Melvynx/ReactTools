@@ -21,7 +21,6 @@ export default function DeleteButton({ path, needRedirect }: TypeDeleteButton) {
     }
     setTimeout(() => {
       deleteValue();
-      setOpen(false);
     }, 100);
   };
 

@@ -19,9 +19,17 @@ function Child() {
   const { onValue } = firebaseHelper(ROOT_DATABASE + "/topic/" + topicUrl);
 
   useEffect(() => {
+    let deleted = false;
     onValue((firebaseTopic: any) => {
+      if (deleted) {
+        return;
+      }
       setTopic(firebaseTopic);
     });
+
+    return () => {
+      deleted = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
