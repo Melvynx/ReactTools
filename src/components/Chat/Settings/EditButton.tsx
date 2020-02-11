@@ -34,7 +34,7 @@ export default function EditButton({ path }: TypeEditButton) {
       title: title,
       user: topic.user,
       user_id: topic.user_id,
-      answer: topic.answer
+      answer: topic.answer ? topic.answer : {}
     });
     setOpen(false);
   };
