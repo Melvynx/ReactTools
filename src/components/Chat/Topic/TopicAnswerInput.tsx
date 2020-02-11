@@ -12,9 +12,10 @@ type TypeTopicAnswerInput = {
 
 export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput) {
   const [user, setUser] = useState<string>("");
-  const [errorUser, setErrorUser] = useState<string>("");
+  const [helperUser, setHelperUser] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [helperMessage, setHelperMessage] = useState<string>("");
+  
   const { push } = firebaseHelper(ROOT_DATABASE + "/topic/" + topicID + "/answer");
 
   const reset = () => {
@@ -23,9 +24,12 @@ export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput
   };
 
   const createAnswer = () => {
-    if (errorUser.length > 1 || errorMessage.length > 1) {
-      return false;
+    const userValide = auth?.auth ? true : checkUser();
+    const messageValide = checkMessage();
+    if (!userValide || !messageValide) {
+      return;
     }
+
     let date = new Date();
     push({
       user_id: auth ? auth.auth.uid : "anonymous",
@@ -37,28 +41,20 @@ export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput
   };
 
   const checkUser = () => {
-    if (user.length < 2) {
-      setErrorUser("Username need 3 caractères.");
+    if (user.length < 3 || user.length >= 20) {
+      setHelperUser("Message need to be between 4 and 20 caracteres");
       return false;
     }
-    if (user.length > 20) {
-      setErrorUser("Username can't have mort than 20 caractères.");
-      return false;
-    }
-    setErrorUser("");
+    setHelperUser("");
     return true;
   };
 
   const checkMessage = () => {
-    if (message.length < 3) {
-      setErrorMessage("Message need 3 caractères.");
+    if (message.length < 5 || message.length > 2000) {
+      setHelperMessage("Message need to be between 6 and 2000 caracteres");
       return false;
     }
-    if (message.length > 2000) {
-      setErrorMessage("Message can't have mort than 2000 caractères.");
-      return false;
-    }
-    setErrorMessage("");
+    setHelperMessage("");
     return true;
   };
 
@@ -71,10 +67,9 @@ export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput
         <InputChat
           label="Username"
           value={user}
-          helperText={errorUser}
+          helperText={helperUser}
           onChange={(event: any) => {
             setUser(event.target.value);
-            checkUser();
           }}
         />
       )}
@@ -83,10 +78,9 @@ export default function TopicAnswerInput({ topicID, auth }: TypeTopicAnswerInput
         fullWidth
         label="Message"
         value={message}
-        helperText={errorMessage}
+        helperText={helperMessage}
         onChange={(event: any) => {
           setMessage(event.target.value);
-          checkMessage();
         }}
       />
       <SettingsButtonChat onCreate={createAnswer} onReset={reset} />
