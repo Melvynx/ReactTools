@@ -41,7 +41,7 @@ export default function CardTopic({ value, keyName }: TypeCardTopic) {
   const classes = useStyles();
   return (
     <Link to={"/forum/topic/" + keyName} className={classes.link}>
-      <Box width="100%" mt={1} mb={1} className={classes.card}>
+      <Box width="100%" mt={1} mb={2} className={classes.card}>
         <Card>
           <Box className={classes.header} p={1} pl={2}>
             <Typography color="textPrimary" variant="h4" className={classes.title}>

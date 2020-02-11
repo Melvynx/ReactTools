@@ -18,7 +18,7 @@ export default function ListTopic({ topic }: TypeListTopic) {
   };
 
   return (
-    <Box m={2}>
+    <Box mt={2} mb={2}>
       <Box>
         {topic.length === 0
           ? ["a", "b", "c", "d"].map(value => <CardTopicSkeleton key={value} />)
