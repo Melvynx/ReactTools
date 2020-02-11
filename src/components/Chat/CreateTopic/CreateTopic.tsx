@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, makeStyles, Theme, Typography } from "@material-ui/core";
-import InputChat from "../Utils/InputChat";
-import SettingsButtonChat from "../Utils/SettingsButtonChat";
+import CreateTopicInput from "./CreateTopicInput";
 
 const useStyles = makeStyles((theme: Theme) => ({
   boxRoot: {
@@ -16,28 +15,7 @@ type TypeCreateTopic = {
 };
 
 export default function CreateTopic({ create, isAuth }: TypeCreateTopic) {
-  const [title, setTitle] = useState<string>("");
-  const [username, setUsername] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-
-  const changeTitle = (event: any) => {
-    setTitle(event.target.value);
-  };
-  const changeUsername = (event: any) => {
-    setUsername(event.target.value);
-  };
-  const changeMessage = (event: any) => {
-    setMessage(event.target.value);
-  };
-
-  const reset = () => {
-    setTitle("");
-    setUsername("");
-    setMessage("");
-  };
-
-  const createTopic = () => {
-    reset();
+  const createTopic = (title: string, username: string, message: string) => {
     create(title, username, message);
   };
 
@@ -51,11 +29,7 @@ export default function CreateTopic({ create, isAuth }: TypeCreateTopic) {
         Create you're dream.
       </Typography>
 
-      <InputChat label="Title" value={title} onChange={changeTitle} fullWidth />
-      {isAuth ? null : <InputChat label="Username" value={username} onChange={changeUsername} />}
-      <InputChat multiline label="Message" value={message} onChange={changeMessage} fullWidth />
-
-      <SettingsButtonChat onReset={reset} onCreate={createTopic} />
+      <CreateTopicInput isAuth={isAuth} onCreate={createTopic} />
     </Box>
   );
 }

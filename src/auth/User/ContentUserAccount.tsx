@@ -16,7 +16,7 @@ export default function UserAccount({ auth, onClose, authDoc, onLogout }: TypeUs
     <>
       <DialogTitle>Hi {auth.displayName}</DialogTitle>
       <DialogContent>
-        <Uservalue label="Email adresse :">{auth.email}</Uservalue>
+        <Uservalue label="Email adresse">{auth.email}</Uservalue>
         <Uservalue label="User Group">{authDoc.group}</Uservalue>
         <Uservalue label="Account created at">
           {new Date(authDoc.created_at).toLocaleString()}

@@ -26,7 +26,14 @@ export default function Topic({ topic, topicID }: TypeTopicComponent) {
   const { authListener, getCollection } = authHelper();
 
   useEffect(() => {
+    //Set variable for unmounted componend.
+    let deleted = false;
     authListener((actualAuth: any) => {
+      //If the composent is unmounted, return.
+      if (deleted) {
+        return;
+      }
+
       if (actualAuth) {
         getCollection(actualAuth.uid, (doc: TypeAuthDoc) =>
           setAuth({ auth: actualAuth, collection: doc })
@@ -35,6 +42,10 @@ export default function Topic({ topic, topicID }: TypeTopicComponent) {
         setAuth(undefined);
       }
     });
+
+    return () => {
+      deleted = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
