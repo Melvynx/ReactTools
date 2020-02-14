@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-import { DialogContent, DialogActions, Button, DialogTitle } from "@material-ui/core";
-import { checkEmail, checkUsername, checkPassword, checkConfirmPassword } from "../utils/checkUser";
+import {
+  DialogContent,
+  DialogActions,
+  Button,
+  DialogTitle
+} from "@material-ui/core";
+import {
+  checkEmail,
+  checkUsername,
+  checkPassword,
+  checkConfirmPassword
+} from "../utils/checkUser";
 import { authHelper } from "../../utils/authHelper";
 import InputUser from "../utils/InputUser";
 
@@ -9,7 +19,10 @@ type TypeContentCreateUser = {
   onLogin: Function;
 };
 
-export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreateUser) {
+export default function ContentCreateUser({
+  onClose,
+  onLogin
+}: TypeContentCreateUser) {
   const [email, setEmail] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -17,13 +30,18 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
   const [helperEmail, setHelperEmail] = useState<string>("");
   const [helperUsername, setHelperUsername] = useState<string>("");
   const [helperPassword, setHelperPassword] = useState<string>("");
-  const [helperConfirmedPassword, setHelperConfirmedPassword] = useState<string>("");
+  const [helperConfirmedPassword, setHelperConfirmedPassword] = useState<
+    string
+  >("");
 
   const submit = () => {
     const validationEmail = checkEmail(email);
     const validationUsername = checkUsername(username);
     const validaionPassword = checkPassword(password);
-    const validationConfirmpassword = checkConfirmPassword(password, confirmedPassword);
+    const validationConfirmpassword = checkConfirmPassword(
+      password,
+      confirmedPassword
+    );
 
     if (
       validationEmail.state &&
@@ -32,7 +50,9 @@ export default function ContentCreateUser({ onClose, onLogin }: TypeContentCreat
       validationUsername.state
     ) {
       const { create } = authHelper();
-      create(email, password, username);
+      create(email, password, username, (error: any) => {
+        setHelperEmail(error.message);
+      });
     } else {
       setHelperUsername(validationUsername.helperText);
       setHelperEmail(validationEmail.helperText);

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import EditIcon from "@material-ui/icons/Edit";
-import { Button, Dialog, DialogTitle, DialogActions, DialogContent } from "@material-ui/core";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent
+} from "@material-ui/core";
 import { firebaseHelper } from "../../../utils/firebaseHelper";
 import InputChat from "../Utils/InputChat";
 
@@ -13,6 +19,7 @@ export default function EditButton({ path }: TypeEditButton) {
   const [message, setMessage] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [topic, setTopic] = useState();
+  const [error, setError] = useState<boolean>(false);
 
   const { editValue, onValue } = firebaseHelper(path);
 
@@ -36,15 +43,25 @@ export default function EditButton({ path }: TypeEditButton) {
   }, []);
 
   const editTopic = () => {
-    editValue({
-      date: topic.date,
-      message: message,
-      title: title,
-      user: topic.user,
-      user_id: topic.user_id,
-      answer: topic.answer ? topic.answer : {}
-    });
-    setOpen(false);
+    if (
+      title.length >= 6 &&
+      title.length <= 50 &&
+      message.length >= 50 &&
+      message.length <= 10000
+    ) {
+      editValue({
+        date: topic.date,
+        message: message,
+        title: title,
+        user: topic.user,
+        user_id: topic.user_id,
+        answer: topic.answer ? topic.answer : {}
+      });
+      setOpen(false);
+      setError(false);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -60,6 +77,9 @@ export default function EditButton({ path }: TypeEditButton) {
             fullWidth
             onChange={(event: any) => setTitle(event.target.value)}
             value={title}
+            helperText={
+              error ? "Title need to have between 5 and 50 caracteres." : ""
+            }
           />
           <InputChat
             label="New content"
@@ -67,14 +87,23 @@ export default function EditButton({ path }: TypeEditButton) {
             fullWidth
             onChange={(event: any) => setMessage(event.target.value)}
             value={message}
+            helperText={
+              error
+                ? "Message need to have between 50 and 10000 caracteres."
+                : ""
+            }
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={editTopic} color="secondary">
-            Yes
+            Save
           </Button>
-          <Button onClick={() => setOpen(false)} color="primary" variant="contained">
-            No
+          <Button
+            onClick={() => setOpen(false)}
+            color="primary"
+            variant="contained"
+          >
+            Quit
           </Button>
         </DialogActions>
       </Dialog>

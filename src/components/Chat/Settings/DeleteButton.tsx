@@ -34,10 +34,10 @@ export default function DeleteButton({ path, needRedirect, type }: TypeDeleteBut
         <DialogTitle>Are you're sure to delete this {type} ?</DialogTitle>
         <DialogActions>
           <Button onClick={deleteTopic} color="secondary">
-            Yes
+            Delete
           </Button>
           <Button onClick={() => setOpen(false)} color="primary" variant="contained">
-            No
+            Quit
           </Button>
         </DialogActions>
       </Dialog>

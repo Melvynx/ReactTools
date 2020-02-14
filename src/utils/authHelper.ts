@@ -6,7 +6,12 @@ export function authHelper() {
   const auth = firebase.auth();
   const db = firebase.firestore();
 
-  function create(email: string, password: string, user?: string) {
+  function create(
+    email: string,
+    password: string,
+    user: string,
+    callback: Function,
+  ) {
     if (email && password) {
       auth
         .createUserWithEmailAndPassword(email, password)
@@ -24,7 +29,7 @@ export function authHelper() {
         })
 
         .catch(e => {
-          console.warn(e);
+          callback(e);
         });
     }
   }

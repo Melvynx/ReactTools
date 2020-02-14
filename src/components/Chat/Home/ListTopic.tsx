@@ -20,11 +20,19 @@ export default function ListTopic({ topic }: TypeListTopic) {
   return (
     <Box mt={2} mb={2}>
       <Box>
-        {topic.length === 0
-          ? ["a", "b", "c", "d"].map(value => <CardTopicSkeleton key={value} />)
-          : topicArray().map(value => (
-              <CardTopic key={value.key} keyName={value.key} value={value.topic} />
-            ))}
+        {topic
+          ? topic.length === 0
+            ? ["a", "b", "c", "d"].map(value => (
+                <CardTopicSkeleton key={value} />
+              ))
+            : topicArray().map(value => (
+                <CardTopic
+                  key={value.key}
+                  keyName={value.key}
+                  value={value.topic}
+                />
+              ))
+          : null}
       </Box>
     </Box>
   );

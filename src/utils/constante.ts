@@ -9,7 +9,7 @@ enum EnumRootDataBase {
   ninja = "chat_ninja"
 }
 
-export const ROOT_DATABASE: EnumRootDataBase = EnumRootDataBase.ninja;
+export const ROOT_DATABASE: EnumRootDataBase = EnumRootDataBase.prod;
 
 export type TypeTopic = {
   title: string;
