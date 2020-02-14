@@ -4,7 +4,7 @@ import ListMakeSentence from "./ListMakeSentence";
 import { Alert } from "@material-ui/lab";
 import InputMakeSentence from "./InputMakeSentence";
 
-const useStyles = makeStyles((theme:Theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   inputBase: {
     fontSize: 20,
     transition: "all .5",
@@ -85,7 +85,7 @@ export default function MakeSentence({
     <Box>
       <ListMakeSentence wordList={wordList} toggleDeleteWord={removeWord} />
 
-      <Box position="absolute" top={10} left={10}>
+      <Box position="absolute" top={10} left={30}>
         <Fade in={errorMessage.length > 1}>
           <Alert severity="error">{errorMessage}</Alert>
         </Fade>

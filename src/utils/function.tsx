@@ -2,7 +2,6 @@
 export function randomNumber(max: number) {
   return Math.floor(Math.random() * max);
 }
-
 //Shuffle a list
 export function shuffleList(list: Array<string>) {
   const listCopy: Array<string> = [...list];

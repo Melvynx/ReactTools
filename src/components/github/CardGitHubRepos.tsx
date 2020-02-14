@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Typography, Box, CardContent, Button, Link, makeStyles } from "@material-ui/core";
 import CommitGitHub from "./CommitGitHub";
-import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
+import { GITHUB_KEY, GITHUB_NAME } from "../../utils/constante";
 
 type TypeCardGItHubRepos = {
   api: any;

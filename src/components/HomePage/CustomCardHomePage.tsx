@@ -9,7 +9,7 @@ import {
   makeStyles
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { TypeCustomCardHomePage } from "../utils/constante";
+import { TypeCustomCardHomePage } from "../../utils/constante";
 
 const useStyles = makeStyles(theme => ({
   link: {

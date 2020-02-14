@@ -18,7 +18,7 @@ import {
   hexa_to_oct,
   dec_to_oct,
   bin_to_oct
-} from "../utils/function";
+} from "../../utils/function";
 import { TypeSettings } from "../../page/BaseCalculator";
 import ButtonReset from "./ButtonReset";
 

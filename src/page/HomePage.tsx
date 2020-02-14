@@ -1,11 +1,13 @@
 import React from "react";
 import { Box, Typography, Grid } from "@material-ui/core";
 import CustomCardHomePage from "../components/HomePage/CustomCardHomePage";
-import { WEBSITE_NAME, cardHomePage } from "../components/utils/constante";
+import { WEBSITE_NAME, cardHomePage } from "../utils/constante";
+import AuthButton from "../components/HomePage/AuthButton";
 
 export default function HomePage() {
   return (
     <Box alignItems="center" textAlign="center">
+      <AuthButton />
       <Typography variant="h2">{WEBSITE_NAME}</Typography>
       <Typography variant="h4">App by Melvyn</Typography>
       <Typography variant="subtitle1">It's an app for learn React.</Typography>

@@ -1,6 +1,6 @@
-import React from "react";
-import { Card, Box, makeStyles, CardContent, Typography } from "@material-ui/core";
-import { TypeTopic } from "../../utils/constante";
+import React, { useState } from "react";
+import { Card, Box, makeStyles, CardContent, Typography, Fade } from "@material-ui/core";
+import { TypeTopic } from "../../../utils/constante";
 import { Link } from "react-router-dom";
 import Content from "../Utils/Content";
 import Userdate from "../Topic/Userdate";
@@ -24,11 +24,13 @@ const useStyles = makeStyles(theme => ({
   },
   overFlow: {
     position: "absolute",
+    justifyContent: "center",
+    display: "flex",
+    alignItems: "flex-end",
     bottom: 0,
     width: "100%",
-    height: 64,
-    background:
-      "linear-gradient(0deg, rgba(36,0,26,1) 0%, rgba(29,29,29,1) 0%, rgba(44,44,44,0) 90%)"
+    height: 128,
+    background: "linear-gradient(0deg, #1d1d1d 0%, #1d1d1d 1%, rgba(0,0,0,0) 70%)"
   }
 }));
 
@@ -38,10 +40,18 @@ type TypeCardTopic = {
 };
 
 export default function CardTopic({ value, keyName }: TypeCardTopic) {
+  const [isHover, setHover] = useState(false);
   const classes = useStyles();
   return (
     <Link to={"/forum/topic/" + keyName} className={classes.link}>
-      <Box width="100%" mt={1} mb={1} className={classes.card}>
+      <Box
+        width="100%"
+        mt={1}
+        mb={2}
+        onMouseOver={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={classes.card}
+      >
         <Card>
           <Box className={classes.header} p={1} pl={2}>
             <Typography color="textPrimary" variant="h4" className={classes.title}>
@@ -53,7 +63,13 @@ export default function CardTopic({ value, keyName }: TypeCardTopic) {
             <Content>{value.message}</Content>
           </CardContent>
         </Card>
-        <Box className={classes.overFlow}></Box>
+        <Box className={classes.overFlow}>
+          <Fade in={isHover}>
+            <Typography variant="body1" color="textSecondary">
+              afficher
+            </Typography>
+          </Fade>
+        </Box>
       </Box>
     </Link>
   );

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import GitHubAuthorInformation from "./GitHubAuthorInformation";
-import { GITHUB_KEY, GITHUB_NAME } from "../utils/constante";
+import { GITHUB_KEY, GITHUB_NAME } from "../../utils/constante";
 import GitHubAuthorSkeleton from "./Skeleton/GitHubAuthorSkeleton";
 
 type TypeGitHubAuthor = {

@@ -4,19 +4,51 @@ export const GITHUB_KEY = "cb15fc5496778827637f265238600794d28f3e07";
 
 export const WEBSITE_NAME = "VonQey";
 
+enum EnumRootDataBase {
+  prod = "chat",
+  ninja = "chat_ninja"
+}
+
+export const ROOT_DATABASE: EnumRootDataBase = EnumRootDataBase.prod;
+
 export type TypeTopic = {
   title: string;
   user: string;
+  user_id: string;
   message: string;
   date: string;
   answer?: Array<TypeAnswerChat>;
+  auth?: TypeAuthForum;
+  topicID?: string;
+};
+
+export type TypeTopicList = {
+  topic: TypeTopic;
+  key: string;
 };
 
 export type TypeAnswerChat = {
+  user_id: string;
   user: string;
   message: string;
+  date: string;
 };
 
+export type TypeArrayAnswer = {
+  key: string;
+  val: TypeAnswerChat;
+};
+
+export type TypeAuthDoc = {
+  group: string;
+  created_at: number;
+  username: string;
+};
+
+export type TypeAuthForum = {
+  auth: any;
+  collection: TypeAuthDoc;
+};
 //HomePage : Array of card
 
 export const cardHomePage: Array<TypeCustomCardHomePage> = [

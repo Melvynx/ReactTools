@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, makeStyles, InputLabel, Theme } from "@material-ui/core";
 import { pink } from "@material-ui/core/colors";
-import CustomTextField from "../../Custom/CustomTextField";
+import CustomTextField from "../../components/Custom/CustomTextField";
 
 type TypeInputChat = {
   value: string;
@@ -9,24 +9,18 @@ type TypeInputChat = {
   error?: boolean;
   helperText?: string;
   label: string;
-  size?: number;
-  multiline?: boolean;
-  fullWidth?: boolean;
-  placeHolder?: string;
   type?: string;
+  onKeyEnter?: Function;
 };
 
-export default function InputChat({
+export default function InputUser({
   value,
   label,
   onChange,
   error,
   helperText,
-  size,
-  multiline,
-  fullWidth,
-  placeHolder,
-  type
+  type,
+  onKeyEnter
 }: TypeInputChat) {
   const useStyles = makeStyles((theme: Theme) => ({
     label: {
@@ -47,13 +41,18 @@ export default function InputChat({
       <InputLabel className={classes.label}>{label}</InputLabel>
       <CustomTextField
         type={type ? type : undefined}
-        placeholder={placeHolder}
-        multiline={multiline}
         onChange={event => onChange(event)}
         className={classes.input}
+        onKeyDown={event => {
+          if (event.key === "Enter") {
+            if (onKeyEnter) {
+              onKeyEnter();
+            }
+          }
+        }}
         error={error}
-        fullWidth={fullWidth}
         value={value}
+        fullWidth
         helperText={
           <Box component="span" color={pink[800]}>
             {helperText}{" "}

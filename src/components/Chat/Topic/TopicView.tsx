@@ -1,8 +1,9 @@
 import React from "react";
-import { TypeTopic } from "../../utils/constante";
+import { TypeTopic } from "../../../utils/constante";
 import { Box, Typography, makeStyles, Theme } from "@material-ui/core";
 import Content from "../Utils/Content";
 import Userdate from "./Userdate";
+import SettingsTopicButton from "../Settings/SettingsTopicButton";
 
 const useStyles = makeStyles((theme: Theme) => ({
   title: {},
@@ -20,20 +21,29 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function TopicView({ title, user, message, date }: TypeTopic) {
+export default function TopicView({
+  title,
+  user,
+  message,
+  date,
+  auth,
+  topicID,
+  user_id
+}: TypeTopic) {
   const classes = useStyles();
-
+  console.log("userid", user_id);
   return (
     <Box>
       <Box className={classes.titleBox} p={1} pl={2} borderRadius={8}>
         <Typography variant="h3" color="textPrimary">
           {title}
         </Typography>
-        <Userdate user={user} date={date} />
+        <Userdate user={user} date={date} auth={user_id === "anonymous" ? false : true} />
       </Box>
       <Box p={2}>
         <Content>{message}</Content>
       </Box>
+      <SettingsTopicButton auth={auth} topicID={topicID} userID={user_id} />
     </Box>
   );
 }

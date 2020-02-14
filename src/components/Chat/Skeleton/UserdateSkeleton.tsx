@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-export default function Userdate() {
+export default function UserdateSkeleton() {
   const classes = useStyles();
 
   return (
