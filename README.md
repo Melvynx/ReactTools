@@ -42,13 +42,39 @@ After, we have a card per repository, with commit list and fork's link.
 
 Ohhhhhhh !
 
-Can create a Topic with *Title*, *Message* and *Author name* 🌝.
+Can create a Topic with *Title*, *Message* and *Author name*.
+Can comment any topic with *Message* and *Author Name*.
 
-Can comment any topic with *Message* and *Author Name* 🌞.
+A authentification by FireBase in in Progress...
  
-A authentification by FireBase in in Progress... 😮
- 
+## 5. Auth
+
+> Can create account...
+
+You can now create a account, create topic more easy with you're unique ID.
+Next, can find all you're topic, and answer. 
 ### Change log
+
+* V1.6 :
+    * Auth
+        * Add user dialog (for see account)
+        * add login dialog
+        * add create account dialog
+        * can create a group
+        * add type password on password
+        * add error of firebase on account create 
+    * Forum
+        * Add validation value on create topic
+        * add validation value on create comment
+        * if you're login, the username is not require
+        * remove beug on unmounted component
+        * can submit with enter key
+        * change width forum
+        * change marge forum card topic
+        * add skeleton to topic
+        * add setting button (edit and delete) -> only for owner user or admin.
+        * Add validate icon when topic / answer is create by authentication user
+            * change text on delete button by props
 
 * V1.5 : 
     * **Global**
