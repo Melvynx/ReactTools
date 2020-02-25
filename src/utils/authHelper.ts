@@ -10,7 +10,7 @@ export function authHelper() {
     email: string,
     password: string,
     user: string,
-    callback: Function,
+    callback: Function
   ) {
     if (email && password) {
       auth
@@ -46,6 +46,10 @@ export function authHelper() {
   }
 
   function getCollection(uid: string, callback: Function) {
+    db.collection("users")
+      .get()
+      .then((doc: any) => console.log("eoc", doc));
+
     return db
       .collection("users")
       .doc(uid)

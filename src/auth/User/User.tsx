@@ -5,6 +5,7 @@ import ContentUserAccount from "./ContentUserAccount";
 import ContentLoginUser from "../Login/ContentLoginUser";
 import ContentCreateUser from "../Create/ContentCreateUser";
 import { TypeAuthDoc } from "../../utils/constante";
+import AdminTools from "../Admin/AdminTools";
 
 type TypeCreateUser = {
   open: boolean;
@@ -14,6 +15,7 @@ type TypeCreateUser = {
 export default function User({ open, onClose }: TypeCreateUser) {
   const [isLogin, setLogin] = useState<boolean>(false);
   const [isCreate, setCreate] = useState<boolean>(false);
+  const [adminTools, setAdminTools] = useState<boolean>(false);
   const [auth, setAuth] = useState<any>();
   const [authDoc, setAuthDoc] = useState<TypeAuthDoc>({
     group: "",
@@ -59,7 +61,22 @@ export default function User({ open, onClose }: TypeCreateUser) {
   return (
     <Dialog open={open} onClose={() => onClose()} fullWidth>
       {isLogin ? (
-        <ContentUserAccount onClose={onClose} auth={auth} authDoc={authDoc} onLogout={onLogout} />
+        adminTools ? (
+          <AdminTools
+            onAdmin={() => setAdminTools(false)}
+            onClose={onClose}
+            auth={auth}
+            authDoc={authDoc}
+          />
+        ) : (
+          <ContentUserAccount
+            onClose={onClose}
+            auth={auth}
+            authDoc={authDoc}
+            onLogout={onLogout}
+            onAdmin={() => setAdminTools(true)}
+          />
+        )
       ) : isCreate ? (
         <ContentCreateUser onClose={onClose} onLogin={() => toggleCreate(false)} />
       ) : (
