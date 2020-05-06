@@ -5,7 +5,7 @@ import {
   ThemeProvider,
   createMuiTheme,
   Box,
-  responsiveFontSizes
+  responsiveFontSizes,
 } from "@material-ui/core";
 import { Switch, HashRouter as Router, Route } from "react-router-dom";
 import RandomSentence from "./page/RandomSentence";
@@ -20,26 +20,26 @@ let theme = createMuiTheme({
     type: "dark",
     primary: {
       main: "#bb87fa",
-      contrastText: "#000"
+      contrastText: "#000",
     },
     secondary: {
       main: "#1ddac6",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     error: {
       light: "##ef9a9a",
       main: "#ce667a",
       dark: "#af0025",
-      contrastText: "#7e7e7e"
+      contrastText: "#7e7e7e",
     },
     background: {
       default: "#1d1d1d",
-      paper: "#2c2c2c"
-    }
+      paper: "#2c2c2c",
+    },
   },
   typography: {
     subtitle1: {
-      fontStyle: "italic"
+      fontStyle: "italic",
     },
     fontFamily: [
       "-apple-system",
@@ -51,17 +51,17 @@ let theme = createMuiTheme({
       "Cantarell",
       "Open Sans",
       "Helvetica Neue",
-      "sans-serif"
-    ].join(",")
+      "sans-serif",
+    ].join(","),
   },
   spacing: 8,
   overrides: {
     MuiButton: {
       text: {
-        borderRadius: 2
-      }
-    }
-  }
+        borderRadius: 2,
+      },
+    },
+  },
 });
 theme = responsiveFontSizes(theme);
 
@@ -84,7 +84,6 @@ export default function App() {
             <Route path="/forum">
               <Forum />
             </Route>
-            <Route path="/test"></Route>
             <Route path="/">
               <HomePage />
             </Route>

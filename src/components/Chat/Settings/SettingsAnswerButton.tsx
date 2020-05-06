@@ -14,7 +14,7 @@ export default function SettingsAnswerButton({
   auth,
   topicID,
   userID,
-  answer
+  answer,
 }: TypeSettingsTopicButton) {
   const [havePermission, setPermission] = useState();
 
@@ -34,7 +34,7 @@ export default function SettingsAnswerButton({
     <>
       <Box display="flex" justifyContent="flex-end" width="100%">
         <DeleteButton
-          path={ROOT_DATABASE + "/topic/" + topicID + "/answer/" + answer}
+          path={`${ROOT_DATABASE}/topic/${topicID}/answer/${answer}`}
           type="answer"
         />
       </Box>

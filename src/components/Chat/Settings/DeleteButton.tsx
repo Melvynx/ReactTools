@@ -10,7 +10,11 @@ type TypeDeleteButton = {
   type: string;
 };
 
-export default function DeleteButton({ path, needRedirect, type }: TypeDeleteButton) {
+export default function DeleteButton({
+  path,
+  needRedirect,
+  type,
+}: TypeDeleteButton) {
   const [open, setOpen] = useState<boolean>(false);
   const [redirect, setRedirect] = useState<boolean>(false);
 
