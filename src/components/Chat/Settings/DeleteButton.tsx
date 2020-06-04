@@ -29,6 +29,8 @@ export default function DeleteButton({
     }, 100);
   };
 
+  if (redirect) return <Redirect to="/forum" />;
+
   return (
     <>
       <Button onClick={() => setOpen(true)}>
@@ -45,7 +47,6 @@ export default function DeleteButton({
           </Button>
         </DialogActions>
       </Dialog>
-      {redirect ? <Redirect to="/forum" /> : null}
     </>
   );
 }
