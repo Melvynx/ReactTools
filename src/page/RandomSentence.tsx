@@ -30,7 +30,7 @@ export default function RandomSentence() {
   const [settings, setSettings] = useState<TypeSettings>({
     isCountDown: false,
     isOneSentence: false,
-    timerTime: 10
+    timerTime: 3
   });
   const [openSettings, setOpenSettings] = useState<boolean>(false);
 

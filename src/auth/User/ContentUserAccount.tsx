@@ -1,5 +1,10 @@
 import React from "react";
-import { DialogTitle, DialogContent, DialogActions, Button } from "@material-ui/core";
+import {
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button
+} from "@material-ui/core";
 import { TypeAuthDoc } from "../../utils/constante";
 import Uservalue from "../utils/Uservalue";
 
@@ -8,9 +13,16 @@ type TypeUserAccount = {
   authDoc: TypeAuthDoc;
   onClose: Function;
   onLogout: Function;
+  onAdmin: Function;
 };
 
-export default function UserAccount({ auth, onClose, authDoc, onLogout }: TypeUserAccount) {
+export default function UserAccount({
+  auth,
+  onClose,
+  authDoc,
+  onLogout,
+  onAdmin
+}: TypeUserAccount) {
   return (
     <>
       <DialogTitle>Hi {auth.displayName}</DialogTitle>
@@ -22,6 +34,11 @@ export default function UserAccount({ auth, onClose, authDoc, onLogout }: TypeUs
         </Uservalue>
       </DialogContent>
       <DialogActions>
+        {authDoc.group === "admin" && (
+          <Button color="primary" onClick={() => onAdmin()}>
+            Admins tools
+          </Button>
+        )}
         <Button color="primary" onClick={() => onLogout()}>
           Logout
         </Button>

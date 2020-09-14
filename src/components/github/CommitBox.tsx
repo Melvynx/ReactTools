@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     "&:hover": {
       backgroundColor: theme.palette.divider
     }
+  },
+  link: {
+    color: theme.palette.primary.main
   }
 }));
 
@@ -55,13 +58,25 @@ export default function CommitBox({ value, index }: TypeCommitBox) {
 
   return (
     <Box onMouseEnter={findUrl} className={classes.mainBox}>
-      <Link href={htmlUrl} className="removeUnderline customHoverLink" target="_blank">
+      {htmlUrl.length < 1 ? (
         <Box width="100%" maxWidth={340}>
-          <Typography noWrap variant="body1" className="customHoverLink">
+          <Typography noWrap variant="body1" className={classes.link}>
             {value.commit.message}
           </Typography>
         </Box>
-      </Link>
+      ) : (
+        <Link
+          href={htmlUrl}
+          className="removeUnderline customHoverLink"
+          target="_blank"
+        >
+          <Box width="100%" maxWidth={340}>
+            <Typography noWrap variant="body1" className={classes.link}>
+              {value.commit.message}
+            </Typography>
+          </Box>
+        </Link>
+      )}
     </Box>
   );
 }

@@ -30,9 +30,7 @@ export default function ContentCreateUser({
   const [helperEmail, setHelperEmail] = useState<string>("");
   const [helperUsername, setHelperUsername] = useState<string>("");
   const [helperPassword, setHelperPassword] = useState<string>("");
-  const [helperConfirmedPassword, setHelperConfirmedPassword] = useState<
-    string
-  >("");
+  const [helperConfirmedPassword, setHelperConfirmedPassword] = useState<string>("");
 
   const submit = () => {
     const validationEmail = checkEmail(email);
