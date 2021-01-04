@@ -1,8 +1,10 @@
-# ⚡️ Melvyn Webiste ⚡️
+# ⚡️ React Tools ⚡️
 
-> Learn React 🌐
+> It's an Home Page with three tools.
 
-It's an Home Page with three tools.
+### Motivation
+
+To learn React and API with Firebase and Github api.
 
 ## 1. Random Sentence 
 
@@ -45,7 +47,7 @@ Ohhhhhhh !
 Can create a Topic with *Title*, *Message* and *Author name*.
 Can comment any topic with *Message* and *Author Name*.
 
-A authentification by FireBase in in Progress...
+A authentification by FireBase is in Progress...
  
 ## 5. Auth
 
@@ -53,7 +55,8 @@ A authentification by FireBase in in Progress...
 
 You can now create a account, create topic more easy with you're unique ID.
 Next, can find all you're topic, and answer. 
-### Change log
+
+## Change log
 
 * V1.6 :
     * Auth
