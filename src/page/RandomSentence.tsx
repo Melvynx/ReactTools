@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Box, Typography, makeStyles } from "@material-ui/core";
-import MakeSentence from "../components/randomSentence/make/MakeSentence";
-import ShuffleSentence from "../components/randomSentence/shuffle/ShuffleSentence";
-import SettingsButton from "../components/randomSentence/settingsDialog/SettingsButton";
-import HomePageLinkButton from "../components/HomePage/HomePageLinkButton";
-import SettingsDialog from "../components/randomSentence/settingsDialog/SettingsDialog";
+import React, { useState } from 'react';
+import { Box, Typography, makeStyles } from '@material-ui/core';
+import MakeSentence from '../components/randomSentence/make/MakeSentence';
+import ShuffleSentence from '../components/randomSentence/shuffle/ShuffleSentence';
+import SettingsButton from '../components/randomSentence/settingsDialog/SettingsButton';
+import HomePageLinkButton from '../components/HomePage/HomePageLinkButton';
+import SettingsDialog from '../components/randomSentence/settingsDialog/SettingsDialog';
 
 export type TypeSettings = {
   isCountDown: boolean;
@@ -12,15 +12,15 @@ export type TypeSettings = {
   timerTime: number;
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   title: {
-    [theme.breakpoints.down("sm")]: {
-      marginTop: 12
-    }
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 12,
+    },
   },
   mainBox: {
-    backgroundColor: theme.palette.background.paper
-  }
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
 
 export default function RandomSentence() {
@@ -28,29 +28,29 @@ export default function RandomSentence() {
   const [wordList, setWordList] = useState<Array<string>>([]);
   const [isAdding, setAdding] = useState<boolean>(true);
   const [settings, setSettings] = useState<TypeSettings>({
-    isCountDown: false,
+    isCountDown: true,
     isOneSentence: false,
-    timerTime: 10
+    timerTime: 3,
   });
   const [openSettings, setOpenSettings] = useState<boolean>(false);
 
   const toggleSettings = (value: string, param?: string) => {
     switch (value) {
-      case "countDown":
+      case 'countDown':
         setSettings({
           isCountDown: !settings.isCountDown,
           isOneSentence: settings.isOneSentence,
-          timerTime: settings.timerTime
+          timerTime: settings.timerTime,
         });
         break;
-      case "oneSentence":
+      case 'oneSentence':
         setSettings({
           isOneSentence: !settings.isOneSentence,
           isCountDown: settings.isCountDown,
-          timerTime: settings.timerTime
+          timerTime: settings.timerTime,
         });
         break;
-      case "timerTime":
+      case 'timerTime':
         let paramNumber: number = 0;
         if (!isNaN(Number(param))) {
           paramNumber = Number(param);
@@ -58,13 +58,13 @@ export default function RandomSentence() {
         setSettings({
           isOneSentence: settings.isOneSentence,
           isCountDown: settings.isCountDown,
-          timerTime: Number(paramNumber)
+          timerTime: Number(paramNumber),
         });
 
         setSettings({
           isOneSentence: settings.isOneSentence,
           isCountDown: settings.isCountDown,
-          timerTime: Number(paramNumber)
+          timerTime: Number(paramNumber),
         });
         break;
     }
@@ -88,7 +88,7 @@ export default function RandomSentence() {
 
   const toggleAdding = () => {
     if (wordList.length === 0) {
-      setWordList(["one", "two", "three"]);
+      setWordList(['one', 'two', 'three']);
       return;
     }
     setAdding(!isAdding);
@@ -120,7 +120,7 @@ export default function RandomSentence() {
           open={openSettings}
         />
 
-        <Box height={20} display={{ xs: "block", sm: "none", md: "none" }} />
+        <Box height={20} display={{ xs: 'block', sm: 'none', md: 'none' }} />
 
         <Typography className={classes.title} align="center" variant="h4">
           Random you're sentence!
