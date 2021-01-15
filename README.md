@@ -10,11 +10,11 @@ To learn React and API with Firebase and Github api.
 
 > Random a List of sentence.
 
-It's a page, we can add how many **Sentence** we want. And click on *randomizz* for give a Random List of you're list.
+We can add how many **Sentence** we want. And click on *randomizz* for give a Random List of your list.
 
 We have 2 settings 🔧:
-1. For set a timer before see random List
-2. For set only one sentence after random
+1. For set a timer before you can see the random list
+2. For set only one sentence after clicking on *randomizz*
 
 ## 2. Base calculator
 
@@ -31,30 +31,12 @@ We have 4 settings 🔧:
 
 ## 3. My GitHub custom page
 
-> I create a gitHub page with https://developer.github.com/v3/
+> I created a gitHub page with https://developer.github.com/v3/
 
-To familiarize myself with api in GitHub, I create my Custom page GitHub with list of Repository and Commit. 
+To familiarize myself with api in GitHub, I created my Custom page GitHub with list of Repository and Commit. 
 
 On this page, we can find information of my github account 👨‍💻.
 After, we have a card per repository, with commit list and fork's link.
-
-## 4. Topic page
-
-> I create a Topic page will be update in RealTime
-
-Ohhhhhhh !
-
-Can create a Topic with *Title*, *Message* and *Author name*.
-Can comment any topic with *Message* and *Author Name*.
-
-A authentification by FireBase is in Progress...
- 
-## 5. Auth
-
-> Can create account...
-
-You can now create a account, create topic more easy with you're unique ID.
-Next, can find all you're topic, and answer. 
 
 ## Change log
 
