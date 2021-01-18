@@ -1,13 +1,95 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: all 500ms ease-in;
+}
+
+.fade-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-active {
+  max-height: 30px;
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.fade-exit {
+  max-height: 30px;
+  opacity: 1;
+}
+
+.fade-exit-active {
+  max-height: 0;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.listMakeSentence {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to/* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.safariRight {
+  align-self: right;
+}
+/*Other browsers*/
+
+/*/Webkit (Chrome, Safari)*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .buttonSafari {
+    position: relative;
+    bottom: 3px;
+  }
+
+  .safariRight {
+    align-self: right;
+  }
+}
+
+/*//Firefox*/
+@supports (-moz-appearance: none) {
+  .buttonSafari {
+    bottom: 0px;
+  }
+}
+
+.removeUnderline {
+  text-decoration: none !important;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
 }
