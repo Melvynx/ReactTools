@@ -13,7 +13,6 @@ import HomePage from './page/HomePage';
 import BaseCalculator from './page/BaseCalculator';
 import GitHubPages from './page/GitHubPages';
 import Footer from './components/App/Footer';
-import Forum from './page/Forum';
 
 let theme = createMuiTheme({
   palette: {
@@ -80,9 +79,6 @@ export default function App() {
             </Route>
             <Route path="/github">
               <GitHubPages />
-            </Route>
-            <Route path="/forum">
-              <Forum />
             </Route>
             <Route path="/test"></Route>
             <Route path="/">
